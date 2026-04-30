@@ -1,4 +1,4 @@
-package com.TiendaDisco.ManejoStock.model;
+package com.TiendaDisco.RegistrarSede.model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -11,10 +11,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class infoStock {
+public class Producto {
     private Long id;
-    @NotBlank(message = "Ingreso de nombre de producto obligatorio") private String productName;
-    @NotNull(message = "Ingreso de sede obligatorio") private Sede sede;
-    private int stockActual;
+    @NotBlank(message= "Se debe ingresar un nombre") String nombreProducto;
+    @NotNull(message= "Se debe ingresar un artista") int precio;
 
 }

@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class Descuento {
     private Long id;
     @NotBlank(message = "Ingrese nombre del descuento") String nombre;
-    private ArrayList<String> productosConDescuento = new ArrayList<>();
+    private ArrayList<Producto> productosConDescuento = new ArrayList<>();
+    private ArrayList<Disco> discosConDescuento = new ArrayList<>();
     private Estado estado;
+    private double descuento;
 }

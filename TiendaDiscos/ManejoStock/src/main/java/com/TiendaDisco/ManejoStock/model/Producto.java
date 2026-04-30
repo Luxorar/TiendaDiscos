@@ -1,0 +1,15 @@
+package com.TiendaDisco.ManejoStock.model;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Producto extends infoStock {
+    @NotBlank(message = "Se debe ingresar una marca")private String marca;
+}

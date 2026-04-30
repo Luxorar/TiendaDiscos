@@ -15,8 +15,9 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Carrito {
-    @NotBlank(message = "Campo de nombre obligatorio") private String userName;
-    private ArrayList<String> productosAgregadosNombres = new ArrayList<>();
+    @NotBlank(message = "Campo de usuario obligatorio") private User user;
+    private ArrayList<Producto> productosAgregados = new ArrayList<>();
+    private ArrayList<Disco> discosAgregados = new ArrayList<>();
     @NotNull(message = "Campo de la suma de precios de los productos obligatorio") private int sumaPrecios;
     private double descuento;
 }

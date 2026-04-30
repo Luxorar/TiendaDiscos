@@ -16,5 +16,6 @@ public class Sede {
     @NotBlank(message = "nombre de Sede obligatorio") private String nombreSede;
     @NotBlank(message = "dirección de Sede obligatorio")private String direccionSede;
     @NotBlank(message = "numero de Sede obligatorio")private String numberSedeTelefono;
-    private ArrayList<String> productosDisponibleNombre = new ArrayList<>();
+    private ArrayList<Producto> productosDisponible = new ArrayList<>();
+    private ArrayList<Disco> discosDisponible = new ArrayList<>();
 }
