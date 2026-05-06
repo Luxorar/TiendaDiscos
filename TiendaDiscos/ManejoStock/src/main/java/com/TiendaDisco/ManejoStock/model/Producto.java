@@ -1,5 +1,8 @@
 package com.TiendaDisco.ManejoStock.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,5 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Producto extends infoStock {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotBlank(message = "Se debe ingresar una marca")private String marca;
 }
