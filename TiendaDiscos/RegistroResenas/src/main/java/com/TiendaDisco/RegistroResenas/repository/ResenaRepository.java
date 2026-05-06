@@ -1,14 +1,12 @@
 package com.TiendaDisco.RegistroResenas.repository;
 import com.TiendaDisco.RegistroResenas.model.Resena;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
-@Repository
-public interface ResenaRepository {
+public interface ResenaRepository extends JpaRepository<Resena, Long> {
     ArrayList<Resena> listaResenas = new ArrayList<>();
-
-    Long contador = 1L;
 
     default Resena postResena(Resena r){
         listaResenas.add(r);
