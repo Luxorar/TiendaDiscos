@@ -1,5 +1,8 @@
 package com.TiendaDisco.AdministracionVentas.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +15,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Recibo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String numeroFolio;
     @NotNull(message = "Falta ingresar IVA") private double iva;
     @NotNull(message = "Falta ingresar venta")private Venta venta;
