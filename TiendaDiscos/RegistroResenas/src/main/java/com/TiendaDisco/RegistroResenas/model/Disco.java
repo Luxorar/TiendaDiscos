@@ -1,21 +1,28 @@
 package com.TiendaDisco.RegistroResenas.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder @Entity
+@Table(name = "DISCO")
 public class Disco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message= "Se debe ingresar un nombre") String nombreDisco;
-    @NotBlank(message= "Se debe ingresar un artista") String artista;
+
+    @NotBlank(message= "Se debe ingresar un nombre")
+    @Column(name = "nombre") String nombreDisco;
+
+    @NotBlank(message= "Se debe ingresar un artista")
+    @Column(name = "artista")String artista;
+
+    @OneToMany(mappedBy = "disco")
+    private List<Resena> resenaList = new ArrayList<>();
 }

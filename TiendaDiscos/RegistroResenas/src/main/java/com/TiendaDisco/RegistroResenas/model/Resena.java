@@ -1,23 +1,33 @@
 package com.TiendaDisco.RegistroResenas.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder @Entity
+@Table(name = "RESENA")
+
+//Poner colums y entity
 public class Resena {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message= "Se debe ingresar un User") String user;
-    @NotBlank(message= "Se debe ingresar un disco") String disco;
-    @NotBlank(message= "Se debe ingresar un mensaje") String mensaje;
+
+    @NotNull(message= "Se debe ingresar un User")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @NotNull(message= "Se debe ingresar un disco")
+    @ManyToOne
+    @JoinColumn(name = "disco_id")
+    private Disco disco;
+
+    @NotBlank(message= "Se debe ingresar un mensaje")
+    @Column(name = "mensaje")
+    private String mensaje;
 }
