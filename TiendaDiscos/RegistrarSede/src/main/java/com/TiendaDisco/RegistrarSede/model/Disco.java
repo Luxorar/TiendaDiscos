@@ -19,5 +19,6 @@ public class Disco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message= "Se debe ingresar un nombre") String nombreDisco;
-    @NotNull(message= "Se debe ingresar un artista") int precio;
+    @NotBlank(message= "Se debe ingresar un artista") String artista;
+    @NotNull(message= "Se debe ingresar un precio") int precio;
 }
