@@ -1,6 +1,5 @@
 package com.TiendaDisco.RegistroResenas.repository;
 
-import com.TiendaDisco.RegistroResenas.model.Disco;
 import com.TiendaDisco.RegistroResenas.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
