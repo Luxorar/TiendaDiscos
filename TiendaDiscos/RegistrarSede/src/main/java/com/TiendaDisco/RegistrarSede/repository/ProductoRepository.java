@@ -45,13 +45,13 @@ public interface ProductoRepository extends SedeRepository{
             if(sede.getId().equals(idSede)){
                 for(Producto producto: sede.getProductosDisponible()){
                     if(producto.getId().equals(idProducto)){
-                        sede.getDiscosDisponible().remove(producto);
-                        return "Disco eliminado";
+                        sede.getProductosDisponible().remove(producto);
+                        return "Producto eliminado";
                     }
                 }
             }
         }
-        return "No se a encontrado el disco";
+        return "No se a encontrado el producto";
     }
 
     default Producto postProducto(Long idSede, Long idProducto, Producto newProducto){
