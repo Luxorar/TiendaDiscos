@@ -17,5 +17,5 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message= "Se debe ingresar un nombre") String nombreProducto;
-    @NotBlank(message= "Se debe ingresar un artista") int precio;
+    @NotBlank(message= "Se debe ingresar un precio") int precio;
 }

@@ -18,4 +18,5 @@ public class User {
     private Long id;
     @NotBlank(message= "Se debe ingresar un nombre") String userName;
     @NotBlank(message= "Se debe ingresar un gmail") String gmail;
+    @NotBlank(message= "Se debe ingresar una contraseña") String password;
 }

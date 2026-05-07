@@ -1,5 +1,8 @@
 package com.TiendaDisco.AdministracionEnvios.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -14,6 +17,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Envio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     @NotNull(message = "Ingreso de id de venta obligatorio") private Long ventaId;
     @NotBlank(message = "Ingreso de direccion de envio obligatorio") private String direccionDestino;
