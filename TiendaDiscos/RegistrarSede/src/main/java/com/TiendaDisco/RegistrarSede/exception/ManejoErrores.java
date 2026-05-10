@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class ManejoErrores {
+public class ManejoErrores extends RuntimeException{
     @ExceptionHandler(MethodArgumentNotValidException.class)
 
     public ResponseEntity<Map<String,String>> manejo(MethodArgumentNotValidException ex){
@@ -19,6 +19,10 @@ public class ManejoErrores {
                 errores.put(err.getField(),err.getDefaultMessage())
         );
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errores);
+    }
+
+    public ManejoErrores (String msje){
+        super(msje);
     }
 
 }
