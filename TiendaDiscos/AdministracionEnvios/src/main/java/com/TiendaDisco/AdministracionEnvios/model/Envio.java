@@ -1,14 +1,9 @@
 package com.TiendaDisco.AdministracionEnvios.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -16,17 +11,30 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder @Entity
+@Table(name = "ENVIOS")
 public class Envio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-    @NotNull(message = "Ingreso de id de venta obligatorio") private Long ventaId;
-    @NotBlank(message = "Ingreso de direccion de envio obligatorio") private String direccionDestino;
-    @NotNull(message = "Ingreso de tipo de despacho obligatorio") private TipoDespacho tipoDespacho;
-    @NotBlank(message = "Ingreso de empresa de reparto obligatorio") private String empresaReparto;
-    @NotNull(message = "Ingreso de estado de envio obligatorio") private EstadoEnvio estadoEnvio;
-    @NotNull(message = "Ingreso de fecha de entrega obligatorio") private Date fechaEntrega;
+
+    @NotNull(message = "Ingreso de id de venta obligatorio")
+    @Column(name = "venta_id") private Long ventaId;
+
+    @NotBlank(message = "Ingreso de direccion de envio obligatorio")
+    @Column(name = "direccion_destino") private String direccionDestino;
+
+    @NotNull(message = "Ingreso de tipo de despacho obligatorio")
+    @Column(name = "tipo_despacho") private TipoDespacho tipoDespacho;
+
+    @NotBlank(message = "Ingreso de empresa de reparto obligatorio")
+    @Column(name = "empresa_reparto") private String empresaReparto;
+
+    @NotNull(message = "Ingreso de estado de envio obligatorio")
+    @Column(name = "estado_envio")private EstadoEnvio estadoEnvio;
+
+    @NotNull(message = "Ingreso de fecha de entrega obligatorio")
+    @Column(name = "fecha_entrega")private Date fechaEntrega;
 
 
 
