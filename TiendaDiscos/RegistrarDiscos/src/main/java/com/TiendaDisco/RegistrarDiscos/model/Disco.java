@@ -7,15 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
+@Builder @Entity
 @Table(name="DISCOS")
 public class Disco {
     @Id
@@ -37,23 +35,5 @@ public class Disco {
     @ManyToOne
     @JoinColumn(name="titulo_id")
     private Titulo titulo;
-}
 
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
-public class Disco {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
-    @NotBlank(message = "Ingrese nombre del disco")
-    String nombreDisco;
-
-    private ArrayList<String> titulos = new ArrayList<>();
-
-    @NotBlank(message = "Ingrese nombre del grupo o artista")
-    String artista;
-
-    @NotNull(message = "Ingrese el precio del disco")
-    int precio;
 }
