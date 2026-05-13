@@ -3,10 +3,7 @@ package com.TiendaDisco.RegistrarSede.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +12,19 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="Producto")
+@Entity @Builder
+@Table(name="PRODUCTOS")
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message= "Se debe ingresar un nombre")
-    @Column(name="Nombre")  String nombreProducto;
+    @Column(name="nombre")  String nombreProducto;
 
     @NotNull(message= "Se debe ingresar un precio")
-    @Column(name="Precio") int precio;
+    @Column(name="precio") int precio;
 
-    @OneToMany(mappedBy = "Producto")
+    @OneToMany(mappedBy = "producto")
     private List<Sede> sedeList=new ArrayList<>();
 }

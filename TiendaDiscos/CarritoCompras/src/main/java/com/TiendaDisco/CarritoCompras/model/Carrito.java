@@ -1,28 +1,43 @@
 package com.TiendaDisco.CarritoCompras.model;
 
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity @Builder
+@Table(name = "CARRITO")
 public class Carrito {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotBlank(message = "Campo de usuario obligatorio") private User user;
-    private ArrayList<Producto> productosAgregados = new ArrayList<>();
+    @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+
+    @NotNull(message = "Campo de usuario obligatorio")
+    @OneToOne
+    @JoinColumn(name="usuario_id")
+    private User user;
+
+    @ManyToMany @JoinTable(
+            name = "CARRITO_PRODUCTOS",
+            joinColumns = @JoinColumn(name = "carrito_id"),
+            inverseJoinColumns = @JoinColumn(name = "producto_id")
+    )
+    private List<Producto> productosAgregados = new ArrayList<>();
+
+
+    @ManyToMany @JoinTable(
+            name = "CARRITO_DISCOS",
+            joinColumns = @JoinColumn(name = "carrito_id"),
+            inverseJoinColumns = @JoinColumn(name = "disco_id")
+    )
     private ArrayList<Disco> discosAgregados = new ArrayList<>();
-    @NotNull(message = "Campo de la suma de precios de los productos obligatorio") private int sumaPrecios;
+
+    @Column(name= "descuento")
     private double descuento;
 }

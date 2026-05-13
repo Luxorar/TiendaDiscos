@@ -2,39 +2,35 @@ package com.TiendaDisco.RegistrarSede.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.ArrayList;
+import lombok.*;
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="SEDE")
+@Entity @Builder
+@Table(name="SEDES")
 public class Sede {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "nombre de Sede obligatorio")
-    @Column(name="Nombre")
+    @Column(name="nombre")
     private String nombreSede;
 
     @NotBlank(message = "dirección de Sede obligatorio")
-    @Column(name="Direccion")
+    @Column(name="direccion")
     private String direccionSede;
 
     @NotBlank(message = "numero de Sede obligatorio")
-    @Column(name="Numero_Sede")
+    @Column(name="numero_sede")
     private String numberSedeTelefono;
 
-    @JoinColumn(name="Producto_Id")
+    @JoinColumn(name="productos_id")
     @ManyToOne
     private Producto producto;
 
-    @JoinColumn(name="Disco_Id")
+    @JoinColumn(name="discos_id")
     @ManyToOne
     private Disco disco;
 }

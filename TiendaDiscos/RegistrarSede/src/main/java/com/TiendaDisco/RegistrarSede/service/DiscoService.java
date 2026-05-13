@@ -4,7 +4,9 @@ import com.TiendaDisco.RegistrarSede.exception.ManejoErrores;
 import com.TiendaDisco.RegistrarSede.model.Disco;
 import com.TiendaDisco.RegistrarSede.repository.DiscoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DiscoService implements IDiscoService{
     @Autowired
     private DiscoRepository repo;
