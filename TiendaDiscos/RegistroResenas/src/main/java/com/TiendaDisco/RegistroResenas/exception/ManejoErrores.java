@@ -1,17 +1,14 @@
 package com.TiendaDisco.RegistroResenas.exception;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@RestControllerAdvice
-public class ManejoErrores {
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+public class ManejoErrores extends RuntimeException{
 
     public ResponseEntity<Map<String,String>> manejo(MethodArgumentNotValidException ex){
         Map<String,String> errores = new HashMap<>();
@@ -19,6 +16,10 @@ public class ManejoErrores {
                 errores.put(err.getField(),err.getDefaultMessage())
         );
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errores);
+    }
+
+    public ManejoErrores (String msje){
+        super(msje);
     }
 
 }
