@@ -5,7 +5,9 @@ import com.TiendaDisco.RegistrarSede.exception.ManejoErrores;
 import com.TiendaDisco.RegistrarSede.model.Producto;
 import com.TiendaDisco.RegistrarSede.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProductoService implements IProductoService{
     @Autowired
     private ProductoRepository repo;
