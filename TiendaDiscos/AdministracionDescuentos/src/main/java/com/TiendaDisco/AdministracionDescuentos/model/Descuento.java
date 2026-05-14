@@ -1,21 +1,49 @@
 package com.TiendaDisco.AdministracionDescuentos.model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
+@Builder @Entity
+@Table(name="DESCUENTO")
 public class Descuento {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Ingrese nombre del descuento") String nombre;
-    private ArrayList<Producto> productosConDescuento = new ArrayList();
-    private ArrayList<Disco> discosConDescuento = new ArrayList();
+
+    @NotBlank(message = "Ingrese nombre del descuento")
+    @Column(name="nombre_descuento")
+    private String nombre;
+
+    @ManyToOne
+    @JoinColumn(name="disco")
+    private Disco disco;
+
+    @NotNull(message = "El estado es obligatorio")
+    @Enumerated(EnumType.STRING)
+    @Column(name="estado")
     private Estado estado;
+
+    @ManyToMany @JoinTable(
+            name = "DESCUENTOS_DISCO",
+            joinColumns = @JoinColumn(name="disco_id"),
+            inverseJoinColumns = @JoinColumn(name = "descuento_id")
+    )
+    private List<Producto> discosAgregados = new ArrayList<>();
+
+    @ManyToMany @JoinTable(
+            name = "DESCUENTOS_PRODUCTOS",
+            joinColumns = @JoinColumn(name="producto_id"),
+            inverseJoinColumns = @JoinColumn(name = "descuento_id")
+    )
+    private List<Producto> productosAgregados = new ArrayList<>();
+
+    @Column(name="descuento")
     private double descuento;
 }
