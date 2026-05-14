@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>mi-microservicio1</artifactId> <name>mi-microservicio1</name>
+    <artifactId>mi-microservicio10</artifactId> <name>mi-microservicio10</name>
 
     <dependencies>
         <dependency>
