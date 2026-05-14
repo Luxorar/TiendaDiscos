@@ -1,4 +1,7 @@
 package com.TiendaDisco.AdministracionUsuario.repository;
 
-public interface UserRepository {
+import com.TiendaDisco.AdministracionUsuario.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
 }

@@ -1,25 +1,39 @@
 package com.TiendaDisco.AdministracionUsuario.model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder @Entity
+@Table(name = "ADMINISTRADOR")
 public class Admin {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "Ingreso de nombre de usuario obligatorio")
+    @Column(name = "nombre")
     private String userName;
+
     @NotBlank(message = "Ingreso de gmail obligatorio")
+    @Column(name = "gmail")
     private String gmail;
-    private Date fechaRegistro;
-    private String contraseña;
-    @NotNull(message = "Ingrese un boolean en estadoCuenta")
-    private Boolean estadoCuenta;
+
+    @Column(name = "fecha_registro")
+    private LocalDate fechaRegistro;
+
+    @Column(name = "contrasena")
+    @NotNull(message = "su cuenta necesita una contraseña")
+    private String contrasena;
+
+    @NotNull(message = "Ingrese un boolean en cuenta activa")
+    @Column(name = "cuenta_activa")
+    private Boolean cuentaActiva;
 }
