@@ -20,6 +20,6 @@ public class Titulo {
     @Column(name = "titulo")
     private String titulo;
 
-    @OneToMany(mappedBy = "disco")
+    @OneToMany(mappedBy = "titulo")
     private List<Disco> titulosList = new ArrayList<>();
 }
