@@ -1,0 +1,18 @@
+CREATE TABLE USUARIO (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    gmail VARCHAR(250) NOT NULL,
+    fecha_registro DATE NOT NULL,
+    puntos NUMERIC DEFAULT NULL,
+    contrasena VARCHAR(250) NOT NULL,
+    cuenta_activa BOOLEAN NOT NULL
+);
+
+CREATE TABLE ADMINISTRADOR (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    gmail VARCHAR(250) NOT NULL,
+    fecha_registro DATE NOT NULL,
+    contrasena VARCHAR(250) NOT NULL,
+    cuenta_activa BOOLEAN NOT NULL
+);
