@@ -9,8 +9,6 @@ import jakarta.validation.constraints.NotNull;
 
 import lombok.*;
 
-import java.util.ArrayList;
-
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 @Builder @Entity
