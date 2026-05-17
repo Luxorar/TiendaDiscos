@@ -2,6 +2,7 @@ package com.TiendaDisco.AdministracionEnvios.service;
 
 import com.TiendaDisco.AdministracionEnvios.exception.ManejoErrores;
 import com.TiendaDisco.AdministracionEnvios.model.Envio;
+import com.TiendaDisco.AdministracionEnvios.model.EstadoEnvio;
 import com.TiendaDisco.AdministracionEnvios.repository.EnvioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,17 +26,12 @@ public class EnvioService implements IEnvioService{
     }
 
     @Override
-    public Envio PutEstadoEnvio(Envio envio, Long id) {
+    public Envio PutEstadoEnvio(EstadoEnvio estado, Long id) {
         Envio e = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Envio no encontrado"));
 
-        e.setVentaId(envio.getVentaId());
-        e.setDireccionDestino(envio.getDireccionDestino());
-        e.setTipoDespacho(envio.getTipoDespacho());
-        e.setEmpresaReparto(envio.getEmpresaReparto());
-        e.setEstadoEnvio(envio.getEstadoEnvio());
-        e.setFechaEntrega(envio.getFechaEntrega());
-        return envio;
+        e.setEstadoEnvio(estado);
+        return repo.save(e);
     }
 
     @Override
@@ -44,7 +40,7 @@ public class EnvioService implements IEnvioService{
                 .orElseThrow(() -> new ManejoErrores("Envio no encontrado"));
 
         e.setDireccionDestino(direccion);
-        return e;
+        return repo.save(e);
     }
 
     @Override
