@@ -21,7 +21,6 @@ public class ExeptionValid {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errores);
     }
 
-    // El seguro extra de tu compañero para atrapar cuando un ID no existe (404)
     @ExceptionHandler(ManejoErrores.class)
     public ResponseEntity<Map<String, String>> handleManejoErrores(ManejoErrores ex) {
         Map<String, String> error = new HashMap<>();
