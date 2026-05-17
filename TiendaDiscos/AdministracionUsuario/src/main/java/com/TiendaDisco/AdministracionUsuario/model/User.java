@@ -29,13 +29,12 @@ public class User {
     private LocalDate fechaRegistro;
 
     @Column(name = "puntos")
-    private int puntos;
+    private Integer puntos;
 
     @NotNull(message = "su cuenta necesita una contraseña")
-    @Column(name = "contraseña")
-    private String contraseña;
+    @Column(name = "contrasena")
+    private String contrasena;
 
-    @NotNull(message = "Ingrese un boolean en cuenta activa")
     @Column(name = "cuenta_activa")
     private Boolean cuentaActiva;
 }
