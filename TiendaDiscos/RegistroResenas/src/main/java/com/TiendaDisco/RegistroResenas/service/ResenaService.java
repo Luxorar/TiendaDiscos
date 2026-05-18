@@ -21,7 +21,6 @@ public class ResenaService implements IResenaService {
                 .orElseThrow(() -> new ManejoErrores("Id no encontrada"));
     }
 
-
     public String deleteResena(Long id){
         Resena resena = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Reseña no encontrada"));

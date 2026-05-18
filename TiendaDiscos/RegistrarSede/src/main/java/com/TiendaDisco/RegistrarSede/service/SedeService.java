@@ -6,6 +6,8 @@ import com.TiendaDisco.RegistrarSede.repository.SedeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SedeService implements ISedeService{
     @Autowired
@@ -18,6 +20,10 @@ public class SedeService implements ISedeService{
     public Sede getSedeId(Long id){
         return repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
+    }
+
+    public List<Sede> getAllSedes(){
+        return repo.findAll().stream().toList();
     }
 
     public String putSede(Long id, Sede s){
