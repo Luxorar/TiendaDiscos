@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class DiscoService implements IDiscoService {
     @Autowired
-    private DiscoRepository repo;
+    private DiscoRepository discoRepository;
 
-    public Disco postDisco(Disco d){ return repo.save(d);}
+    public Disco postDisco(Disco d){ return discoRepository.save(d);}
 
     public Disco getDiscoId(Long id){
-        return repo.findById(id)
+        return discoRepository.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
     }
 
     public String putDisco(Long id, Disco d){
-        Disco disc = repo.findById(id)
+        Disco disc = discoRepository.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrado"));
 
         disc.setNombreDisco(d.getNombreDisco());
@@ -27,10 +27,10 @@ public class DiscoService implements IDiscoService {
     }
 
     public String deleteDisco(Long id){
-        Disco disc = repo.findById(id)
+        Disco disc = discoRepository.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id a eliminar no encontrado"));
 
-        repo.delete(disc);
+        discoRepository.delete(disc);
         return "Disco eliminado";
     }
 }

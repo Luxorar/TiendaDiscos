@@ -24,7 +24,4 @@ public class Producto {
 
     @NotNull(message= "Se debe ingresar un precio")
     @Column(name="precio") int precio;
-
-    @OneToMany(mappedBy = "producto")
-    private List<Sede> sedeList=new ArrayList<>();
 }

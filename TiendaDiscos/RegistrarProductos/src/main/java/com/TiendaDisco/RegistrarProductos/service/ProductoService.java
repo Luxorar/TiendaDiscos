@@ -20,7 +20,7 @@ public class ProductoService implements IProductoService {
     }
 
     public List<Producto> getListaProducto() {
-        return repo.findAll();
+        return repo.findAll().stream().toList();
     }
 
     public Producto getProductoID(Long id) {

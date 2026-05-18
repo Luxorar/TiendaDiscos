@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistroResenas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -23,6 +24,7 @@ public class Disco {
     @NotBlank(message= "Se debe ingresar un artista")
     @Column(name = "artista")String artista;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "disco")
     private List<Resena> resenaList = new ArrayList<>();
 }
