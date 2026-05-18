@@ -1,22 +1,35 @@
 CREATE TABLE SEDES (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    direccion VARCHAR(100) NOT NULL
-);
-
-CREATE TABLE DISCOS (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    artista VARCHAR(50) NOT NULL,
-    precio BIGINT NOT NULL,
-    sede_id BIGINT,
-    FOREIGN KEY (sede_id) REFERENCES SEDES(id)
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(200) NOT NULL,
+    numero_sede VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE PRODUCTOS (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    precio BIGINT NOT NULL,
-    sede_id BIGINT,
-    FOREIGN KEY (sede_id) REFERENCES SEDES(id)
+    nombre VARCHAR(100) NOT NULL,
+    precio INT NOT NULL
+);
+
+CREATE TABLE DISCOS (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    artista VARCHAR(100) NOT NULL,
+    precio INT NOT NULL
+);
+
+CREATE TABLE SEDE_PRODUCTOS (
+    sede_id BIGINT NOT NULL,
+    producto_id BIGINT NOT NULL,
+    PRIMARY KEY (sede_id, producto_id),
+    FOREIGN KEY (sede_id) REFERENCES SEDES(id),
+    FOREIGN KEY (producto_id) REFERENCES PRODUCTOS(id)
+);
+
+CREATE TABLE SEDE_DISCOS (
+    sede_id BIGINT NOT NULL,
+    disco_id BIGINT NOT NULL,
+    PRIMARY KEY (sede_id, disco_id),
+    FOREIGN KEY (sede_id) REFERENCES SEDES(id),
+    FOREIGN KEY (disco_id) REFERENCES DISCOS(id)
 );

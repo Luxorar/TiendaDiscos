@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistroResenas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -26,6 +27,7 @@ public class User {
     @Column(name = "gmail")
     private String gmail;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Resena> resenaList = new ArrayList<>();
 

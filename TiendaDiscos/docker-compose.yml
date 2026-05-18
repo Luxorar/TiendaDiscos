@@ -1,0 +1,52 @@
+services:
+  db-mysql:
+    image: mysql:8.0
+    container_name: db-mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_DATABASE: basededatos_user
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - tienda-discos
+#=====================================================================================
+  administracion-usuario:
+    build:
+      context: .
+      dockerfile: AdministracionUsuario/Dockerfile
+    container_name: administracion-usuario
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/basededatos_user
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+    depends_on:
+      - db-mysql
+    networks:
+      - tienda-discos
+#========================================================================
+  administracion-envios:
+    build:
+      context: .
+      dockerfile: AdministracionEnvios/Dockerfile
+    container_name: administracion-envios
+    ports:
+      - "8089:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db-mysql:3306/basededatos_envio
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+    depends_on:
+      - db-mysql
+    networks:
+      - tienda-discos
+volumes:
+  mysql_data:
+
+networks:
+  tienda-discos:
+    driver: bridge

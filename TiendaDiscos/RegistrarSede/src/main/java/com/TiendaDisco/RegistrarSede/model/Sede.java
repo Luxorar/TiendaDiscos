@@ -1,8 +1,12 @@
 package com.TiendaDisco.RegistrarSede.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor
@@ -26,11 +30,19 @@ public class Sede {
     @Column(name="numero_sede")
     private String numberSedeTelefono;
 
-    @JoinColumn(name="productos_id")
-    @ManyToOne
-    private Producto producto;
+    @JsonIgnore
+    @ManyToMany @JoinTable(
+            name= "SEDE_PRODUCTOS",
+            joinColumns = @JoinColumn(name = "sede_id"),
+            inverseJoinColumns = @JoinColumn(name = "producto_id")
+    )
+    private List<Producto> listProducto = new ArrayList<>();
 
-    @JoinColumn(name="discos_id")
-    @ManyToOne
-    private Disco disco;
+    @JsonIgnore
+    @ManyToMany @JoinTable(
+            name= "SEDE_DISCOS",
+            joinColumns = @JoinColumn(name = "sede_id"),
+            inverseJoinColumns = @JoinColumn(name = "disco_id")
+    )
+    private List<Disco> listDisco = new ArrayList<>();
 }

@@ -11,7 +11,6 @@ import lombok.*;
 @Builder @Entity
 @Table(name = "RESENA")
 
-//Poner colums y entity
 public class Resena {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

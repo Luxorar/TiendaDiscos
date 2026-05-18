@@ -27,7 +27,4 @@ public class Disco {
 
     @NotNull(message= "Se debe ingresar un precio")
     @Column(name="precio") int precio;
-
-    @OneToMany()
-    private List<Sede> sedeList = new ArrayList<>();
 }
