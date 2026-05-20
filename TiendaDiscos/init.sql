@@ -1,2 +1,0 @@
-CREATE DATABASE IF NOT EXISTS basededatos_user;
-CREATE DATABASE IF NOT EXISTS basededatos_envio;
