@@ -19,6 +19,9 @@
     <modules>
         <module>AdministracionUsuario</module>
         <module>AdministracionEnvios</module>
+        <module>RegistrarSede</module>
+        <module>RegistroResenas</module>
+        <module>RegistrarProductos</module>
     </modules>
     <properties>
         <java.version>17</java.version>
