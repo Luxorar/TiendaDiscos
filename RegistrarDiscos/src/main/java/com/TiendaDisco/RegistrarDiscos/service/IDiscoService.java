@@ -7,7 +7,7 @@ public interface IDiscoService {
 
     Disco getDiscoId(Long id);
 
-    String deleteDisco(Long id);
-
     String putDisco(Long id, Disco d);
+
+    String deleteDisco(Long id);
 }

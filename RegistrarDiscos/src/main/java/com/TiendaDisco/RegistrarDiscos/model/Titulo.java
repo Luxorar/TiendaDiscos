@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistrarDiscos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -7,19 +8,19 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
-@AllArgsConstructor @NoArgsConstructor
-@Builder @Entity
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor @Builder @Entity
 @Table(name = "TITULO")
 public class Titulo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message= "Se debe ingresar un titulo")
+    @NotBlank(message = "Se debe ingresar un titulo")
     @Column(name = "titulo")
     private String titulo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "titulo")
-    private List<Disco> titulosList = new ArrayList<>();
+    private List<Disco> listaDiscos = new ArrayList<>();
 }
