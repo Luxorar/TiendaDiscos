@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarProductos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarSede/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroResenas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,19 +34,145 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/luchi/hola/Escritorio/monster university pelicula completa/pract fullstack/Microservicios fullstack/TiendaDiscos&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.AdministracionEnviosApplication.executor": "Run",
+    "Spring Boot.AdministracionUsuarioApplication.executor": "Run",
+    "Spring Boot.RegistrarProductosApplication.executor": "Run",
+    "Spring Boot.RegistrarSedeApplication.executor": "Run",
+    "Spring Boot.RegistroResenasApplication.executor": "Run",
+    "git-widget-placeholder": "Luxo",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/luchi/hola/Escritorio/monster university pelicula completa/pract fullstack/Microservicios fullstack/TiendaDiscos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.31149426",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="AdministracionEnviosApplication" value="STOPPED" />
+              <entry key="AdministracionUsuarioApplication" value="STOPPED" />
+              <entry key="RegistrarProductosApplication" value="STOPPED" />
+              <entry key="RegistrarSedeApplication" value="STOPPED" />
+              <entry key="RegistroResenasApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Compound.AllMicroservicies">
+    <configuration name="AllMicroservicies" type="CompoundRunConfigurationType">
+      <toRun name="AdministracionEnviosApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="AdministracionUsuarioApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="RegistrarProductosApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="RegistrarSedeApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="RegistroResenasApplication" type="SpringBootApplicationConfigurationType" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AdministracionEnviosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="AdministracionEnvios" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.AdministracionEnvios.AdministracionEnviosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdministracionUsuarioApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="AdministracioUsuario" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.AdministracionUsuario.AdministracionUsuarioApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrarProductosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="mi-microservicio2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.RegistrarProductos.RegistrarProductosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrarSedeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="RegistroSede" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.RegistrarSede.RegistrarSedeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistroResenasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="RegistroResena" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.RegistroResenas.RegistroResenasApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bibliotecaDuoc-openapi.yaml" type="SwaggerCodegen" editBeforeRun="true" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="generateToPath" value="C:\Users\luchi\hola\Escritorio\monster university pelicula completa\pract fullstack\Microservicios fullstack\TiendaDiscos\RegistrarSede\src\main\gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorType" value="OPENAPI_GENERATOR_V7" />
+      <option name="jdkPath" value="C:\Program Files\JetBrains\IntelliJ IDEA 2025.3.4\jbr\bin\java.exe" />
+      <option name="language" value="java" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="specificationPath" value="C:\Users\luchi\AppData\Roaming\JetBrains\IntelliJIdea2025.3\openApiExport\bibliotecaDuoc-openapi.yaml" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Compound.AllMicroservicies" />
+      <item itemvalue="OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml" />
+      <item itemvalue="Spring Boot.AdministracionEnviosApplication" />
+      <item itemvalue="Spring Boot.AdministracionUsuarioApplication" />
+      <item itemvalue="Spring Boot.RegistrarProductosApplication" />
+      <item itemvalue="Spring Boot.RegistrarSedeApplication" />
+      <item itemvalue="Spring Boot.RegistroResenasApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -51,6 +190,8 @@
       <updated>1776975399185</updated>
       <workItem from="1777243434053" duration="94000" />
       <workItem from="1777243564729" duration="33000" />
+      <workItem from="1779306467994" duration="379000" />
+      <workItem from="1779327713556" duration="4859000" />
     </task>
     <servers />
   </component>
