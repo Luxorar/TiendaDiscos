@@ -1,20 +1,16 @@
 package com.TiendaDisco.ManejoStock.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Disco extends infoStock{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotBlank(message = "Se debe ingresar un artista")private String artista;
+import jakarta.validation.constraints.NotBlank;
+
+import lombok.*;
+
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor @Entity
+@Table(name="DISCO_STOCK")
+public class Disco extends infoStock {
+
+    @NotBlank(message = "Se debe ingresar un artista")
+    @Column(name="artista")
+    private String artista;
 }
