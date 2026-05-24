@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="">
+    <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarProductos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistroResenas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +17,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Luxorar&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Luxorar/TiendaDiscos.git&quot;,
+    &quot;accountId&quot;: &quot;ce36ba5a-6364-4242-a44b-3e0ed0e3f7c5&quot;
+  }
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -64,7 +60,7 @@
     &quot;Spring Boot.RegistrarProductosApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.RegistrarSedeApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.RegistroResenasApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Luxo&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/luchi/hola/Escritorio/microservicios/TiendaDiscos&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -139,6 +135,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AdministracionVentasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="AdministracionVentas" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.AdministracionVentas.AdministracionVentasApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CarritoComprasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="CarritoCompras" />
@@ -209,6 +213,7 @@
     <list>
       <item itemvalue="Compound.AllMicroservicies" />
       <item itemvalue="OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml" />
+      <item itemvalue="Spring Boot.AdministracionVentasApplication" />
       <item itemvalue="Spring Boot.ManejoStockApplication" />
       <item itemvalue="Spring Boot.AdministracionDescuentosApplication" />
       <item itemvalue="Spring Boot.CarritoComprasApplication" />
@@ -248,10 +253,15 @@
       <workItem from="1779495938745" duration="1383000" />
       <workItem from="1779497763228" duration="6402000" />
       <workItem from="1779580170565" duration="1064000" />
+      <workItem from="1779644566484" duration="1593000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="prueba de commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="prueba de commit" />
   </component>
 </project>
