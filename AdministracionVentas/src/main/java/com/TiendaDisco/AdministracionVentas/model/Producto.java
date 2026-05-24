@@ -1,21 +1,23 @@
 package com.TiendaDisco.AdministracionVentas.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity @Builder
+@Table(name = "PRODUCTO")
+
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nombre")
     @NotBlank(message= "Se debe ingresar un nombre") String nombre;
+
+    @Column(name = "precio")
     @NotBlank(message= "Se debe ingresar un precio") int precio;
 }

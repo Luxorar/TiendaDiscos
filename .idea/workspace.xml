@@ -5,16 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoStock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RegistrarProductos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RegistrarSede/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RegistroResenas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +33,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -34,39 +46,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.AdministracionEnviosApplication.executor": "Run",
-    "Spring Boot.AdministracionUsuarioApplication.executor": "Run",
-    "Spring Boot.RegistrarProductosApplication.executor": "Run",
-    "Spring Boot.RegistrarSedeApplication.executor": "Run",
-    "Spring Boot.RegistroResenasApplication.executor": "Run",
-    "git-widget-placeholder": "Luxo",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/luchi/hola/Escritorio/monster university pelicula completa/pract fullstack/Microservicios fullstack/TiendaDiscos",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.31149426",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AdministracionEnviosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AdministracionUsuarioApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistrarDiscosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistrarProductosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistrarSedeApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistroResenasApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luchi/hola/Escritorio/microservicios/TiendaDiscos&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.31149426&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -83,6 +96,7 @@
             <map>
               <entry key="AdministracionEnviosApplication" value="STOPPED" />
               <entry key="AdministracionUsuarioApplication" value="STOPPED" />
+              <entry key="RegistrarDiscosApplication" value="STOPPED" />
               <entry key="RegistrarProductosApplication" value="STOPPED" />
               <entry key="RegistrarSedeApplication" value="STOPPED" />
               <entry key="RegistroResenasApplication" value="STOPPED" />
@@ -101,6 +115,14 @@
       <toRun name="RegistroResenasApplication" type="SpringBootApplicationConfigurationType" />
       <method v="2" />
     </configuration>
+    <configuration name="AdministracionDescuentosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="mi-microservicio4" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.AdministracionDescuentos.AdministracionDescuentosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdministracionEnviosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="AdministracionEnvios" />
@@ -117,9 +139,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrarProductosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <configuration name="CarritoComprasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="mi-microservicio2" />
+      <module name="CarritoCompras" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.CarritoCompras.CarritoComprasApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManejoStockApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="ManejoStock" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.ManejoStock.ManejoStockApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrarDiscosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="RegistrarDiscos" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.RegistrarDiscos.RegistrarDiscosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrarProductosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="ms-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="RegistrarProductos" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.TiendaDisco.RegistrarProductos.RegistrarProductosApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,6 +209,10 @@
     <list>
       <item itemvalue="Compound.AllMicroservicies" />
       <item itemvalue="OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml" />
+      <item itemvalue="Spring Boot.ManejoStockApplication" />
+      <item itemvalue="Spring Boot.AdministracionDescuentosApplication" />
+      <item itemvalue="Spring Boot.CarritoComprasApplication" />
+      <item itemvalue="Spring Boot.RegistrarDiscosApplication" />
       <item itemvalue="Spring Boot.AdministracionEnviosApplication" />
       <item itemvalue="Spring Boot.AdministracionUsuarioApplication" />
       <item itemvalue="Spring Boot.RegistrarProductosApplication" />
@@ -176,8 +228,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.33514.17" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.33514.17" />
       </set>
     </attachedChunks>
   </component>
@@ -192,6 +244,10 @@
       <workItem from="1777243564729" duration="33000" />
       <workItem from="1779306467994" duration="379000" />
       <workItem from="1779327713556" duration="4859000" />
+      <workItem from="1779411248626" duration="45000" />
+      <workItem from="1779495938745" duration="1383000" />
+      <workItem from="1779497763228" duration="6402000" />
+      <workItem from="1779580170565" duration="1064000" />
     </task>
     <servers />
   </component>

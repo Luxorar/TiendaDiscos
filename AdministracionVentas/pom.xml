@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>mi-microservicio8</artifactId> <name>mi-microservicio8</name>
+    <artifactId>AdministracionVentas</artifactId> <name>AdministracionVentas</name>
 
     <dependencies>
         <dependency>
@@ -57,13 +57,7 @@
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>10.10.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
             <artifactId>flyway-mysql</artifactId>
-            <version>10.10.0</version>
         </dependency>
 
     </dependencies>

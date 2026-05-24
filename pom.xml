@@ -22,10 +22,16 @@
         <module>RegistrarSede</module>
         <module>RegistroResenas</module>
         <module>RegistrarProductos</module>
+        <module>RegistrarDiscos</module>
+        <module>AdministracionDescuentos</module>
+        <module>CarritoCompras</module>
+        <module>ManejoStock</module>
+        <module>AdministracionVentas</module>
     </modules>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <lombok.version>1.18.36</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -57,8 +63,17 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.graalvm.buildtools</groupId>
-                <artifactId>native-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
         </plugins>
     </build>

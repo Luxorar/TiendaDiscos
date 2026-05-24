@@ -20,5 +20,7 @@ public class Disco {
 
     @Column(name = "artista")
     @NotBlank(message= "Se debe ingresar un artista") String artista;
+
+    @Column(name = "precio")
     @NotNull(message= "Se debe ingresar un precio") int precio;
 }

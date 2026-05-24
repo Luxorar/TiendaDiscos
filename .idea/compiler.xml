@@ -7,12 +7,34 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="AdministracioUsuario" />
-        <module name="RegistroSede" />
         <module name="mi-microservicio2" />
+        <module name="openapi-java-client" />
+      </profile>
+      <profile name="Annotation profile for miproyecto-parent" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="RegistrarProductos" />
+        <module name="RegistroSede" />
         <module name="RegistroResena" />
         <module name="AdministracionEnvios" />
-        <module name="openapi-java-client" />
+        <module name="CarritoCompras" />
+        <module name="AdministracioUsuario" />
+        <module name="mi-microservicio4" />
+        <module name="RegistrarDiscos" />
+      </profile>
+      <profile name="Annotation profile for ManejoStock" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="ManejoStock" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,10 +42,16 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AdministracioUsuario" options="-parameters" />
       <module name="AdministracionEnvios" options="-parameters" />
+      <module name="CarritoCompras" options="-parameters" />
+      <module name="ManejoStock" options="-parameters" />
+      <module name="RegistrarDiscos" options="-parameters" />
+      <module name="RegistrarProductos" options="-parameters" />
       <module name="RegistroResena" options="-parameters" />
       <module name="RegistroSede" options="-parameters" />
       <module name="mi-microservicio2" options="-parameters" />
-      <module name="openapi-java-client" options="-Xlint:all -J-Xss4m" />
+      <module name="mi-microservicio4" options="-parameters" />
+      <module name="miproyecto-parent" options="-parameters" />
+      <module name="openapi-java-client" options="" />
     </option>
   </component>
 </project>
