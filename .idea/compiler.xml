@@ -20,21 +20,14 @@
         </processorPath>
         <module name="RegistrarProductos" />
         <module name="RegistroSede" />
+        <module name="ManejoStock" />
         <module name="RegistroResena" />
         <module name="AdministracionEnvios" />
         <module name="CarritoCompras" />
         <module name="AdministracioUsuario" />
+        <module name="AdministracionVentas" />
         <module name="mi-microservicio4" />
         <module name="RegistrarDiscos" />
-      </profile>
-      <profile name="Annotation profile for ManejoStock" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
-        </processorPath>
-        <module name="ManejoStock" />
       </profile>
     </annotationProcessing>
   </component>
@@ -42,6 +35,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AdministracioUsuario" options="-parameters" />
       <module name="AdministracionEnvios" options="-parameters" />
+      <module name="AdministracionVentas" options="-parameters" />
       <module name="CarritoCompras" options="-parameters" />
       <module name="ManejoStock" options="-parameters" />
       <module name="RegistrarDiscos" options="-parameters" />
