@@ -30,7 +30,7 @@ public class Mapper {
                 .productosAgregados(c.getProductosAgregados())
                 .discosAgregados(c.getDiscosAgregados())
                 .descuento(c.getDescuento())
-                .precioLiquido(Math.round(suma))
+                .precioLiquido((int) Math.round(suma))
                 .build();
 
     }

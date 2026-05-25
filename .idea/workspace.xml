@@ -6,8 +6,45 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/AdministracionDescuentosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/AdministracionDescuentosApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/AdministracionEnviosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/AdministracionEnviosApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/AdministracionVentasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/AdministracionVentasApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/CarritoComprasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/CarritoComprasApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/DiscoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/DiscoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/ProductoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/ProductoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/Valid.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/Valid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/mapper/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/DiscoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/DiscoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/ProductoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/CarritoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/CarritoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/DiscoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/DiscoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ICarritoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ICarritoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IDiscoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IDiscoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ProductoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V1__create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V1__create_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoStock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/ManejoStockApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/ManejoStockApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/SedeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/SedeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroResenas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroResenas/src/main/java/com/TiendaDisco/RegistroResenas/RegistroResenasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/src/main/java/com/TiendaDisco/RegistroResenas/RegistroResenasApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,13 +91,18 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AdministracionDescuentosApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AdministracionEnviosApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AdministracionUsuarioApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AdministracionVentasApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CarritoComprasApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ManejoStockApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.RegistrarDiscosApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.RegistrarProductosApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.RegistrarSedeApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.RegistroResenasApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Luxo&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/luchi/hola/Escritorio/microservicios/TiendaDiscos&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -90,11 +132,15 @@
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <map>
+              <entry key="AdministracionDescuentosApplication" value="STOPPED" />
               <entry key="AdministracionEnviosApplication" value="STOPPED" />
               <entry key="AdministracionUsuarioApplication" value="STOPPED" />
+              <entry key="AdministracionVentasApplication" value="STOPPED" />
+              <entry key="CarritoComprasApplication" value="STOPPED" />
+              <entry key="ManejoStockApplication" value="STOPPED" />
               <entry key="RegistrarDiscosApplication" value="STOPPED" />
               <entry key="RegistrarProductosApplication" value="STOPPED" />
-              <entry key="RegistrarSedeApplication" value="STOPPED" />
+              <entry key="RegistrarSedeApplication" value="FAILED" />
               <entry key="RegistroResenasApplication" value="STOPPED" />
             </map>
           </value>
@@ -104,8 +150,13 @@
   </component>
   <component name="RunManager" selected="Compound.AllMicroservicies">
     <configuration name="AllMicroservicies" type="CompoundRunConfigurationType">
+      <toRun name="AdministracionDescuentosApplication" type="SpringBootApplicationConfigurationType" />
       <toRun name="AdministracionEnviosApplication" type="SpringBootApplicationConfigurationType" />
       <toRun name="AdministracionUsuarioApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="AdministracionVentasApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="CarritoComprasApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="ManejoStockApplication" type="SpringBootApplicationConfigurationType" />
+      <toRun name="RegistrarDiscosApplication" type="SpringBootApplicationConfigurationType" />
       <toRun name="RegistrarProductosApplication" type="SpringBootApplicationConfigurationType" />
       <toRun name="RegistrarSedeApplication" type="SpringBootApplicationConfigurationType" />
       <toRun name="RegistroResenasApplication" type="SpringBootApplicationConfigurationType" />
@@ -168,7 +219,7 @@
       </method>
     </configuration>
     <configuration name="RegistrarProductosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="ms-17" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="RegistrarProductos" />
@@ -254,6 +305,9 @@
       <workItem from="1779497763228" duration="6402000" />
       <workItem from="1779580170565" duration="1064000" />
       <workItem from="1779644566484" duration="1593000" />
+      <workItem from="1779668007195" duration="5303000" />
+      <workItem from="1779673401880" duration="1397000" />
+      <workItem from="1779676510679" duration="3393000" />
     </task>
     <servers />
   </component>

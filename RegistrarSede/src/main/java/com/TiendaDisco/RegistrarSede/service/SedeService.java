@@ -31,6 +31,7 @@ public class SedeService implements ISedeService{
                 .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrada"));
 
         sede.setNumberSedeTelefono(s.getNumberSedeTelefono());
+        repo.save(sede);
         return "Numero modificado";
     }
 
