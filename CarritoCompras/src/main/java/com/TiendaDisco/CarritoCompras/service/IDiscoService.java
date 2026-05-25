@@ -2,8 +2,11 @@ package com.TiendaDisco.CarritoCompras.service;
 
 import com.TiendaDisco.CarritoCompras.model.Disco;
 
+import java.util.List;
+
 public interface IDiscoService {
 
+    List<Disco> getListaDiscos(String user);
 
     Disco putDisco(String user, Disco disco);
 

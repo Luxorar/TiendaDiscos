@@ -15,4 +15,6 @@ public interface ICarritoService {
     CarritoDTO getCarrito(String usuario);
 
     String updateCarrito(Carrito c, String usuario);
+
+    void deleteCarrito(String usuario);
 }

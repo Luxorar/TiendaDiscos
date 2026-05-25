@@ -26,7 +26,7 @@ public class CarritoService implements ICarritoService{
 
     @Override
     public Carrito postCarrito(Carrito c) {
-        return null;
+        return carritoRepository.save(c);
     }
 
     @Override
@@ -39,6 +39,18 @@ public class CarritoService implements ICarritoService{
 
     @Override
     public String updateCarrito(Carrito c, String usuario) {
-        return "";
+        Carrito carro = carritoRepository.findByUserUserName(usuario)
+                .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + usuario));
+
+        carro.setDescuento(c.getDescuento());
+        carritoRepository.save(carro);
+        return "Carrito actualizado";
+    }
+
+    @Override
+    public void deleteCarrito(String usuario) {
+        Carrito carro = carritoRepository.findByUserUserName(usuario)
+                .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + usuario));
+        carritoRepository.delete(carro);
     }
 }
