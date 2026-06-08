@@ -1,6 +1,6 @@
 services:
   mysql:
-    image: mysql:latest
+    image: mysql:8.0
     container_name: tiendadiscos-mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -15,6 +15,192 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - tiendadiscos-net
+
+  administracion-usuario:
+    build:
+      context: .
+      dockerfile: AdministracionUsuario/Dockerfile
+    container_name: tiendadiscos-usuario
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_user
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8081:8081"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  administracion-envios:
+    build:
+      context: .
+      dockerfile: AdministracionEnvios/Dockerfile
+    container_name: tiendadiscos-envios
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_envio
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8082:8082"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  registrar-productos:
+    build:
+      context: .
+      dockerfile: RegistrarProductos/Dockerfile
+    container_name: tiendadiscos-productos
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/registrar_productos
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8083:8083"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  registrar-sede:
+    build:
+      context: .
+      dockerfile: RegistrarSede/Dockerfile
+    container_name: tiendadiscos-sede
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_sede
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8084:8084"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  registro-resenas:
+    build:
+      context: .
+      dockerfile: RegistroResenas/Dockerfile
+    container_name: tiendadiscos-resenas
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8085:8085"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  registrar-discos:
+    build:
+      context: .
+      dockerfile: RegistrarDiscos/Dockerfile
+    container_name: tiendadiscos-discos
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_discos
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8086:8086"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  administracion-descuentos:
+    build:
+      context: .
+      dockerfile: AdministracionDescuentos/Dockerfile
+    container_name: tiendadiscos-descuentos
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bd_descuentos
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8087:8087"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  carrito-compras:
+    build:
+      context: .
+      dockerfile: CarritoCompras/Dockerfile
+    container_name: tiendadiscos-carrito
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_carro
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8088:8088"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  manejo-stock:
+    build:
+      context: .
+      dockerfile: ManejoStock/Dockerfile
+    container_name: tiendadiscos-stock
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bd_stock
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8089:8089"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  administracion-ventas:
+    build:
+      context: .
+      dockerfile: AdministracionVentas/Dockerfile
+    container_name: tiendadiscos-ventas
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_ventas
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8091:8091"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
 
 volumes:
   mysql_data:
+
+networks:
+  tiendadiscos-net:
+    driver: bridge

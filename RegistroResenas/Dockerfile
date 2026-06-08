@@ -1,10 +1,9 @@
-FROM ghcr.io/graalvm/native-image-community:17 AS build
-RUN microdnf install -y maven
+FROM maven:3-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY . .
-RUN mvn -pl RegistroResenas -am native:compile -DskipTests
+RUN mvn -pl RegistroResenas -am package -DskipTests
 
-FROM gcr.io/distroless/base
-COPY --from=build /app/RegistroResenas/target/application /app/application
-EXPOSE 8080
-ENTRYPOINT ["/app/application"]
+FROM eclipse-temurin:17-jre
+COPY --from=build /app/RegistroResenas/target/*.jar /app/app.jar
+EXPOSE 8085
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
