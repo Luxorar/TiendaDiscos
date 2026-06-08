@@ -1,10 +1,9 @@
-FROM ghcr.io/graalvm/native-image-community:17 AS build
-RUN microdnf install -y maven
+FROM maven:3-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY . .
-RUN mvn -pl RegistrarDiscos -am native:compile -DskipTests
+RUN mvn -pl RegistrarDiscos -am package -DskipTests
 
-FROM gcr.io/distroless/base
-COPY --from=build /app/RegistrarDiscos/target/application /app/application
-EXPOSE 8080
-ENTRYPOINT ["/app/application"]
+FROM eclipse-temurin:17-jre
+COPY --from=build /app/RegistrarDiscos/target/*.jar /app/app.jar
+EXPOSE 8086
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

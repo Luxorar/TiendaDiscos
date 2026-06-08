@@ -1,8 +1,10 @@
-.git/
-.idea/
-.vscode/
-**/target/
-**/compose.yaml
-README.md
+.git
+.gitignore
+.github
+.idea
+.vscode
+target
+*.md
 docker-compose.yml
-mysql/
+Dockerfile
+mysql
