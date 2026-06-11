@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
-      <change afterPath="$PROJECT_DIR$/.idea/TiendaDiscos.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarProductos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistroResenas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/controller/CarritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/controller/CarritoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +64,7 @@
     "Spring Boot.RegistrarProductosApplication.executor": "Run",
     "Spring Boot.RegistrarSedeApplication.executor": "Run",
     "Spring Boot.RegistroResenasApplication.executor": "Run",
-    "git-widget-placeholder": "fernando",
+    "git-widget-placeholder": "Merging fernando",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/W608-PCXX/Desktop/repo/TiendaDiscos",
@@ -99,26 +89,6 @@
         <option value="QuarkusRunConfigurationType" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
-    </option>
-    <option name="configurationStatuses">
-      <map>
-        <entry key="SpringBootApplicationConfigurationType">
-          <value>
-            <map>
-              <entry key="AdministracionDescuentosApplication" value="STOPPED" />
-              <entry key="AdministracionEnviosApplication" value="STOPPED" />
-              <entry key="AdministracionUsuarioApplication" value="STOPPED" />
-              <entry key="AdministracionVentasApplication" value="STOPPED" />
-              <entry key="CarritoComprasApplication" value="STOPPED" />
-              <entry key="ManejoStockApplication" value="STOPPED" />
-              <entry key="RegistrarDiscosApplication" value="STOPPED" />
-              <entry key="RegistrarProductosApplication" value="STOPPED" />
-              <entry key="RegistrarSedeApplication" value="FAILED" />
-              <entry key="RegistroResenasApplication" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
     </option>
   </component>
   <component name="RunManager" selected="Compound.AllMicroservicies">
