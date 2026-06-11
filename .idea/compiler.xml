@@ -24,6 +24,7 @@
         <module name="AdministracionEnvios" />
         <module name="CarritoCompras" />
         <module name="AdministracioUsuario" />
+        <module name="AdministracionDescuentos" />
         <module name="AdministracionVentas" />
         <module name="mi-microservicio4" />
         <module name="RegistrarDiscos" />
@@ -33,6 +34,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AdministracioUsuario" options="-parameters" />
+      <module name="AdministracionDescuentos" options="-parameters" />
       <module name="AdministracionEnvios" options="-parameters" />
       <module name="AdministracionVentas" options="-parameters" />
       <module name="CarritoCompras" options="-parameters" />
@@ -44,7 +46,7 @@
       <module name="mi-microservicio2" options="-parameters" />
       <module name="mi-microservicio4" options="-parameters" />
       <module name="miproyecto-parent" options="-parameters" />
-      <module name="openapi-java-client" options="" />
+      <module name="openapi-java-client" options="-Xlint:all -J-Xss4m" />
     </option>
   </component>
 </project>

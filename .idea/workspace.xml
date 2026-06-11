@@ -5,46 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
+      <change afterPath="$PROJECT_DIR$/.idea/TiendaDiscos.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/AdministracionDescuentosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/AdministracionDescuentosApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/AdministracionEnviosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/AdministracionEnviosApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdministracionVentas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/AdministracionVentasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/AdministracionVentasApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CarritoCompras/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/CarritoComprasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/CarritoComprasApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/DiscoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/DiscoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/ProductoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/ProductoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/Valid.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/Valid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/DiscoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/DiscoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/ProductoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/CarritoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/CarritoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/DiscoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/DiscoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ICarritoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ICarritoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IDiscoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IDiscoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ProductoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V1__create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V1__create_tables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ManejoStock/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/ManejoStockApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/ManejoStockApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/SedeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/SedeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarProductos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarSede/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RegistroResenas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistroResenas/src/main/java/com/TiendaDisco/RegistroResenas/RegistroResenasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/src/main/java/com/TiendaDisco/RegistroResenas/RegistroResenasApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,45 +51,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AdministracionDescuentosApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AdministracionEnviosApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AdministracionUsuarioApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AdministracionVentasApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.CarritoComprasApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ManejoStockApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.RegistrarDiscosApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.RegistrarProductosApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.RegistrarSedeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.RegistroResenasApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Luxo&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/luchi/hola/Escritorio/microservicios/TiendaDiscos&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.31149426&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AdministracionDescuentosApplication.executor": "Run",
+    "Spring Boot.AdministracionEnviosApplication.executor": "Run",
+    "Spring Boot.AdministracionUsuarioApplication.executor": "Run",
+    "Spring Boot.AdministracionVentasApplication.executor": "Run",
+    "Spring Boot.CarritoComprasApplication.executor": "Run",
+    "Spring Boot.ManejoStockApplication.executor": "Run",
+    "Spring Boot.RegistrarDiscosApplication.executor": "Run",
+    "Spring Boot.RegistrarProductosApplication.executor": "Run",
+    "Spring Boot.RegistrarSedeApplication.executor": "Run",
+    "Spring Boot.RegistroResenasApplication.executor": "Run",
+    "git-widget-placeholder": "fernando",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/W608-PCXX/Desktop/repo/TiendaDiscos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.31149426",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -263,31 +236,7 @@
     </configuration>
     <list>
       <item itemvalue="Compound.AllMicroservicies" />
-      <item itemvalue="OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml" />
-      <item itemvalue="Spring Boot.AdministracionVentasApplication" />
-      <item itemvalue="Spring Boot.ManejoStockApplication" />
-      <item itemvalue="Spring Boot.AdministracionDescuentosApplication" />
-      <item itemvalue="Spring Boot.CarritoComprasApplication" />
-      <item itemvalue="Spring Boot.RegistrarDiscosApplication" />
-      <item itemvalue="Spring Boot.AdministracionEnviosApplication" />
-      <item itemvalue="Spring Boot.AdministracionUsuarioApplication" />
-      <item itemvalue="Spring Boot.RegistrarProductosApplication" />
-      <item itemvalue="Spring Boot.RegistrarSedeApplication" />
-      <item itemvalue="Spring Boot.RegistroResenasApplication" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.33514.17" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.33514.17" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
