@@ -5,13 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
+      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/exception/ExeptionValid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/controller/CarritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/controller/CarritoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/exception/ManejoValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/exception/ManejoValid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/exception/ExeptionValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/exception/ExeptionValid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/exception/ExceptionValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/exception/ExceptionValid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/exception/ExceptionValid.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/exception/ManejoErrores.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/exception/ManejoErrores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/ManejoErrores.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/ManejoErrores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/Valid.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/exception/Valid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/exception/ManejoValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/exception/ManejoValid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/exception/ManejoValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/exception/ManejoValid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarProductos/src/main/java/com/TiendaDisco/RegistrarProductos/exception/ExeptionValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarProductos/src/main/java/com/TiendaDisco/RegistrarProductos/exception/ExeptionValid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/exception/ManejoValid.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/exception/ManejoValid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,10 +82,10 @@
     "Spring Boot.RegistrarProductosApplication.executor": "Run",
     "Spring Boot.RegistrarSedeApplication.executor": "Run",
     "Spring Boot.RegistroResenasApplication.executor": "Run",
-    "git-widget-placeholder": "Merging fernando",
+    "git-widget-placeholder": "seguridad",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/W608-PCXX/Desktop/repo/TiendaDiscos",
+    "last_opened_file_path": "C:/Users/W608-PCXX/Desktop/FS/TiendaDiscos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -206,8 +224,28 @@
     </configuration>
     <list>
       <item itemvalue="Compound.AllMicroservicies" />
+      <item itemvalue="OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml" />
+      <item itemvalue="Spring Boot.AdministracionDescuentosApplication" />
+      <item itemvalue="Spring Boot.AdministracionEnviosApplication" />
+      <item itemvalue="Spring Boot.AdministracionUsuarioApplication" />
+      <item itemvalue="Spring Boot.AdministracionVentasApplication" />
+      <item itemvalue="Spring Boot.CarritoComprasApplication" />
+      <item itemvalue="Spring Boot.ManejoStockApplication" />
+      <item itemvalue="Spring Boot.RegistrarDiscosApplication" />
+      <item itemvalue="Spring Boot.RegistrarProductosApplication" />
+      <item itemvalue="Spring Boot.RegistrarSedeApplication" />
+      <item itemvalue="Spring Boot.RegistroResenasApplication" />
     </list>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="" />
@@ -227,6 +265,7 @@
       <workItem from="1779668007195" duration="5303000" />
       <workItem from="1779673401880" duration="1397000" />
       <workItem from="1779676510679" duration="3393000" />
+      <workItem from="1781722053064" duration="1618000" />
     </task>
     <servers />
   </component>
