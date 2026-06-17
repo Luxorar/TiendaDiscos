@@ -1,10 +1,12 @@
 package com.TiendaDisco.AdministracionDescuentos.service;
 
+import com.TiendaDisco.AdministracionDescuentos.DTO.DescuentoDTO;
 import com.TiendaDisco.AdministracionDescuentos.Repository.DescuentoRepository;
 import com.TiendaDisco.AdministracionDescuentos.Repository.DiscoRepository;
 
 import com.TiendaDisco.AdministracionDescuentos.exception.ManejoErrores;
 
+import com.TiendaDisco.AdministracionDescuentos.mapper.Mapper;
 import com.TiendaDisco.AdministracionDescuentos.model.Descuento;
 import com.TiendaDisco.AdministracionDescuentos.model.Disco;
 
@@ -23,14 +25,19 @@ public class DescuentoService implements IDescuentoService {
     private DiscoRepository discoRepo;
 
     @Override
-    public List<Descuento> getAllDescuentos() {
-        return descuentoRepo.findAll();
+    public List<DescuentoDTO> getAllDescuentos() {
+        return descuentoRepo.findAll()
+                .stream()
+                .map(Mapper::toDTO)
+                .toList();
     }
 
     @Override
-    public Descuento getDescuentoId(Long id) {
-        return descuentoRepo.findById(id)
+    public DescuentoDTO getDescuentoId(Long id) {
+        Descuento descuento = descuentoRepo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Descuento no encontrado con el ID: " + id));
+
+        return Mapper.toDTO(descuento);
     }
 
     @Override
@@ -42,7 +49,7 @@ public class DescuentoService implements IDescuentoService {
     @Override
     public Descuento postDescuento(Descuento d) {
         return descuentoRepo.save(d);
-    }
+    }//Buscar como guardar un descuento pero que el disco o producto agregados se pueda poner unicamente la id
 
     @Override
     public String putDescuento(Long id, Descuento d) {
@@ -55,7 +62,7 @@ public class DescuentoService implements IDescuentoService {
 
         descuentoRepo.save(desc);
         return "Descuento modificado exitosamente";
-    }
+    }//Buscar como guardar un descuento pero que el disco o producto agregados se pueda poner unicamente la id
 
     @Override
     public String deleteDescuento(Long id) {
