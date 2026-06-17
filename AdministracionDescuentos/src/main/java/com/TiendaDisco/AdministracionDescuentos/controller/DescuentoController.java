@@ -1,5 +1,6 @@
 package com.TiendaDisco.AdministracionDescuentos.controller;
 
+import com.TiendaDisco.AdministracionDescuentos.DTO.DescuentoDTO;
 import com.TiendaDisco.AdministracionDescuentos.model.Descuento;
 import com.TiendaDisco.AdministracionDescuentos.service.IDescuentoService;
 
@@ -22,12 +23,12 @@ public class DescuentoController {
     private IDescuentoService descuentoService;
 
     @GetMapping
-    public ResponseEntity<List<Descuento>> getAllDescuentos() {
+    public ResponseEntity<List<DescuentoDTO>> getAllDescuentos() {
         return ResponseEntity.ok(descuentoService.getAllDescuentos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Descuento> getDescuentoId(@PathVariable Long id) {
+    public ResponseEntity<DescuentoDTO> getDescuentoId(@PathVariable Long id) {
         return ResponseEntity.ok(descuentoService.getDescuentoId(id));
     }
 

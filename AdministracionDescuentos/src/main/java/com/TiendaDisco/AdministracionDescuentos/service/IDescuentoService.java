@@ -1,12 +1,13 @@
 package com.TiendaDisco.AdministracionDescuentos.service;
 
+import com.TiendaDisco.AdministracionDescuentos.DTO.DescuentoDTO;
 import com.TiendaDisco.AdministracionDescuentos.model.Descuento;
 import java.util.List;
 
 public interface IDescuentoService {
-    List<Descuento> getAllDescuentos();
+    List<DescuentoDTO> getAllDescuentos();
 
-    Descuento getDescuentoId(Long id);
+    DescuentoDTO getDescuentoId(Long id);
 
     Descuento getDescuentoNombre(String nombre);
 
