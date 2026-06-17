@@ -1,4 +1,4 @@
-package com.TiendaDisco.RegistrarDiscos.config;
+package com.TiendaDisco.AdministracionUsuario.config;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenApiConfig {
-
     @Bean
     public OpenAPI configurarOpenAPi(){
         // Información de contacto
@@ -36,7 +35,7 @@ public class OpenApiConfig {
         Info informacionApi = new Info()
                 .description("""
                             Microservicio para
-                            administrar Discos
+                            administrar usuarios
                             """)
                 .version("1.0")
                 .termsOfService("https://www.duoc.cl")
@@ -49,8 +48,8 @@ public class OpenApiConfig {
                 .description("Repositorio oficial del proyecto en GitHub")
                 .url("https://github.com/Luxorar/TiendaDiscos");
         // Configuración OpenAPI
-            return new OpenAPI()
-                    .info(informacionApi)
-                    .externalDocs(github);
+        return new OpenAPI()
+                .info(informacionApi)
+                .externalDocs(github);
     }
 }
