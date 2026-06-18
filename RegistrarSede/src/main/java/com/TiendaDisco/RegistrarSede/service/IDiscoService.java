@@ -2,6 +2,8 @@ package com.TiendaDisco.RegistrarSede.service;
 
 import com.TiendaDisco.RegistrarSede.model.Disco;
 
+import java.util.List;
+
 public interface IDiscoService {
     Disco postDisco(Disco d);
 
@@ -10,4 +12,6 @@ public interface IDiscoService {
     String putDisco(Long id, Disco d);
 
     String deleteDisco(Long id);
+
+    List<Disco> getAllDiscos();
 }

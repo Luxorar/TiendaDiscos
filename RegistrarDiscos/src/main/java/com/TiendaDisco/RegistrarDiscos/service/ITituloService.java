@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistrarDiscos.service;
 
+import java.util.List;
 import com.TiendaDisco.RegistrarDiscos.model.Titulo;
 
 public interface ITituloService {
@@ -10,4 +11,6 @@ public interface ITituloService {
     String putTitulo(Long id, Titulo t);
 
     String deleteTitulo(Long id);
+
+    List<Titulo> getAllTitulos();
 }

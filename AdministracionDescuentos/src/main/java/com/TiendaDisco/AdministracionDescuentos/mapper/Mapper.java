@@ -28,6 +28,7 @@ public class Mapper {
                 .id(descuento.getId())
                 .nombre(descuento.getNombre())
                 .estado(descuento.getEstado())
+                .descuento(descuento.getDescuento())
                 .discosAgregados(discos)
                 .productosAgregados(productos)
                 .build();

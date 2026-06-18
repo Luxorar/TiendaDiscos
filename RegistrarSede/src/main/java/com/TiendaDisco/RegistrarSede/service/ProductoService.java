@@ -7,6 +7,8 @@ import com.TiendaDisco.RegistrarSede.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductoService implements IProductoService{
     @Autowired
@@ -28,6 +30,10 @@ public class ProductoService implements IProductoService{
         prod.setNombreProducto(p.getNombreProducto());
         prod.setPrecio(p.getPrecio());
         return "Datos del Producto modificados";
+    }
+
+    public List<Producto> getAllProductos(){
+        return repo.findAll();
     }
 
     public String deleteProducto(Long id){

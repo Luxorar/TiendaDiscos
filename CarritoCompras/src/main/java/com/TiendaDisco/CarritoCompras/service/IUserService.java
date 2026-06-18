@@ -2,7 +2,11 @@ package com.TiendaDisco.CarritoCompras.service;
 
 import com.TiendaDisco.CarritoCompras.model.User;
 
+import java.util.List;
+
 public interface IUserService {
+
+    List<User> getAllUsers();
 
     User postUser(User user);
 

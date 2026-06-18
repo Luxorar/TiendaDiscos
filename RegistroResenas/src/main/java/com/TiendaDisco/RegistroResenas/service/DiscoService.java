@@ -6,6 +6,8 @@ import com.TiendaDisco.RegistroResenas.repository.DiscoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DiscoService implements IDiscoService{
     @Autowired
@@ -13,6 +15,10 @@ public class DiscoService implements IDiscoService{
 
     public Disco postDisco(Disco d){
         return repo.save(d);
+    }
+
+    public List<Disco> getAllDiscos(){
+        return repo.findAll();
     }
 
     public Disco getDiscoId(Long id){

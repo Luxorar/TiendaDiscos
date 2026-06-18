@@ -1,6 +1,9 @@
 package com.TiendaDisco.RegistrarDiscos.service;
 
+import java.util.List;
+import com.TiendaDisco.RegistrarDiscos.dto.DiscoDTO;
 import com.TiendaDisco.RegistrarDiscos.exception.ManejoErrores;
+import com.TiendaDisco.RegistrarDiscos.mapper.Mapper;
 import com.TiendaDisco.RegistrarDiscos.model.Disco;
 import com.TiendaDisco.RegistrarDiscos.repository.DiscoRepository;
 
@@ -19,9 +22,10 @@ public class DiscoService implements IDiscoService {
     }
 
     @Override
-    public Disco getDiscoId(Long id) {
-        return discoRepository.findById(id)
+    public DiscoDTO getDiscoId(Long id) {
+        Disco disco = discoRepository.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
+        return Mapper.toDTO(disco);
     }
 
     @Override
@@ -44,5 +48,12 @@ public class DiscoService implements IDiscoService {
 
         discoRepository.delete(disc);
         return "Disco eliminado";
+    }
+
+    @Override
+    public List<DiscoDTO> getAllDiscos() {
+        return discoRepository.findAll().stream()
+                .map(Mapper::toDTO)
+                .toList();
     }
 }

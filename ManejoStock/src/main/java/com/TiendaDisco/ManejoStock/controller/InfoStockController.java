@@ -17,6 +17,11 @@ public class InfoStockController {
     @Autowired
     private IInfoStockService stockService;
 
+    @GetMapping
+    public ResponseEntity<List<infoStock>> getAllInfoStock() {
+        return ResponseEntity.ok(stockService.getAllInfoStock());
+    }
+
     @PostMapping
     public ResponseEntity<infoStock> postInfoStock(@Valid @RequestBody infoStock stock) {
         return ResponseEntity.status(HttpStatus.CREATED).body(stockService.postInfoStock(stock));

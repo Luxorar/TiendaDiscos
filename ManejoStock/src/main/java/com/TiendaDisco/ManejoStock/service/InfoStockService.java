@@ -77,6 +77,11 @@ public class InfoStockService implements IInfoStockService {
     }
 
     @Override
+    public List<infoStock> getAllInfoStock() {
+        return stockRepo.findAll();
+    }
+
+    @Override
     public String deleteInfo(Long id) {
         infoStock stock = getInfoID(id);
         stockRepo.delete(stock);

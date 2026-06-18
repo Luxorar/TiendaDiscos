@@ -6,6 +6,8 @@ import com.TiendaDisco.RegistrarSede.repository.DiscoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DiscoService implements IDiscoService{
     @Autowired
@@ -27,6 +29,10 @@ public class DiscoService implements IDiscoService{
         disc.setNombreDisco(d.getNombreDisco());
         disc.setArtista(d.getArtista());
         return "Datos del disco modificados";
+    }
+
+    public List<Disco> getAllDiscos(){
+        return repo.findAll();
     }
 
     public String deleteDisco(Long id){
