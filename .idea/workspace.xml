@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
+      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/exception/ExeptionValid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/mapper/Mapper.java" afterDir="false" />
@@ -65,6 +66,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -338,6 +346,15 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="" />
