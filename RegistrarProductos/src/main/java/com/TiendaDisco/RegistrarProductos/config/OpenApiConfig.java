@@ -15,8 +15,16 @@ public class OpenApiConfig {
     public OpenAPI configurarOpenAPi(){
         // Información de contacto
         Contact contacto = new Contact()
-                .name("TeamSpica")
+                .name("Luis")
                 .email("lu.villalonc@duocuc.cl")
+                .url("https://www.duoc.cl");
+        Contact contacto2 = new Contact()
+                .name("Fernando")
+                .email("fern.castilloa@duocuc.cl")
+                .url("https://www.duoc.cl");
+        Contact contacto3 = new Contact()
+                .name("Diego")
+                .email("dieg.barriam@duocuc.cl")
                 .url("https://www.duoc.cl");
 
         // Licencia del proyecto
@@ -28,11 +36,13 @@ public class OpenApiConfig {
         Info informacionApi = new Info()
                 .description("""
                             Microservicio para
-                            administrar resenas
+                            Registrar productos
                             """)
                 .version("1.0")
                 .termsOfService("https://www.duoc.cl")
                 .contact(contacto)
+                .contact(contacto2)
+                .contact(contacto3)
                 .license(licencia);
         // Documentación externa (GitHub)
         ExternalDocumentation github = new ExternalDocumentation()

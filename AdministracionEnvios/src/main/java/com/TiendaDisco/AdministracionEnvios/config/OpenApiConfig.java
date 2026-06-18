@@ -1,4 +1,4 @@
-package com.TiendaDisco.RegistroResenas.config;
+package com.TiendaDisco.AdministracionEnvios.config;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -36,7 +36,7 @@ public class OpenApiConfig {
         Info informacionApi = new Info()
                 .description("""
                             Microservicio para
-                            administrar Reseñas
+                            administrar productos
                             """)
                 .version("1.0")
                 .termsOfService("https://www.duoc.cl")
@@ -53,4 +53,5 @@ public class OpenApiConfig {
                 .info(informacionApi)
                 .externalDocs(github);
     }
+
 }
