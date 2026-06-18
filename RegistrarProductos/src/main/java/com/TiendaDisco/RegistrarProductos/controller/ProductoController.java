@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistrarProductos.controller;
 
+import com.TiendaDisco.RegistrarProductos.dto.ProductoDTO;
 import com.TiendaDisco.RegistrarProductos.model.Producto;
 import com.TiendaDisco.RegistrarProductos.service.IProductoService;
 import jakarta.validation.Valid;
@@ -21,22 +22,22 @@ public class ProductoController {
     }
 
     @GetMapping
-    public List<Producto> getListaProducto() {
-        return productoService.getListaProducto();
+    public List<ProductoDTO> getAllProductos() {
+        return productoService.getAllProductos();
     }
 
     @GetMapping("/{id}")
-    public Producto getProductoID(@PathVariable Long id) {
+    public ProductoDTO getProductoID(@PathVariable Long id) {
         return productoService.getProductoID(id);
     }
 
     @GetMapping("/nombre/{nombre}")
-    public List<Producto> getProductoNombre(@PathVariable String nombre) {
+    public List<ProductoDTO> getProductoNombre(@PathVariable String nombre) {
         return productoService.getProductoNombre(nombre);
     }
 
     @GetMapping("/marca/{marca}")
-    public List<Producto> getProductoMarca(@PathVariable String marca) {
+    public List<ProductoDTO> getProductoMarca(@PathVariable String marca) {
         return productoService.getProductoMarca(marca);
     }
 

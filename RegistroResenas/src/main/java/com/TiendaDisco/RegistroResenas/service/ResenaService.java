@@ -7,6 +7,8 @@ import com.TiendaDisco.RegistroResenas.repository.ResenaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ResenaService implements IResenaService {
     @Autowired
@@ -14,6 +16,10 @@ public class ResenaService implements IResenaService {
 
     public Resena postResena(Resena r){
         return repo.save(r);
+    }
+
+    public List<Resena> getAllResenas(){
+        return repo.findAll();
     }
 
     public Resena getResenaId(Long id){

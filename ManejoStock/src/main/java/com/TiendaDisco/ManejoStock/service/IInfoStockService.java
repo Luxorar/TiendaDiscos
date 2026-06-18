@@ -19,4 +19,6 @@ public interface IInfoStockService {
     String putSede(Long id, String nombreSede);
 
     String deleteInfo(Long id);
+
+    List<infoStock> getAllInfoStock();
 }

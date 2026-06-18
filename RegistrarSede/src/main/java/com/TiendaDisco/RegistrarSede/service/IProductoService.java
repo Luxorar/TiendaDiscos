@@ -2,6 +2,8 @@ package com.TiendaDisco.RegistrarSede.service;
 
 import com.TiendaDisco.RegistrarSede.model.Producto;
 
+import java.util.List;
+
 public interface IProductoService {
     Producto postProducto(Producto p);
 
@@ -10,4 +12,6 @@ public interface IProductoService {
     String putProducto(Long id, Producto p);
 
     String deleteProducto(Long id);
+
+    List<Producto> getAllProductos();
 }
