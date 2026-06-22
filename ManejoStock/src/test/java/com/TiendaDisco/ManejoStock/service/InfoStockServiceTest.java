@@ -1,6 +1,8 @@
 package com.TiendaDisco.ManejoStock.service;
 
+import com.TiendaDisco.ManejoStock.DTO.InfoStockDTO;
 import com.TiendaDisco.ManejoStock.exception.ManejoErrores;
+import com.TiendaDisco.ManejoStock.mapper.Mapper;
 import com.TiendaDisco.ManejoStock.model.Sede;
 import com.TiendaDisco.ManejoStock.model.infoStock;
 import com.TiendaDisco.ManejoStock.repository.InfoStockRepository;
@@ -32,12 +34,14 @@ class InfoStockServiceTest {
 
     @Test
     void getAllInfoStock_shouldReturnAllStock() {
-        List<infoStock> mockList = List.of(new infoStock(), new infoStock());
-        when(infoStockRepo.findAll()).thenReturn(mockList);
+        infoStock entity = new infoStock();
+        entity.setNombreProducto("Guitarra");
+        when(infoStockRepo.findAll()).thenReturn(List.of(entity));
 
-        List<infoStock> result = service.getAllInfoStock();
+        List<InfoStockDTO> result = service.getAllInfoStock();
 
-        assertThat(result).hasSize(2);
+        assertThat(result).hasSize(1);
+        assertThat(result.get(0).getNombreProducto()).isEqualTo("Guitarra");
         verify(infoStockRepo).findAll();
     }
 
@@ -55,22 +59,25 @@ class InfoStockServiceTest {
     @Test
     void getSedeInfo_shouldReturnStockForSede() {
         infoStock stock = new infoStock();
+        stock.setNombreProducto("Bajo");
         when(infoStockRepo.findBySede_NombreSede("Centro")).thenReturn(List.of(stock));
 
-        List<infoStock> result = service.getSedeInfo("Centro");
+        List<InfoStockDTO> result = service.getSedeInfo("Centro");
 
         assertThat(result).hasSize(1);
+        assertThat(result.get(0).getNombreProducto()).isEqualTo("Bajo");
         verify(infoStockRepo).findBySede_NombreSede("Centro");
     }
 
     @Test
     void getProductoInfo_happy_shouldReturnStock() {
         infoStock stock = new infoStock();
+        stock.setNombreProducto("Test");
         when(infoStockRepo.findByNombreProducto("Test")).thenReturn(Optional.of(stock));
 
-        infoStock result = service.getProductoInfo("Test");
+        InfoStockDTO result = service.getProductoInfo("Test");
 
-        assertThat(result).isSameAs(stock);
+        assertThat(result.getNombreProducto()).isEqualTo("Test");
         verify(infoStockRepo).findByNombreProducto("Test");
     }
 
@@ -86,11 +93,12 @@ class InfoStockServiceTest {
     @Test
     void getInfoID_happy_shouldReturnStock() {
         infoStock stock = new infoStock();
+        stock.setNombreProducto("Piano");
         when(infoStockRepo.findById(1L)).thenReturn(Optional.of(stock));
 
-        infoStock result = service.getInfoID(1L);
+        InfoStockDTO result = service.getInfoID(1L);
 
-        assertThat(result).isSameAs(stock);
+        assertThat(result.getNombreProducto()).isEqualTo("Piano");
         verify(infoStockRepo).findById(1L);
     }
 

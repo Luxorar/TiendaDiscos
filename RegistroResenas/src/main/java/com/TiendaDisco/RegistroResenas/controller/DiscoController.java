@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistroResenas.controller;
 
+import com.TiendaDisco.RegistroResenas.DTO.DiscoDTO;
 import com.TiendaDisco.RegistroResenas.model.Disco;
 import com.TiendaDisco.RegistroResenas.service.DiscoService;
 import jakarta.validation.Valid;
@@ -20,12 +21,12 @@ public class DiscoController {
     }
 
     @GetMapping
-    public List<Disco> getAllDiscos(){
+    public List<DiscoDTO> getAllDiscos(){
         return service.getAllDiscos();
     }
 
     @GetMapping("{id}")
-    public Disco getDiscoId(@Valid @PathVariable Long id){
+    public DiscoDTO getDiscoId(@Valid @PathVariable Long id){
         return service.getDiscoId(id);
     }
 

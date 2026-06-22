@@ -1,6 +1,8 @@
 package com.TiendaDisco.RegistrarSede.service;
 
+import com.TiendaDisco.RegistrarSede.dto.DiscoDTO;
 import com.TiendaDisco.RegistrarSede.exception.ManejoErrores;
+import com.TiendaDisco.RegistrarSede.mapper.Mapper;
 import com.TiendaDisco.RegistrarSede.model.Disco;
 import com.TiendaDisco.RegistrarSede.repository.DiscoRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,6 +31,7 @@ class DiscoServiceTest {
     private DiscoService discoService;
 
     private Disco disco;
+    private DiscoDTO discoDTO;
 
     @BeforeEach
     void setUp() {
@@ -38,15 +41,17 @@ class DiscoServiceTest {
                 .artista("Michael Jackson")
                 .precio(15000)
                 .build();
+        discoDTO = Mapper.toDTO(disco);
     }
 
     @Test
     void getAllDiscos_ShouldReturnListOfDiscos() {
         when(discoRepository.findAll()).thenReturn(List.of(disco));
 
-        List<Disco> result = discoService.getAllDiscos();
+        List<DiscoDTO> result = discoService.getAllDiscos();
 
-        assertThat(result).hasSize(1).contains(disco);
+        assertThat(result).hasSize(1);
+        assertThat(result.get(0).getNombreDisco()).isEqualTo(discoDTO.getNombreDisco());
         verify(discoRepository).findAll();
     }
 
@@ -64,9 +69,9 @@ class DiscoServiceTest {
     void getDiscoId_WhenExists_ShouldReturnDisco() {
         when(discoRepository.findById(1L)).thenReturn(Optional.of(disco));
 
-        Disco result = discoService.getDiscoId(1L);
+        DiscoDTO result = discoService.getDiscoId(1L);
 
-        assertThat(result).isEqualTo(disco);
+        assertThat(result.getNombreDisco()).isEqualTo(discoDTO.getNombreDisco());
         verify(discoRepository).findById(1L);
     }
 

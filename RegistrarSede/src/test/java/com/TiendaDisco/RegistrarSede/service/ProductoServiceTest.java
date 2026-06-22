@@ -1,6 +1,8 @@
 package com.TiendaDisco.RegistrarSede.service;
 
+import com.TiendaDisco.RegistrarSede.dto.ProductoDTO;
 import com.TiendaDisco.RegistrarSede.exception.ManejoErrores;
+import com.TiendaDisco.RegistrarSede.mapper.Mapper;
 import com.TiendaDisco.RegistrarSede.model.Producto;
 import com.TiendaDisco.RegistrarSede.repository.ProductoRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,6 +31,7 @@ class ProductoServiceTest {
     private ProductoService productoService;
 
     private Producto producto;
+    private ProductoDTO productoDTO;
 
     @BeforeEach
     void setUp() {
@@ -37,15 +40,17 @@ class ProductoServiceTest {
                 .nombreProducto("Vinilo")
                 .precio(5000)
                 .build();
+        productoDTO = Mapper.toDTO(producto);
     }
 
     @Test
     void getAllProductos_ShouldReturnListOfProductos() {
         when(productoRepository.findAll()).thenReturn(List.of(producto));
 
-        List<Producto> result = productoService.getAllProductos();
+        List<ProductoDTO> result = productoService.getAllProductos();
 
-        assertThat(result).hasSize(1).contains(producto);
+        assertThat(result).hasSize(1);
+        assertThat(result.get(0).getNombreProducto()).isEqualTo(productoDTO.getNombreProducto());
         verify(productoRepository).findAll();
     }
 
@@ -63,9 +68,9 @@ class ProductoServiceTest {
     void getProductoId_WhenExists_ShouldReturnProducto() {
         when(productoRepository.findById(1L)).thenReturn(Optional.of(producto));
 
-        Producto result = productoService.getProductoId(1L);
+        ProductoDTO result = productoService.getProductoId(1L);
 
-        assertThat(result).isEqualTo(producto);
+        assertThat(result.getNombreProducto()).isEqualTo(productoDTO.getNombreProducto());
         verify(productoRepository).findById(1L);
     }
 

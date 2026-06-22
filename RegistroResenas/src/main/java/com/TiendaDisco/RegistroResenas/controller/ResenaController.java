@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistroResenas.controller;
 
+import com.TiendaDisco.RegistroResenas.DTO.ResenaDTO;
 import com.TiendaDisco.RegistroResenas.model.Resena;
 import com.TiendaDisco.RegistroResenas.service.ResenaService;
 import jakarta.validation.Valid;
@@ -20,12 +21,12 @@ public class ResenaController {
     }
 
     @GetMapping
-    public List<Resena> getAllResenas(){
+    public List<ResenaDTO> getAllResenas(){
         return service.getAllResenas();
     }
 
     @GetMapping("{id}")
-    public Resena getResenaId(@Valid @PathVariable Long id){
+    public ResenaDTO getResenaId(@Valid @PathVariable Long id){
         return service.getResenaId(id);
     }
 

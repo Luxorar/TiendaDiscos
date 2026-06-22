@@ -1,21 +1,26 @@
 package com.TiendaDisco.AdministracionUsuario.service;
 
+import com.TiendaDisco.AdministracionUsuario.DTO.AdminDTO;
 import com.TiendaDisco.AdministracionUsuario.DTO.UserDTO;
 import com.TiendaDisco.AdministracionUsuario.exception.ManejoErrores;
-import com.TiendaDisco.AdministracionUsuario.model.User;
 import com.TiendaDisco.AdministracionUsuario.mapper.Mapper;
+import com.TiendaDisco.AdministracionUsuario.model.Admin;
+import com.TiendaDisco.AdministracionUsuario.model.User;
+import com.TiendaDisco.AdministracionUsuario.repository.AdminRepository;
 import com.TiendaDisco.AdministracionUsuario.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AdminService implements IAdminService{
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private AdminRepository adminRepository;
 
     @Override
     public List<UserDTO> getAllUser() {
@@ -28,6 +33,14 @@ public class AdminService implements IAdminService{
         u.setCuentaActiva(true);
 
         return userRepository.save(u) ;
+    }
+
+    @Override
+    public Admin postAdmin(Admin a) {
+        a.setFechaRegistro(LocalDate.now());
+        a.setCuentaActiva(true);
+
+        return adminRepository.save(a) ;
     }
 
     @Override
@@ -77,5 +90,43 @@ public class AdminService implements IAdminService{
 
         usuario.setPuntos(puntaje);
         return userRepository.save(usuario);
+    }
+
+    @Override
+    public List<AdminDTO> getAllAdmin() {
+        return adminRepository.findAll().stream().map(Mapper::toDTO).toList();
+    }
+
+    @Override
+    public AdminDTO getAdminId(Long id) {
+        Admin a = adminRepository.findById(id)
+                .orElseThrow(() -> new ManejoErrores("Id de administrador no encontrado: " + id));
+        return Mapper.toDTO(a);
+    }
+
+    @Override
+    public AdminDTO getAdminName(String name) {
+        Admin a = adminRepository.findByUserName(name)
+                .orElseThrow(() -> new ManejoErrores("No se encontró un administrador con ese nombre: " + name));
+        return Mapper.toDTO(a);
+    }
+
+    @Override
+    public void deleteAdminId(Long id) {
+        Admin a = adminRepository.findById(id)
+                .orElseThrow(() -> new ManejoErrores("Id de administrador a eliminar no encontrado: " + id));
+        adminRepository.delete(a);
+    }
+
+    @Override
+    public Admin putAdmin(Long id, Admin a) {
+        Admin admin = adminRepository.findById(id)
+                .orElseThrow(() -> new ManejoErrores("Id de administrador a modificar no encontrado: " + id));
+
+        if(a.getUserName()!=null) admin.setUserName(a.getUserName());
+        if(a.getContrasena()!=null) admin.setContrasena(a.getContrasena());
+        if(a.getCuentaActiva()!=null) admin.setCuentaActiva(a.getCuentaActiva());
+
+        return adminRepository.save(admin);
     }
 }

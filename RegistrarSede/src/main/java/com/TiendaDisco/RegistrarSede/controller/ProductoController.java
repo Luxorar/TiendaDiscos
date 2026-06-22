@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistrarSede.controller;
 
+import com.TiendaDisco.RegistrarSede.dto.ProductoDTO;
 import com.TiendaDisco.RegistrarSede.model.Producto;
 import com.TiendaDisco.RegistrarSede.service.ProductoService;
 import jakarta.validation.Valid;
@@ -20,12 +21,12 @@ public class ProductoController {
     }
 
     @GetMapping
-    public List<Producto> getAllProductos(){
+    public List<ProductoDTO> getAllProductos(){
         return service.getAllProductos();
     }
 
     @GetMapping("{id}")
-    public Producto getProductoId(@Valid @PathVariable Long id){
+    public ProductoDTO getProductoId(@Valid @PathVariable Long id){
         return service.getProductoId(id);
     }
 

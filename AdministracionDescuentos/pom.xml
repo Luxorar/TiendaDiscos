@@ -107,7 +107,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals><goal>report</goal></goals>
                     </execution>
                     <execution>
@@ -127,10 +127,10 @@
                                 </rule>
                             </rules>
                             <excludes>
-                                <exclude>com/empresa/usuarios/dto/**</exclude>
-                                <exclude>com/empresa/usuarios/model/**</exclude>
-                                <exclude>com/empresa/usuarios/*Application.class</exclude>
-                                <exclude>com/empresa/usuarios/config/**</exclude>
+                                <exclude>com/TiendaDisco/AdministracionDescuentos/*Application.class</exclude>
+                                <exclude>com/TiendaDisco/AdministracionDescuentos/model/*.class</exclude>
+                                <exclude>com/TiendaDisco/AdministracionDescuentos/controller/*.class</exclude>
+                                <exclude>com/TiendaDisco/AdministracionDescuentos/mapper/*.class</exclude>
                             </excludes>
                         </configuration>
                     </execution>

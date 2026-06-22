@@ -1,6 +1,8 @@
 package com.TiendaDisco.RegistroResenas.service;
 
+import com.TiendaDisco.RegistroResenas.DTO.ResenaDTO;
 import com.TiendaDisco.RegistroResenas.exception.ManejoErrores;
+import com.TiendaDisco.RegistroResenas.mapper.Mapper;
 import com.TiendaDisco.RegistroResenas.model.Resena;
 import com.TiendaDisco.RegistroResenas.repository.ResenaRepository;
 import org.junit.jupiter.api.Test;
@@ -32,9 +34,11 @@ class ResenaServiceTest {
         Resena r2 = Resena.builder().id(2L).mensaje("Mensaje 2").build();
         when(resenaRepository.findAll()).thenReturn(List.of(r1, r2));
 
-        List<Resena> result = resenaService.getAllResenas();
+        List<ResenaDTO> result = resenaService.getAllResenas();
 
-        assertThat(result).hasSize(2).containsExactly(r1, r2);
+        assertThat(result).hasSize(2);
+        assertThat(result.get(0).getMensaje()).isEqualTo("Mensaje 1");
+        assertThat(result.get(1).getMensaje()).isEqualTo("Mensaje 2");
         verify(resenaRepository).findAll();
     }
 
@@ -56,9 +60,9 @@ class ResenaServiceTest {
         Resena resena = Resena.builder().id(1L).mensaje("Reseña existente").build();
         when(resenaRepository.findById(1L)).thenReturn(Optional.of(resena));
 
-        Resena result = resenaService.getResenaId(1L);
+        ResenaDTO result = resenaService.getResenaId(1L);
 
-        assertThat(result).isEqualTo(resena);
+        assertThat(result.getMensaje()).isEqualTo("Reseña existente");
         verify(resenaRepository).findById(1L);
     }
 

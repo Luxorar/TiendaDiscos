@@ -1,7 +1,7 @@
 package com.TiendaDisco.RegistrarSede.service;
 
 
-import com.TiendaDisco.RegistrarSede.model.Disco;
+import com.TiendaDisco.RegistrarSede.dto.SedeDTO;
 import com.TiendaDisco.RegistrarSede.model.Sede;
 
 import java.util.List;
@@ -10,9 +10,9 @@ public interface ISedeService {
 
     Sede postSede(Sede s);
 
-    List<Sede> getAllSedes();
+    List<SedeDTO> getAllSedes();
 
-    Sede getSedeId(Long id);
+    SedeDTO getSedeId(Long id);
 
     String putSede(Long id, Sede d);
 
