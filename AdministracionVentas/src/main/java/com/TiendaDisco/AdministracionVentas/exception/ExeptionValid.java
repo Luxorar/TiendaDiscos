@@ -1,4 +1,4 @@
-package com.TiendaDisco.CarritoCompras.exception;
+package com.TiendaDisco.AdministracionVentas.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class Valid {
+public class ExeptionValid {
 
-    private static final Logger logger = LoggerFactory.getLogger(Valid.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExeptionValid.class);
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> manejo(MethodArgumentNotValidException ex) {
