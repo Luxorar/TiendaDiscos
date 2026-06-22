@@ -1,8 +1,4 @@
 package com.TiendaDisco.AdministracionVentas.service;
-
-import com.TiendaDisco.AdministracionVentas.client.CarritoClient;
-import com.TiendaDisco.AdministracionVentas.client.DescuentosClient;
-import com.TiendaDisco.AdministracionVentas.client.UsuarioClient;
 import com.TiendaDisco.AdministracionVentas.dto.VentaDTO;
 import com.TiendaDisco.AdministracionVentas.exception.ManejoErrores;
 import com.TiendaDisco.AdministracionVentas.model.Producto;
@@ -36,15 +32,6 @@ class VentaServiceTest {
 
     @Mock
     private UsuarioRepository usuarioRepository;
-
-    @Mock
-    private CarritoClient carritoClient;
-
-    @Mock
-    private DescuentosClient descuentosClient;
-
-    @Mock
-    private UsuarioClient usuarioClient;
 
     @InjectMocks
     private VentaService ventaService;

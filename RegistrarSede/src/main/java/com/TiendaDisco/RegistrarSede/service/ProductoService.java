@@ -1,7 +1,8 @@
 package com.TiendaDisco.RegistrarSede.service;
 
+import com.TiendaDisco.RegistrarSede.dto.ProductoDTO;
 import com.TiendaDisco.RegistrarSede.exception.ManejoErrores;
-
+import com.TiendaDisco.RegistrarSede.mapper.Mapper;
 import com.TiendaDisco.RegistrarSede.model.Producto;
 import com.TiendaDisco.RegistrarSede.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,10 @@ public class ProductoService implements IProductoService{
         return repo.save(p);
     }
 
-    public Producto getProductoId(Long id){
-        return repo.findById(id)
+    public ProductoDTO getProductoId(Long id){
+        Producto prod = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrada"));
+        return Mapper.toDTO(prod);
     }
 
     public String putProducto(Long id, Producto p){
@@ -32,8 +34,8 @@ public class ProductoService implements IProductoService{
         return "Datos del Producto modificados";
     }
 
-    public List<Producto> getAllProductos(){
-        return repo.findAll();
+    public List<ProductoDTO> getAllProductos(){
+        return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
     public String deleteProducto(Long id){

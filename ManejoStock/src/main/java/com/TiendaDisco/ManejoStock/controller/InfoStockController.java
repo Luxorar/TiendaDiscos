@@ -1,5 +1,6 @@
 package com.TiendaDisco.ManejoStock.controller;
 
+import com.TiendaDisco.ManejoStock.DTO.InfoStockDTO;
 import com.TiendaDisco.ManejoStock.model.infoStock;
 import com.TiendaDisco.ManejoStock.service.IInfoStockService;
 import jakarta.validation.Valid;
@@ -18,7 +19,7 @@ public class InfoStockController {
     private IInfoStockService stockService;
 
     @GetMapping
-    public ResponseEntity<List<infoStock>> getAllInfoStock() {
+    public ResponseEntity<List<InfoStockDTO>> getAllInfoStock() {
         return ResponseEntity.ok(stockService.getAllInfoStock());
     }
 
@@ -28,17 +29,17 @@ public class InfoStockController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<infoStock> getInfoID(@PathVariable Long id) {
+    public ResponseEntity<InfoStockDTO> getInfoID(@PathVariable Long id) {
         return ResponseEntity.ok(stockService.getInfoID(id));
     }
 
     @GetMapping("/producto/{nombreProducto}")
-    public ResponseEntity<infoStock> getProductoInfo(@PathVariable String nombreProducto) {
+    public ResponseEntity<InfoStockDTO> getProductoInfo(@PathVariable String nombreProducto) {
         return ResponseEntity.ok(stockService.getProductoInfo(nombreProducto));
     }
 
     @GetMapping("/sede/{nombreSede}")
-    public ResponseEntity<List<infoStock>> getSedeInfo(@PathVariable String nombreSede) {
+    public ResponseEntity<List<InfoStockDTO>> getSedeInfo(@PathVariable String nombreSede) {
         return ResponseEntity.ok(stockService.getSedeInfo(nombreSede));
     }
 

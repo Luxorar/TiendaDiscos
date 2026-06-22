@@ -1,6 +1,8 @@
 package com.TiendaDisco.RegistrarSede.service;
 
+import com.TiendaDisco.RegistrarSede.dto.SedeDTO;
 import com.TiendaDisco.RegistrarSede.exception.ManejoErrores;
+import com.TiendaDisco.RegistrarSede.mapper.Mapper;
 import com.TiendaDisco.RegistrarSede.model.Sede;
 import com.TiendaDisco.RegistrarSede.repository.SedeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,6 +31,7 @@ class SedeServiceTest {
     private SedeService sedeService;
 
     private Sede sede;
+    private SedeDTO sedeDTO;
 
     @BeforeEach
     void setUp() {
@@ -38,15 +41,17 @@ class SedeServiceTest {
                 .direccionSede("Av. Principal 123")
                 .numberSedeTelefono("+56912345678")
                 .build();
+        sedeDTO = Mapper.toDTO(sede);
     }
 
     @Test
     void getAllSedes_ShouldReturnListOfSedes() {
         when(sedeRepository.findAll()).thenReturn(List.of(sede));
 
-        List<Sede> result = sedeService.getAllSedes();
+        List<SedeDTO> result = sedeService.getAllSedes();
 
-        assertThat(result).hasSize(1).contains(sede);
+        assertThat(result).hasSize(1);
+        assertThat(result.get(0).getNombreSede()).isEqualTo(sedeDTO.getNombreSede());
         verify(sedeRepository).findAll();
     }
 
@@ -64,9 +69,9 @@ class SedeServiceTest {
     void getSedeId_WhenExists_ShouldReturnSede() {
         when(sedeRepository.findById(1L)).thenReturn(Optional.of(sede));
 
-        Sede result = sedeService.getSedeId(1L);
+        SedeDTO result = sedeService.getSedeId(1L);
 
-        assertThat(result).isEqualTo(sede);
+        assertThat(result.getNombreSede()).isEqualTo(sedeDTO.getNombreSede());
         verify(sedeRepository).findById(1L);
     }
 

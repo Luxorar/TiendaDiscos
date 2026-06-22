@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistroResenas.service;
 
+import com.TiendaDisco.RegistroResenas.DTO.DiscoDTO;
 import com.TiendaDisco.RegistroResenas.model.Disco;
 
 import java.util.List;
@@ -8,9 +9,9 @@ public interface IDiscoService{
 
     Disco postDisco(Disco d);
 
-    List<Disco> getAllDiscos();
+    List<DiscoDTO> getAllDiscos();
 
-    Disco getDiscoId(Long id);
+    DiscoDTO getDiscoId(Long id);
 
     String putDisco(Long id, Disco d);
 

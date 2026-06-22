@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistroResenas.controller;
 
+import com.TiendaDisco.RegistroResenas.DTO.UserDTO;
 import com.TiendaDisco.RegistroResenas.model.User;
 import com.TiendaDisco.RegistroResenas.service.UserService;
 import jakarta.validation.Valid;
@@ -20,12 +21,12 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<UserDTO> getAllUsers(){
         return service.getAllUsers();
     }
 
     @GetMapping("{id}")
-    public User getUserId(@Valid @PathVariable Long id){
+    public UserDTO getUserId(@Valid @PathVariable Long id){
         return service.getUserId(id);
     }
 

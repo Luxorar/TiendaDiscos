@@ -1,6 +1,8 @@
 package com.TiendaDisco.RegistroResenas.service;
 
+import com.TiendaDisco.RegistroResenas.DTO.DiscoDTO;
 import com.TiendaDisco.RegistroResenas.exception.ManejoErrores;
+import com.TiendaDisco.RegistroResenas.mapper.Mapper;
 import com.TiendaDisco.RegistroResenas.model.Disco;
 import com.TiendaDisco.RegistroResenas.repository.DiscoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +19,14 @@ public class DiscoService implements IDiscoService{
         return repo.save(d);
     }
 
-    public List<Disco> getAllDiscos(){
-        return repo.findAll();
+    public List<DiscoDTO> getAllDiscos(){
+        return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
-    public Disco getDiscoId(Long id){
-        return repo.findById(id)
+    public DiscoDTO getDiscoId(Long id){
+        Disco disco = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrada"));
+        return Mapper.toDTO(disco);
     }
 
     public String putDisco(Long id, Disco d){

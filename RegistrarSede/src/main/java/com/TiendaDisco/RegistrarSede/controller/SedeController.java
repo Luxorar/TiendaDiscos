@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistrarSede.controller;
 
+import com.TiendaDisco.RegistrarSede.dto.SedeDTO;
 import com.TiendaDisco.RegistrarSede.model.Sede;
 import com.TiendaDisco.RegistrarSede.service.SedeService;
 import jakarta.validation.Valid;
@@ -20,12 +21,12 @@ public class SedeController {
     }
 
     @GetMapping
-    public List<Sede> getAllSedes(){
+    public List<SedeDTO> getAllSedes(){
         return service.getAllSedes();
     }
 
     @GetMapping("{id}")
-    public Sede getSedeId(@Valid @PathVariable Long id){
+    public SedeDTO getSedeId(@Valid @PathVariable Long id){
         return service.getSedeId(id);
     }
 
