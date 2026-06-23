@@ -1,6 +1,8 @@
 package com.TiendaDisco.AdministracionEnvios.service;
 
+import com.TiendaDisco.AdministracionEnvios.DTO.EnvioDTO;
 import com.TiendaDisco.AdministracionEnvios.exception.ManejoErrores;
+import com.TiendaDisco.AdministracionEnvios.mapper.Mapper;
 import com.TiendaDisco.AdministracionEnvios.model.Envio;
 import com.TiendaDisco.AdministracionEnvios.model.EstadoEnvio;
 import com.TiendaDisco.AdministracionEnvios.repository.EnvioRepository;
@@ -21,8 +23,8 @@ public class EnvioService implements IEnvioService{
     }
 
     @Override
-    public List<Envio> getAllEnvios() {
-        return repo.findAll().stream().toList();
+    public List<EnvioDTO> getAllEnvios() {
+        return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
     @Override

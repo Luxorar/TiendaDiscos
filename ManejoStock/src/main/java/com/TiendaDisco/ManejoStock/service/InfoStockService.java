@@ -1,7 +1,9 @@
 package com.TiendaDisco.ManejoStock.service;
 
+import com.TiendaDisco.ManejoStock.DTO.InfoStockDTO;
 import com.TiendaDisco.ManejoStock.exception.ManejoErrores;
 
+import com.TiendaDisco.ManejoStock.mapper.Mapper;
 import com.TiendaDisco.ManejoStock.model.Sede;
 import com.TiendaDisco.ManejoStock.model.infoStock;
 
@@ -28,29 +30,36 @@ public class InfoStockService implements IInfoStockService {
     }
 
     @Override
-    public List<infoStock> getSedeInfo(String nombreSede) {
+    public List<InfoStockDTO> getSedeInfo(String nombreSede) {
         List<infoStock> lista = stockRepo.findBySede_NombreSede(nombreSede);
         if(lista.isEmpty()){
             throw new ManejoErrores("No se encontró stock para la sede: " + nombreSede);
         }
-        return lista;
+        return lista.stream().map(Mapper::toDTO).toList();
     }
 
     @Override
-    public infoStock getProductoInfo(String nombreProducto) {
-        return stockRepo.findByNombreProducto(nombreProducto)
+    public InfoStockDTO getProductoInfo(String nombreProducto) {
+        infoStock stock = stockRepo.findByNombreProducto(nombreProducto)
                 .orElseThrow(() -> new ManejoErrores("No se encontró información para el producto: " + nombreProducto));
+        return Mapper.toDTO(stock);
     }
 
     @Override
-    public infoStock getInfoID(Long id) {
+    public InfoStockDTO getInfoID(Long id) {
+        infoStock stock = stockRepo.findById(id)
+                .orElseThrow(() -> new ManejoErrores("ID de stock no encontrado: " + id));
+        return Mapper.toDTO(stock);
+    }
+
+    private infoStock getInfoStockEntity(Long id) {
         return stockRepo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("ID de stock no encontrado: " + id));
     }
 
     @Override
     public String putNombreProducto(Long id, String nuevoNombre) {
-        infoStock stock = getInfoID(id);
+        infoStock stock = getInfoStockEntity(id);
         stock.setNombreProducto(nuevoNombre);
         stockRepo.save(stock);
         return "Nombre del producto actualizado exitosamente a: " + nuevoNombre;
@@ -58,7 +67,7 @@ public class InfoStockService implements IInfoStockService {
 
     @Override
     public String putStock(Long id, int nuevoStock) {
-        infoStock stock = getInfoID(id);
+        infoStock stock = getInfoStockEntity(id);
         stock.setStockActual(nuevoStock);
         stockRepo.save(stock);
         return "Stock actualizado exitosamente a: " + nuevoStock;
@@ -66,7 +75,7 @@ public class InfoStockService implements IInfoStockService {
 
     @Override
     public String putSede(Long id, String nombreSede) {
-        infoStock stock = getInfoID(id);
+        infoStock stock = getInfoStockEntity(id);
 
         Sede nuevaSede = sedeRepo.findByNombreSede(nombreSede)
                 .orElseThrow(() -> new ManejoErrores("La sede especificada no existe: " + nombreSede));
@@ -77,8 +86,13 @@ public class InfoStockService implements IInfoStockService {
     }
 
     @Override
+    public List<InfoStockDTO> getAllInfoStock() {
+        return stockRepo.findAll().stream().map(Mapper::toDTO).toList();
+    }
+
+    @Override
     public String deleteInfo(Long id) {
-        infoStock stock = getInfoID(id);
+        infoStock stock = getInfoStockEntity(id);
         stockRepo.delete(stock);
         return "Registro de stock eliminado exitosamente";
     }

@@ -1,5 +1,6 @@
 package com.TiendaDisco.ManejoStock.controller;
 
+import com.TiendaDisco.ManejoStock.DTO.InfoStockDTO;
 import com.TiendaDisco.ManejoStock.model.infoStock;
 import com.TiendaDisco.ManejoStock.service.IInfoStockService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -52,7 +53,7 @@ public class InfoStockController {
                     description = "Datos invalidos")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<infoStock> getInfoID(@PathVariable Long id) {
+    public ResponseEntity<InfoStockDTO> getInfoID(@PathVariable Long id) {
         return ResponseEntity.ok(stockService.getInfoID(id));
     }
 
@@ -67,7 +68,7 @@ public class InfoStockController {
                     description = "Datos invalidos")
     })
     @GetMapping("/producto/{nombreProducto}")
-    public ResponseEntity<infoStock> getProductoInfo(@PathVariable String nombreProducto) {
+    public ResponseEntity<InfoStockDTO> getProductoInfo(@PathVariable String nombreProducto) {
         return ResponseEntity.ok(stockService.getProductoInfo(nombreProducto));
     }
 
@@ -82,7 +83,7 @@ public class InfoStockController {
                     description = "Datos invalidos")
     })
     @GetMapping("/sede/{nombreSede}")
-    public ResponseEntity<List<infoStock>> getSedeInfo(@PathVariable String nombreSede) {
+    public ResponseEntity<List<InfoStockDTO>> getSedeInfo(@PathVariable String nombreSede) {
         return ResponseEntity.ok(stockService.getSedeInfo(nombreSede));
     }
 

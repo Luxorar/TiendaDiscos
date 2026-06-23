@@ -20,6 +20,11 @@ public class DiscoService implements IDiscoService {
     private DiscoRepository discoRepository;
 
     @Override
+    public List<Disco> getAllDiscos() {
+        return discoRepository.findAll();
+    }
+
+    @Override
     public List<Disco> getListaDiscos(String user) {
         Carrito carro = carritoRepository.findByUserUserName(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));

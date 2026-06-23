@@ -1,10 +1,14 @@
 package com.TiendaDisco.RegistroResenas.service;
 
+import com.TiendaDisco.RegistroResenas.DTO.UserDTO;
 import com.TiendaDisco.RegistroResenas.exception.ManejoErrores;
+import com.TiendaDisco.RegistroResenas.mapper.Mapper;
 import com.TiendaDisco.RegistroResenas.model.User;
 import com.TiendaDisco.RegistroResenas.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService implements IUserService{
@@ -15,9 +19,14 @@ public class UserService implements IUserService{
         return repo.save(u);
     }
 
-    public User getUserId(Long id){
-        return repo.findById(id)
+    public List<UserDTO> getAllUsers(){
+        return repo.findAll().stream().map(Mapper::toDTO).toList();
+    }
+
+    public UserDTO getUserId(Long id){
+        User user = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrada"));
+        return Mapper.toDTO(user);
     }
 
     public String putUsers(Long id, User u){

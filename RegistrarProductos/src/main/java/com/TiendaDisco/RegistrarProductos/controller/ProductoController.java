@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistrarProductos.controller;
 
+import com.TiendaDisco.RegistrarProductos.dto.ProductoDTO;
 import com.TiendaDisco.RegistrarProductos.model.Producto;
 import com.TiendaDisco.RegistrarProductos.service.IProductoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -49,8 +50,8 @@ public class ProductoController {
                     description = "Datos invalidos")
     })
     @GetMapping
-    public List<Producto> getListaProducto() {
-        return productoService.getListaProducto();
+    public List<ProductoDTO> getAllProductos() {
+        return productoService.getAllProductos();
     }
 
     @Operation(
@@ -64,7 +65,7 @@ public class ProductoController {
                     description = "Datos invalidos")
     })
     @GetMapping("/{id}")
-    public Producto getProductoID(@PathVariable Long id) {
+    public ProductoDTO getProductoID(@PathVariable Long id) {
         return productoService.getProductoID(id);
     }
 
@@ -79,7 +80,7 @@ public class ProductoController {
                     description = "Datos invalidos")
     })
     @GetMapping("/nombre/{nombre}")
-    public List<Producto> getProductoNombre(@PathVariable String nombre) {
+    public List<ProductoDTO> getProductoNombre(@PathVariable String nombre) {
         return productoService.getProductoNombre(nombre);
     }
 
@@ -94,7 +95,7 @@ public class ProductoController {
                     description = "Datos invalidos")
     })
     @GetMapping("/marca/{marca}")
-    public List<Producto> getProductoMarca(@PathVariable String marca) {
+    public List<ProductoDTO> getProductoMarca(@PathVariable String marca) {
         return productoService.getProductoMarca(marca);
     }
 

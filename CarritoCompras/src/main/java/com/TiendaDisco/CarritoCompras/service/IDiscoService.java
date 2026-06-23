@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IDiscoService {
 
+    List<Disco> getAllDiscos();
+
     List<Disco> getListaDiscos(String user);
 
     Disco putDisco(String user, Disco disco);

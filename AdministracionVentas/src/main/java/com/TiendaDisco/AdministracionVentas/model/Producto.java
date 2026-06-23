@@ -19,5 +19,5 @@ public class Producto {
     @NotBlank(message= "Se debe ingresar un nombre") String nombre;
 
     @Column(name = "precio")
-    @NotBlank(message= "Se debe ingresar un precio") int precio;
+    int precio;
 }

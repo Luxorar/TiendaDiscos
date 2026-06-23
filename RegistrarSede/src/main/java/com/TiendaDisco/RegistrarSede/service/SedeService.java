@@ -1,6 +1,8 @@
 package com.TiendaDisco.RegistrarSede.service;
 
+import com.TiendaDisco.RegistrarSede.dto.SedeDTO;
 import com.TiendaDisco.RegistrarSede.exception.ManejoErrores;
+import com.TiendaDisco.RegistrarSede.mapper.Mapper;
 import com.TiendaDisco.RegistrarSede.model.Sede;
 import com.TiendaDisco.RegistrarSede.repository.SedeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +19,14 @@ public class SedeService implements ISedeService{
         return repo.save(s);
     }
 
-    public Sede getSedeId(Long id){
-        return repo.findById(id)
+    public SedeDTO getSedeId(Long id){
+        Sede sede = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
+        return Mapper.toDTO(sede);
     }
 
-    public List<Sede> getAllSedes(){
-        return repo.findAll().stream().toList();
+    public List<SedeDTO> getAllSedes(){
+        return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
     public String putSede(Long id, Sede s){

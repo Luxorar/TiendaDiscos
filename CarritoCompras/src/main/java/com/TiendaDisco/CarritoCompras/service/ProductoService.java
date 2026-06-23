@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProductoService implements IProductoService {
@@ -18,6 +19,11 @@ public class ProductoService implements IProductoService {
 
     @Autowired
     private ProductoRepository productoRepository;
+
+    @Override
+    public List<Producto> getAllProductos() {
+        return productoRepository.findAll();
+    }
 
     @Override
     public Producto postProducto(String user, Long idProducto, Producto newProducto) {

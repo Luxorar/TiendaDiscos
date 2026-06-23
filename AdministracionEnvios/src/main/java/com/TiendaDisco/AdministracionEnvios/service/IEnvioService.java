@@ -1,5 +1,6 @@
 package com.TiendaDisco.AdministracionEnvios.service;
 
+import com.TiendaDisco.AdministracionEnvios.DTO.EnvioDTO;
 import com.TiendaDisco.AdministracionEnvios.model.Envio;
 import com.TiendaDisco.AdministracionEnvios.model.EstadoEnvio;
 
@@ -9,7 +10,7 @@ public interface IEnvioService {
 
     Envio postEnvio(Envio envio);
 
-    List<Envio> getAllEnvios();
+    List<EnvioDTO> getAllEnvios();
 
     Envio PutEstadoEnvio(EstadoEnvio estado, Long id);
 

@@ -1,5 +1,6 @@
 package com.TiendaDisco.AdministracionEnvios.controller;
 
+import com.TiendaDisco.AdministracionEnvios.DTO.EnvioDTO;
 import com.TiendaDisco.AdministracionEnvios.model.Envio;
 import com.TiendaDisco.AdministracionEnvios.model.EstadoEnvio;
 import com.TiendaDisco.AdministracionEnvios.service.EnvioService;
@@ -49,7 +50,7 @@ public class EnvioController {
                     description = "Datos invalidos")
     })
     @GetMapping
-    public List<Envio> getAllEnvios() {
+    public List<EnvioDTO> getAllEnvios() {
         return envioService.getAllEnvios();
     }
 

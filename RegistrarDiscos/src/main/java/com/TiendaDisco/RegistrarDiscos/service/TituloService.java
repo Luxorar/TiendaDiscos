@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistrarDiscos.service;
 
+import java.util.List;
 import com.TiendaDisco.RegistrarDiscos.exception.ManejoErrores;
 import com.TiendaDisco.RegistrarDiscos.model.Titulo;
 import com.TiendaDisco.RegistrarDiscos.repository.TituloRepository;
@@ -42,5 +43,10 @@ public class TituloService implements ITituloService {
 
         repo.delete(disc);
         return "Titulo eliminado";
+    }
+
+    @Override
+    public List<Titulo> getAllTitulos() {
+        return repo.findAll();
     }
 }

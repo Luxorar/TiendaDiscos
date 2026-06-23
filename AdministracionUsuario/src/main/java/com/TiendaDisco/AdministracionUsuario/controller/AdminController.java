@@ -1,6 +1,8 @@
 package com.TiendaDisco.AdministracionUsuario.controller;
 
+import com.TiendaDisco.AdministracionUsuario.DTO.AdminDTO;
 import com.TiendaDisco.AdministracionUsuario.DTO.UserDTO;
+import com.TiendaDisco.AdministracionUsuario.model.Admin;
 import com.TiendaDisco.AdministracionUsuario.model.User;
 import com.TiendaDisco.AdministracionUsuario.service.AdminService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -127,5 +129,36 @@ public class AdminController {
     @PutMapping("/id/{id}")
     public User putPuntaje(@PathVariable Long id,@RequestBody Integer puntaje) {
         return adminService.putPuntaje(id, puntaje);
+    }
+
+    @GetMapping("/admins")
+    public List<AdminDTO> getAllAdmin() {
+        return adminService.getAllAdmin();
+    }
+
+    @PostMapping("/admins")
+    public ResponseEntity<Admin> postAdmin(@Valid @RequestBody Admin a) {
+        return ResponseEntity.ok(adminService.postAdmin(a));
+    }
+
+    @GetMapping("/admins/{id}")
+    public ResponseEntity<AdminDTO> getAdminId(@PathVariable Long id) {
+        return ResponseEntity.ok(adminService.getAdminId(id));
+    }
+
+    @GetMapping("/admins/name/{name}")
+    public ResponseEntity<AdminDTO> getAdminName(@PathVariable String name) {
+        return ResponseEntity.ok(adminService.getAdminName(name));
+    }
+
+    @DeleteMapping("/admins/{id}")
+    public ResponseEntity<Void> deleteAdminId(@PathVariable Long id) {
+        adminService.deleteAdminId(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/admins/{id}")
+    public ResponseEntity<Admin> putAdmin(@PathVariable Long id, @Valid @RequestBody Admin a) {
+        return ResponseEntity.ok(adminService.putAdmin(id, a));
     }
 }

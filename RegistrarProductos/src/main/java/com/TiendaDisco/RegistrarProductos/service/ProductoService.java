@@ -1,6 +1,8 @@
 package com.TiendaDisco.RegistrarProductos.service;
 
+import com.TiendaDisco.RegistrarProductos.dto.ProductoDTO;
 import com.TiendaDisco.RegistrarProductos.exception.ManejoErrores;
+import com.TiendaDisco.RegistrarProductos.mapper.Mapper;
 import com.TiendaDisco.RegistrarProductos.model.Producto;
 import com.TiendaDisco.RegistrarProductos.repository.ProductoRepository;
 
@@ -19,17 +21,18 @@ public class ProductoService implements IProductoService {
         return repo.save(p);
     }
 
-    public List<Producto> getListaProducto() {
-        return repo.findAll().stream().toList();
+    public List<ProductoDTO> getAllProductos() {
+        return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
-    public Producto getProductoID(Long id) {
+    public ProductoDTO getProductoID(Long id) {
         return repo.findById(id)
+                .map(Mapper::toDTO)
                 .orElseThrow(() -> new ManejoErrores("Producto no encontrado"));
     }
 
-    public List<Producto> getProductoNombre(String nombre) {
-        return repo.findByNombreProducto(nombre);
+    public List<ProductoDTO> getProductoNombre(String nombre) {
+        return Mapper.toDTOList(repo.findByNombreProducto(nombre));
     }
 
     public String deleteProducto(Long id) {
@@ -39,7 +42,7 @@ public class ProductoService implements IProductoService {
         return "Producto eliminado";
     }
 
-    public List<Producto> getProductoMarca(String marca) {
-        return repo.findByMarca(marca);
+    public List<ProductoDTO> getProductoMarca(String marca) {
+        return Mapper.toDTOList(repo.findByMarca(marca));
     }
 }

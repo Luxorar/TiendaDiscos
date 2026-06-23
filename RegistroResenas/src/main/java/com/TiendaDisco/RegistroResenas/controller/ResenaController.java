@@ -1,5 +1,6 @@
 package com.TiendaDisco.RegistroResenas.controller;
 
+import com.TiendaDisco.RegistroResenas.DTO.ResenaDTO;
 import com.TiendaDisco.RegistroResenas.model.Resena;
 import com.TiendaDisco.RegistroResenas.service.ResenaService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,6 +10,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/Resena")
@@ -46,7 +49,7 @@ public class ResenaController {
                     description = "Datos invalidos")
     })
     @GetMapping("{id}")
-    public Resena getResenaId(@Valid @PathVariable Long id){
+    public ResenaDTO getResenaId(@Valid @PathVariable Long id){
         return service.getResenaId(id);
     }
 
