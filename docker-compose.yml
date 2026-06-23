@@ -4,7 +4,7 @@ services:
     container_name: tiendadiscos-mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: basededatos
+      MYSQL_DATABASE: tiendadiscos
     ports:
       - "3306:3306"
     volumes:
@@ -24,10 +24,13 @@ services:
       dockerfile: AdministracionUsuario/Dockerfile
     container_name: tiendadiscos-usuario
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_user
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_usuarios
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8081:8081"
     depends_on:
@@ -42,10 +45,13 @@ services:
       dockerfile: AdministracionEnvios/Dockerfile
     container_name: tiendadiscos-envios
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_envio
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_envios
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8082:8082"
     depends_on:
@@ -60,10 +66,13 @@ services:
       dockerfile: RegistrarProductos/Dockerfile
     container_name: tiendadiscos-productos
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/registrar_productos
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_productos
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8083:8083"
     depends_on:
@@ -78,10 +87,13 @@ services:
       dockerfile: RegistrarSede/Dockerfile
     container_name: tiendadiscos-sede
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_sede
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_sede
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8084:8084"
     depends_on:
@@ -96,10 +108,13 @@ services:
       dockerfile: RegistroResenas/Dockerfile
     container_name: tiendadiscos-resenas
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_resenas
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8085:8085"
     depends_on:
@@ -114,10 +129,13 @@ services:
       dockerfile: RegistrarDiscos/Dockerfile
     container_name: tiendadiscos-discos
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_discos
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_discos
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8086:8086"
     depends_on:
@@ -132,10 +150,13 @@ services:
       dockerfile: AdministracionDescuentos/Dockerfile
     container_name: tiendadiscos-descuentos
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bd_descuentos
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_descuentos
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8087:8087"
     depends_on:
@@ -150,10 +171,13 @@ services:
       dockerfile: CarritoCompras/Dockerfile
     container_name: tiendadiscos-carrito
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_carro
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_carrito
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8088:8088"
     depends_on:
@@ -168,10 +192,13 @@ services:
       dockerfile: ManejoStock/Dockerfile
     container_name: tiendadiscos-stock
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bd_stock
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_stock
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8089:8089"
     depends_on:
@@ -186,10 +213,13 @@ services:
       dockerfile: AdministracionVentas/Dockerfile
     container_name: tiendadiscos-ventas
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/basededatos_ventas
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/tiendadiscos
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ""
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_FLYWAY_TABLE: flyway_schema_history_ventas
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8091:8091"
     depends_on:

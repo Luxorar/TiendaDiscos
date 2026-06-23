@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor @Builder @Entity
-@Table(name = "PRODUCTO")
+@Table(name = "PRODUCTO_B")
 public class Producto {
 
     @Id

@@ -2,13 +2,14 @@ package com.TiendaDisco.AdministracionDescuentos.service;
 
 import com.TiendaDisco.AdministracionDescuentos.DTO.DescuentoDTO;
 import com.TiendaDisco.AdministracionDescuentos.Repository.DescuentoRepository;
-import com.TiendaDisco.AdministracionDescuentos.Repository.DiscoRepository;
+
+import com.TiendaDisco.AdministracionDescuentos.client.DiscoClient;
+import com.TiendaDisco.AdministracionDescuentos.client.ProductoClient;
 
 import com.TiendaDisco.AdministracionDescuentos.exception.ManejoErrores;
 
 import com.TiendaDisco.AdministracionDescuentos.mapper.Mapper;
 import com.TiendaDisco.AdministracionDescuentos.model.Descuento;
-import com.TiendaDisco.AdministracionDescuentos.model.Disco;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,13 +23,19 @@ public class DescuentoService implements IDescuentoService {
     private DescuentoRepository descuentoRepo;
 
     @Autowired
-    private DiscoRepository discoRepo;
+    private DiscoClient discoClient;
+
+    @Autowired
+    private ProductoClient productoClient;
+
+    @Autowired
+    private Mapper mapper;
 
     @Override
     public List<DescuentoDTO> getAllDescuentos() {
         return descuentoRepo.findAll()
                 .stream()
-                .map(Mapper::toDTO)
+                .map(mapper::toDTO)
                 .toList();
     }
 
@@ -37,19 +44,21 @@ public class DescuentoService implements IDescuentoService {
         Descuento descuento = descuentoRepo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Descuento no encontrado con el ID: " + id));
 
-        return Mapper.toDTO(descuento);
+        return mapper.toDTO(descuento);
     }
 
     @Override
-    public Descuento getDescuentoNombre(String nombre) {
-        return descuentoRepo.findByNombre(nombre)
+    public DescuentoDTO getDescuentoNombre(String nombre) {
+        Descuento descuento = descuentoRepo.findByNombre(nombre)
                 .orElseThrow(() -> new ManejoErrores("Descuento no encontrado con el nombre: " + nombre));
+
+        return mapper.toDTO(descuento);
     }
 
     @Override
     public Descuento postDescuento(Descuento d) {
         return descuentoRepo.save(d);
-    }//Buscar como guardar un descuento pero que el disco o producto agregados se pueda poner unicamente la id
+    }
 
     @Override
     public String putDescuento(Long id, Descuento d) {
@@ -62,7 +71,7 @@ public class DescuentoService implements IDescuentoService {
 
         descuentoRepo.save(desc);
         return "Descuento modificado exitosamente";
-    }//Buscar como guardar un descuento pero que el disco o producto agregados se pueda poner unicamente la id
+    }
 
     @Override
     public String deleteDescuento(Long id) {
@@ -78,12 +87,58 @@ public class DescuentoService implements IDescuentoService {
         Descuento desc = descuentoRepo.findByNombre(nombreDescuento)
                 .orElseThrow(() -> new ManejoErrores("Descuento no encontrado: " + nombreDescuento));
 
-        Disco disco = discoRepo.findById(idDisco)
-                .orElseThrow(() -> new ManejoErrores("Disco no encontrado con el ID: " + idDisco));
+        try {
+            discoClient.obtenerDiscoPorId(idDisco);
+        } catch (Exception e) {
+            throw new ManejoErrores("Disco no encontrado con el ID: " + idDisco);
+        }
 
-        desc.getDiscosAgregados().add(disco);
+        desc.getDiscoIds().add(idDisco);
         descuentoRepo.save(desc);
 
         return "Disco agregado al descuento exitosamente";
+    }
+
+    @Override
+    public String quitarDisco(String nombreDescuento, Long idDisco) {
+        Descuento desc = descuentoRepo.findByNombre(nombreDescuento)
+                .orElseThrow(() -> new ManejoErrores("Descuento no encontrado: " + nombreDescuento));
+
+        if (!desc.getDiscoIds().remove(idDisco)) {
+            throw new ManejoErrores("Disco con ID " + idDisco + " no está asociado al descuento");
+        }
+
+        descuentoRepo.save(desc);
+        return "Disco eliminado del descuento exitosamente";
+    }
+
+    @Override
+    public String agregarProducto(String nombreDescuento, Long idProducto) {
+        Descuento desc = descuentoRepo.findByNombre(nombreDescuento)
+                .orElseThrow(() -> new ManejoErrores("Descuento no encontrado: " + nombreDescuento));
+
+        try {
+            productoClient.obtenerProductoPorId(idProducto);
+        } catch (Exception e) {
+            throw new ManejoErrores("Producto no encontrado con el ID: " + idProducto);
+        }
+
+        desc.getProductoIds().add(idProducto);
+        descuentoRepo.save(desc);
+
+        return "Producto agregado al descuento exitosamente";
+    }
+
+    @Override
+    public String quitarProducto(String nombreDescuento, Long idProducto) {
+        Descuento desc = descuentoRepo.findByNombre(nombreDescuento)
+                .orElseThrow(() -> new ManejoErrores("Descuento no encontrado: " + nombreDescuento));
+
+        if (!desc.getProductoIds().remove(idProducto)) {
+            throw new ManejoErrores("Producto con ID " + idProducto + " no está asociado al descuento");
+        }
+
+        descuentoRepo.save(desc);
+        return "Producto eliminado del descuento exitosamente";
     }
 }

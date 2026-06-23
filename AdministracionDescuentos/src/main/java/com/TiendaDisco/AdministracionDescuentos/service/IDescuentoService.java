@@ -2,20 +2,20 @@ package com.TiendaDisco.AdministracionDescuentos.service;
 
 import com.TiendaDisco.AdministracionDescuentos.DTO.DescuentoDTO;
 import com.TiendaDisco.AdministracionDescuentos.model.Descuento;
+
 import java.util.List;
 
 public interface IDescuentoService {
-    List<DescuentoDTO> getAllDescuentos();
 
-    DescuentoDTO getDescuentoId(Long id);
+    public List<DescuentoDTO> getAllDescuentos();
+    public DescuentoDTO getDescuentoId(Long id);
+    public DescuentoDTO getDescuentoNombre(String nombre);
+    public Descuento postDescuento(Descuento d);
+    public String putDescuento(Long id, Descuento d);
+    public String deleteDescuento(Long id);
 
-    Descuento getDescuentoNombre(String nombre);
-
-    Descuento postDescuento(Descuento d);
-
-    String putDescuento(Long id, Descuento d);
-
-    String deleteDescuento(Long id);
-
-    String agregarDisco(String nombreDescuento, Long idDisco);
+    public String agregarDisco(String nombreDescuento, Long idDisco);
+    public String quitarDisco(String nombreDescuento, Long idDisco);
+    public String agregarProducto(String nombreDescuento, Long idProducto);
+    public String quitarProducto(String nombreDescuento, Long idProducto);
 }

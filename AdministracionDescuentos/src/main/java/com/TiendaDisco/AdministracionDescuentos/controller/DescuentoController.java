@@ -33,7 +33,7 @@ public class DescuentoController {
     }
 
     @GetMapping("/buscar")
-    public ResponseEntity<Descuento> getDescuentoNombre(@RequestParam String nombre) {
+    public ResponseEntity<DescuentoDTO> getDescuentoNombre(@RequestBody String nombre) {
         return ResponseEntity.ok(descuentoService.getDescuentoNombre(nombre));
     }
 
@@ -52,8 +52,23 @@ public class DescuentoController {
         return ResponseEntity.ok(descuentoService.deleteDescuento(id));
     }
 
-    @PostMapping("/{nombreDescuento}/discos/{idDisco}")
-    public ResponseEntity<String> agregarDisco(@PathVariable String nombreDescuento, @PathVariable Long idDisco) {
+    @PostMapping("/descuento/{nombreDescuento}")
+    public ResponseEntity<String> agregarDisco(@PathVariable String nombreDescuento, @RequestBody Long idDisco) {
         return ResponseEntity.ok(descuentoService.agregarDisco(nombreDescuento, idDisco));
+    }
+
+    @DeleteMapping("/descuento/{nombreDescuento}")
+    public ResponseEntity<String> quitarDisco(@PathVariable String nombreDescuento, @RequestBody Long idDisco) {
+        return ResponseEntity.ok(descuentoService.quitarDisco(nombreDescuento, idDisco));
+    }
+
+    @PostMapping("/producto/{nombreDescuento}")
+    public ResponseEntity<String> agregarProducto(@PathVariable String nombreDescuento, @RequestBody Long idProducto) {
+        return ResponseEntity.ok(descuentoService.agregarProducto(nombreDescuento, idProducto));
+    }
+
+    @DeleteMapping("/producto/{nombreDescuento}")
+    public ResponseEntity<String> quitarProducto(@PathVariable String nombreDescuento, @RequestBody Long idProducto) {
+        return ResponseEntity.ok(descuentoService.quitarProducto(nombreDescuento, idProducto));
     }
 }
