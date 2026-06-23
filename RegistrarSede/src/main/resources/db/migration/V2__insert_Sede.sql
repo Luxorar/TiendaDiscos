@@ -1,16 +1,16 @@
 -- Productos
-INSERT INTO PRODUCTOS (nombre, precio) VALUES ('Tocadiscos Portátil', 89000);
-INSERT INTO PRODUCTOS (nombre, precio) VALUES ('Audífonos Over-Ear', 120000);
-INSERT INTO PRODUCTOS (nombre, precio) VALUES ('Limpiador de Vinilos', 25000);
-INSERT INTO PRODUCTOS (nombre, precio) VALUES ('Aguja de Repuesto', 45000);
-INSERT INTO PRODUCTOS (nombre, precio) VALUES ('Amplificador de Escritorio', 75000);
+INSERT INTO PRODUCTOS_B (nombre, precio) VALUES ('Tocadiscos Portátil', 89000);
+INSERT INTO PRODUCTOS_B (nombre, precio) VALUES ('Audífonos Over-Ear', 120000);
+INSERT INTO PRODUCTOS_B (nombre, precio) VALUES ('Limpiador de Vinilos', 25000);
+INSERT INTO PRODUCTOS_B (nombre, precio) VALUES ('Aguja de Repuesto', 45000);
+INSERT INTO PRODUCTOS_B (nombre, precio) VALUES ('Amplificador de Escritorio', 75000);
 
 -- Discos
-INSERT INTO DISCOS (nombre, artista, precio) VALUES ('The Dark Side of the Moon', 'Pink Floyd', 35000);
-INSERT INTO DISCOS (nombre, artista, precio) VALUES ('Thriller', 'Michael Jackson', 30000);
-INSERT INTO DISCOS (nombre, artista, precio) VALUES ('Back in Black', 'AC/DC', 32000);
-INSERT INTO DISCOS (nombre, artista, precio) VALUES ('Rumours', 'Fleetwood Mac', 28000);
-INSERT INTO DISCOS (nombre, artista, precio) VALUES ('Kind of Blue', 'Miles Davis', 33000);
+INSERT INTO DISCOS_B (nombre, artista, precio) VALUES ('The Dark Side of the Moon', 'Pink Floyd', 35000);
+INSERT INTO DISCOS_B (nombre, artista, precio) VALUES ('Thriller', 'Michael Jackson', 30000);
+INSERT INTO DISCOS_B (nombre, artista, precio) VALUES ('Back in Black', 'AC/DC', 32000);
+INSERT INTO DISCOS_B (nombre, artista, precio) VALUES ('Rumours', 'Fleetwood Mac', 28000);
+INSERT INTO DISCOS_B (nombre, artista, precio) VALUES ('Kind of Blue', 'Miles Davis', 33000);
 
 -- Sedes
 INSERT INTO SEDES (nombre, direccion, numero_sede) VALUES ('Sede Santiago Centro', 'Av. Libertador Bernardo O Higgins 1234', '+56221234567');

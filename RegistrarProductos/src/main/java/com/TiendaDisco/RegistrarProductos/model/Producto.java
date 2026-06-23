@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor @Builder @Entity
-@Table(name = "PRODUCTO")
+@Table(name = "PRODUCTO_B")
 @Schema(
         name = "Producto",
         description = "microservicio dedicado a administrar productos"

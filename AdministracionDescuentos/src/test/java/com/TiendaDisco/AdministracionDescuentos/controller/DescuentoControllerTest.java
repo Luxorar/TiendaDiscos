@@ -14,7 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -64,11 +64,11 @@ public class DescuentoControllerTest {
     void debeCrearDescuentoYRetornar201() throws Exception {
 
         Descuento entrada = new Descuento(1L, "Descuento de ejemplo",
-                null,Estado.ACTIVO,null,null,0.1
+                Estado.ACTIVO, null, null, 0.1
         );
 
         Descuento creado = new Descuento(2L, "Descuento de ejemplo-2",
-                null, Estado.INACTIVO,null,null,0.2
+                Estado.INACTIVO, null, null, 0.2
         );
 
         when(descuentoService.postDescuento(any())).thenReturn(creado);
@@ -116,6 +116,58 @@ public class DescuentoControllerTest {
         when(descuentoService.deleteDescuento(1L)).thenReturn("Descuento eliminado exitosamente");
 
         mockMvc.perform(delete("/api/v1/descuentos/1"))
+                .andExpect(status().isOk());
+    }
+
+    //------------------------------agregar disco------------------------------------------------
+
+    @Test
+    void debeAgregarDiscoAlDescuento() throws Exception {
+        when(descuentoService.agregarDisco("Verano", 100L))
+                .thenReturn("Disco agregado al descuento exitosamente");
+
+        mockMvc.perform(post("/api/v1/descuentos/descuento/Verano")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("100"))
+                .andExpect(status().isOk());
+    }
+
+    //------------------------------quitar disco--------------------------------------------------
+
+    @Test
+    void debeQuitarDiscoDelDescuento() throws Exception {
+        when(descuentoService.quitarDisco("Verano", 100L))
+                .thenReturn("Disco eliminado del descuento exitosamente");
+
+        mockMvc.perform(delete("/api/v1/descuentos/descuento/Verano")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("100"))
+                .andExpect(status().isOk());
+    }
+
+    //------------------------------agregar producto-----------------------------------------------
+
+    @Test
+    void debeAgregarProductoAlDescuento() throws Exception {
+        when(descuentoService.agregarProducto("Verano", 200L))
+                .thenReturn("Producto agregado al descuento exitosamente");
+
+        mockMvc.perform(post("/api/v1/descuentos/producto/Verano")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("200"))
+                .andExpect(status().isOk());
+    }
+
+    //------------------------------quitar producto------------------------------------------------
+
+    @Test
+    void debeQuitarProductoDelDescuento() throws Exception {
+        when(descuentoService.quitarProducto("Verano", 200L))
+                .thenReturn("Producto eliminado del descuento exitosamente");
+
+        mockMvc.perform(delete("/api/v1/descuentos/producto/Verano")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("200"))
                 .andExpect(status().isOk());
     }
 

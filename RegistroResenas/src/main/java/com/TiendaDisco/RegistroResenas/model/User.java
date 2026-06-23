@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder @Entity
-@Table(name = "USUARIO")
+@Table(name = "USUARIO_D")
 @Schema(
         name="Resena",
         description = "microservicio capaz de obtener las resenas de los usuarios"

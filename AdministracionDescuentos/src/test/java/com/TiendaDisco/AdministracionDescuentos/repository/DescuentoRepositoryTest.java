@@ -7,12 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+@ActiveProfiles("test")
 class DescuentoRepositoryTest {
 
     @Autowired
@@ -25,7 +27,7 @@ class DescuentoRepositoryTest {
 
     @Test
     void debeBuscarPorNombreExistente() {
-        descuentoRepository.save(new Descuento(null, "CyberMonday", null, Estado.ACTIVO, null, null, 10));
+        descuentoRepository.save(new Descuento(null, "CyberMonday", Estado.ACTIVO, null, null, 10));
 
         Optional<Descuento> resultado = descuentoRepository.findByNombre("CyberMonday");
 
@@ -42,7 +44,7 @@ class DescuentoRepositoryTest {
 
     @Test
     void debeGuardarYAsignarIdAutomaticamente() {
-        Descuento descuento = new Descuento(null, "BlackFriday", null, Estado.ACTIVO, null, null, 20);
+        Descuento descuento = new Descuento(null, "BlackFriday", Estado.ACTIVO, null, null, 20);
 
         Descuento guardado = descuentoRepository.save(descuento);
 

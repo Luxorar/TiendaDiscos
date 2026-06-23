@@ -1,11 +1,11 @@
-INSERT INTO DISCO (nombre, artista) VALUES ('Thriller', 'Michael Jackson');
-INSERT INTO DISCO (nombre, artista) VALUES ('The Dark Side of the Moon', 'Pink Floyd');
-INSERT INTO DISCO (nombre, artista) VALUES ('Back in Black', 'AC/DC');
-INSERT INTO DISCO (nombre, artista) VALUES ('Abbey Road', 'The Beatles');
+INSERT INTO DISCO_B (nombre, artista) VALUES ('Thriller', 'Michael Jackson');
+INSERT INTO DISCO_B (nombre, artista) VALUES ('The Dark Side of the Moon', 'Pink Floyd');
+INSERT INTO DISCO_B (nombre, artista) VALUES ('Back in Black', 'AC/DC');
+INSERT INTO DISCO_B (nombre, artista) VALUES ('Abbey Road', 'The Beatles');
 
-INSERT INTO USUARIO (nombre, gmail) VALUES ('Luchi', 'luchi@gmail.com');
-INSERT INTO USUARIO (nombre, gmail) VALUES ('Ana Garcia', 'ana.garcia@gmail.com');
-INSERT INTO USUARIO (nombre, gmail) VALUES ('Pedro Pascal', 'pedrito@gmail.com');
+INSERT INTO USUARIO_D (nombre, gmail) VALUES ('Luchi', 'luchi@gmail.com');
+INSERT INTO USUARIO_D (nombre, gmail) VALUES ('Ana Garcia', 'ana.garcia@gmail.com');
+INSERT INTO USUARIO_D (nombre, gmail) VALUES ('Pedro Pascal', 'pedrito@gmail.com');
 
 -- Luchi (ID 1) comenta sobre Thriller (ID 1)
 INSERT INTO RESENA (mensaje, user_id, disco_id)
