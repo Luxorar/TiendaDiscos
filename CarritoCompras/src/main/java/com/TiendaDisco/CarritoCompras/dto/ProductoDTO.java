@@ -9,5 +9,6 @@ import lombok.*;
 public class ProductoDTO {
     private Long id;
     private String nombreProducto;
-    private int precio;
+    private String marca;
+    private Integer precio;
 }

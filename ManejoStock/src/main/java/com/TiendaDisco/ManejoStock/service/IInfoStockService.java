@@ -13,11 +13,8 @@ public interface IInfoStockService {
 
     InfoStockDTO getInfoID(Long id);
 
-    String putNombreProducto(Long id, String nuevoNombre);
-
     String putStock(Long id, int nuevoStock);
 
-    String putSede(Long id, String nombreSede);
 
     String deleteInfo(Long id);
 

@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,8 +31,8 @@ class DiscoServiceTest {
     @Test
     void debeRetornarTodosLosDiscos() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco1 = new Disco(1L, "Back in Black", "AC/DC", 15000, titulo);
-        Disco disco2 = new Disco(2L, "The Wall", "Pink Floyd", 20000, null);
+        Disco disco1 = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
+        Disco disco2 = new Disco(2L, "The Wall", "Pink Floyd", 20000, Collections.emptyList());
 
         when(discoRepository.findAll()).thenReturn(List.of(disco1, disco2));
 
@@ -40,17 +41,17 @@ class DiscoServiceTest {
         assertThat(resultado).hasSize(2);
         assertThat(resultado.get(0).getNombreDisco()).isEqualTo("Back in Black");
         assertThat(resultado.get(0).getArtista()).isEqualTo("AC/DC");
-        assertThat(resultado.get(0).getTitulo()).isEqualTo("Rock Clasico");
+        assertThat(resultado.get(0).getTitulos()).isEqualTo(List.of("Rock Clasico"));
         assertThat(resultado.get(1).getNombreDisco()).isEqualTo("The Wall");
         assertThat(resultado.get(1).getArtista()).isEqualTo("Pink Floyd");
-        assertThat(resultado.get(1).getTitulo()).isNull();
+        assertThat(resultado.get(1).getTitulos()).isEqualTo(Collections.emptyList());
         verify(discoRepository, times(1)).findAll();
     }
 
     @Test
     void debeRetornarDiscoCuandoExiste() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, titulo);
+        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
 
         when(discoRepository.findById(1L)).thenReturn(Optional.of(disco));
 
@@ -59,7 +60,7 @@ class DiscoServiceTest {
         assertThat(resultado.getNombreDisco()).isEqualTo("Back in Black");
         assertThat(resultado.getArtista()).isEqualTo("AC/DC");
         assertThat(resultado.getPrecio()).isEqualTo(15000);
-        assertThat(resultado.getTitulo()).isEqualTo("Rock Clasico");
+        assertThat(resultado.getTitulos()).isEqualTo(List.of("Rock Clasico"));
         verify(discoRepository, times(1)).findById(1L);
     }
 
@@ -75,7 +76,7 @@ class DiscoServiceTest {
     @Test
     void debeGuardarDisco() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco = new Disco(null, "Back in Black", "AC/DC", 15000, titulo);
+        Disco disco = new Disco(null, "Back in Black", "AC/DC", 15000, List.of(titulo));
 
         when(discoRepository.save(any(Disco.class))).thenReturn(disco);
 
@@ -89,8 +90,8 @@ class DiscoServiceTest {
     @Test
     void debeModificarDisco() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco discoExistente = new Disco(1L, "Back in Black", "AC/DC", 15000, titulo);
-        Disco nuevosDatos = new Disco(null, "Highway to Hell", "AC/DC", 18000, titulo);
+        Disco discoExistente = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
+        Disco nuevosDatos = new Disco(null, "Highway to Hell", "AC/DC", 18000, List.of(titulo));
 
         when(discoRepository.findById(1L)).thenReturn(Optional.of(discoExistente));
 
@@ -114,7 +115,7 @@ class DiscoServiceTest {
     @Test
     void debeEliminarDisco() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, titulo);
+        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
 
         when(discoRepository.findById(1L)).thenReturn(Optional.of(disco));
 

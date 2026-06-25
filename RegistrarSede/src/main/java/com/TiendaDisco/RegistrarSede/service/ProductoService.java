@@ -11,37 +11,37 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProductoService implements IProductoService{
+public class ProductoService implements IProductoService {
     @Autowired
     private ProductoRepository repo;
 
-    public Producto postProducto(Producto p){
+    public Producto postProducto(Producto p) {
         return repo.save(p);
     }
 
-    public ProductoDTO getProductoId(Long id){
-        Producto prod = repo.findById(id)
+    public ProductoDTO getProductoId(Long id) {
+        Producto producto = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrada"));
-        return Mapper.toDTO(prod);
+        return Mapper.toDTO(producto);
     }
 
-    public String putProducto(Long id, Producto p){
-        Producto prod = repo.findById(id)
-                .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrada"));
-
-        prod.setNombreProducto(p.getNombreProducto());
-        prod.setPrecio(p.getPrecio());
-        return "Datos del Producto modificados";
-    }
-
-    public List<ProductoDTO> getAllProductos(){
+    public List<ProductoDTO> getAllProductos() {
         return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
-    public String deleteProducto(Long id){
-        Producto p = repo.findById(id)
+    public String putProducto(Long id, Producto p) {
+        Producto producto = repo.findById(id)
+                .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrada"));
+        producto.setNombreProducto(p.getNombreProducto());
+        producto.setPrecio(p.getPrecio());
+        repo.save(producto);
+        return "Datos del Producto modificados";
+    }
+
+    public String deleteProducto(Long id) {
+        Producto producto = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Usuario no encontrado"));
-        repo.delete(p);
+        repo.delete(producto);
         return "Producto elimiando";
     }
 }

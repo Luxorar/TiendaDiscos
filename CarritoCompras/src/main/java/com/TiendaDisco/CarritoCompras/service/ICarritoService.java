@@ -12,9 +12,9 @@ public interface ICarritoService {
 
     Carrito postCarrito(Carrito c);
 
-    CarritoDTO getCarrito(String usuario);
+    CarritoDTO getCarrito(Long usuario);
 
-    String updateCarrito(Carrito c, String usuario);
+    String updateCarrito(Carrito c, Long usuario);
 
-    void deleteCarrito(String usuario);
+    void deleteCarrito(Long usuario);
 }

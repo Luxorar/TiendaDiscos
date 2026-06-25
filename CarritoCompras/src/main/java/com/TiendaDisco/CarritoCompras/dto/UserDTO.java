@@ -2,6 +2,8 @@ package com.TiendaDisco.CarritoCompras.dto;
 
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -9,5 +11,6 @@ import lombok.*;
 public class UserDTO {
     private Long id;
     private String userName;
-    private String gmail;
+    private LocalDate fechaRegistro;
+    private int puntos;
 }

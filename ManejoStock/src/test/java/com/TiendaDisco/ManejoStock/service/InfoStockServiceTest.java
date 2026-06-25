@@ -3,10 +3,10 @@ package com.TiendaDisco.ManejoStock.service;
 import com.TiendaDisco.ManejoStock.DTO.InfoStockDTO;
 import com.TiendaDisco.ManejoStock.exception.ManejoErrores;
 import com.TiendaDisco.ManejoStock.mapper.Mapper;
-import com.TiendaDisco.ManejoStock.model.Sede;
+import com.TiendaDisco.ManejoStock.model.Producto;
+import com.TiendaDisco.ManejoStock.model.TipoProducto;
 import com.TiendaDisco.ManejoStock.model.infoStock;
 import com.TiendaDisco.ManejoStock.repository.InfoStockRepository;
-import com.TiendaDisco.ManejoStock.repository.SedeRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -27,16 +27,27 @@ class InfoStockServiceTest {
     private InfoStockRepository infoStockRepo;
 
     @Mock
-    private SedeRepository sedeRepo;
+    private Mapper mapper;
 
     @InjectMocks
     private InfoStockService service;
 
     @Test
     void getAllInfoStock_shouldReturnAllStock() {
+        Producto producto = new Producto();
+        producto.setTipoProducto(TipoProducto.PRODUCTO);
+        producto.setIdProducto(1L);
+
         infoStock entity = new infoStock();
-        entity.setNombreProducto("Guitarra");
+        entity.setId(1L);
+        entity.setProducto(producto);
+        entity.setSede(1L);
+        entity.setStockActual(10);
+
+        InfoStockDTO dto = InfoStockDTO.builder().id(1L).nombreProducto("Guitarra").nombreSede("Sede Central").stockActual(10).build();
+
         when(infoStockRepo.findAll()).thenReturn(List.of(entity));
+        when(mapper.toDTO(entity)).thenReturn(dto);
 
         List<InfoStockDTO> result = service.getAllInfoStock();
 
@@ -47,7 +58,15 @@ class InfoStockServiceTest {
 
     @Test
     void postInfoStock_shouldSaveAndReturn() {
+        Producto producto = new Producto();
+        producto.setTipoProducto(TipoProducto.PRODUCTO);
+        producto.setIdProducto(1L);
+
         infoStock stock = new infoStock();
+        stock.setProducto(producto);
+        stock.setSede(1L);
+        stock.setStockActual(10);
+
         when(infoStockRepo.save(stock)).thenReturn(stock);
 
         infoStock result = service.postInfoStock(stock);
@@ -57,33 +76,64 @@ class InfoStockServiceTest {
     }
 
     @Test
-    void getSedeInfo_shouldReturnStockForSede() {
+    void getSedeInfo_happy_shouldReturnStockForSede() {
+        Producto producto = new Producto();
+        producto.setTipoProducto(TipoProducto.PRODUCTO);
+        producto.setIdProducto(1L);
+
         infoStock stock = new infoStock();
-        stock.setNombreProducto("Bajo");
-        when(infoStockRepo.findBySede_NombreSede("Centro")).thenReturn(List.of(stock));
+        stock.setId(1L);
+        stock.setProducto(producto);
+        stock.setSede(1L);
+        stock.setStockActual(10);
+
+        InfoStockDTO dto = InfoStockDTO.builder().id(1L).nombreProducto("Bajo").nombreSede("Centro").stockActual(10).build();
+
+        when(infoStockRepo.findAll()).thenReturn(List.of(stock));
+        when(mapper.toDTO(stock)).thenReturn(dto);
 
         List<InfoStockDTO> result = service.getSedeInfo("Centro");
 
         assertThat(result).hasSize(1);
         assertThat(result.get(0).getNombreProducto()).isEqualTo("Bajo");
-        verify(infoStockRepo).findBySede_NombreSede("Centro");
+        verify(infoStockRepo).findAll();
+    }
+
+    @Test
+    void getSedeInfo_notFound_shouldThrow() {
+        when(infoStockRepo.findAll()).thenReturn(List.of());
+
+        assertThatThrownBy(() -> service.getSedeInfo("NoExiste"))
+                .isInstanceOf(ManejoErrores.class)
+                .hasMessageContaining("No se encontró stock para la sede: NoExiste");
     }
 
     @Test
     void getProductoInfo_happy_shouldReturnStock() {
+        Producto producto = new Producto();
+        producto.setTipoProducto(TipoProducto.PRODUCTO);
+        producto.setIdProducto(1L);
+
         infoStock stock = new infoStock();
-        stock.setNombreProducto("Test");
-        when(infoStockRepo.findByNombreProducto("Test")).thenReturn(Optional.of(stock));
+        stock.setId(1L);
+        stock.setProducto(producto);
+        stock.setSede(1L);
+        stock.setStockActual(10);
+
+        InfoStockDTO dto = InfoStockDTO.builder().id(1L).nombreProducto("Test").nombreSede("Sede").stockActual(10).build();
+
+        when(infoStockRepo.findAll()).thenReturn(List.of(stock));
+        when(mapper.toDTO(stock)).thenReturn(dto);
 
         InfoStockDTO result = service.getProductoInfo("Test");
 
         assertThat(result.getNombreProducto()).isEqualTo("Test");
-        verify(infoStockRepo).findByNombreProducto("Test");
+        verify(infoStockRepo).findAll();
     }
 
     @Test
     void getProductoInfo_notFound_shouldThrow() {
-        when(infoStockRepo.findByNombreProducto("No existe")).thenReturn(Optional.empty());
+        when(infoStockRepo.findAll()).thenReturn(List.of());
 
         assertThatThrownBy(() -> service.getProductoInfo("No existe"))
                 .isInstanceOf(ManejoErrores.class)
@@ -92,9 +142,20 @@ class InfoStockServiceTest {
 
     @Test
     void getInfoID_happy_shouldReturnStock() {
+        Producto producto = new Producto();
+        producto.setTipoProducto(TipoProducto.PRODUCTO);
+        producto.setIdProducto(1L);
+
         infoStock stock = new infoStock();
-        stock.setNombreProducto("Piano");
+        stock.setId(1L);
+        stock.setProducto(producto);
+        stock.setSede(1L);
+        stock.setStockActual(10);
+
+        InfoStockDTO dto = InfoStockDTO.builder().id(1L).nombreProducto("Piano").nombreSede("Sede").stockActual(10).build();
+
         when(infoStockRepo.findById(1L)).thenReturn(Optional.of(stock));
+        when(mapper.toDTO(stock)).thenReturn(dto);
 
         InfoStockDTO result = service.getInfoID(1L);
 
@@ -109,27 +170,6 @@ class InfoStockServiceTest {
         assertThatThrownBy(() -> service.getInfoID(99L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("ID de stock no encontrado: 99");
-    }
-
-    @Test
-    void putNombreProducto_happy_shouldUpdateName() {
-        infoStock stock = new infoStock();
-        stock.setNombreProducto("Old");
-        when(infoStockRepo.findById(1L)).thenReturn(Optional.of(stock));
-
-        String result = service.putNombreProducto(1L, "New");
-
-        assertThat(result).contains("New");
-        assertThat(stock.getNombreProducto()).isEqualTo("New");
-        verify(infoStockRepo).save(stock);
-    }
-
-    @Test
-    void putNombreProducto_notFound_shouldThrow() {
-        when(infoStockRepo.findById(99L)).thenReturn(Optional.empty());
-
-        assertThatThrownBy(() -> service.putNombreProducto(99L, "New"))
-                .isInstanceOf(ManejoErrores.class);
     }
 
     @Test
@@ -151,40 +191,6 @@ class InfoStockServiceTest {
 
         assertThatThrownBy(() -> service.putStock(99L, 10))
                 .isInstanceOf(ManejoErrores.class);
-    }
-
-    @Test
-    void putSede_happy_shouldUpdateSede() {
-        infoStock stock = new infoStock();
-        Sede sede = new Sede();
-        sede.setNombreSede("NewSede");
-        when(infoStockRepo.findById(1L)).thenReturn(Optional.of(stock));
-        when(sedeRepo.findByNombreSede("NewSede")).thenReturn(Optional.of(sede));
-
-        String result = service.putSede(1L, "NewSede");
-
-        assertThat(result).contains("NewSede");
-        assertThat(stock.getSede()).isSameAs(sede);
-        verify(infoStockRepo).save(stock);
-    }
-
-    @Test
-    void putSede_notFoundStock_shouldThrow() {
-        when(infoStockRepo.findById(99L)).thenReturn(Optional.empty());
-
-        assertThatThrownBy(() -> service.putSede(99L, "NewSede"))
-                .isInstanceOf(ManejoErrores.class);
-    }
-
-    @Test
-    void putSede_sedeNotFound_shouldThrow() {
-        infoStock stock = new infoStock();
-        when(infoStockRepo.findById(1L)).thenReturn(Optional.of(stock));
-        when(sedeRepo.findByNombreSede("NoExiste")).thenReturn(Optional.empty());
-
-        assertThatThrownBy(() -> service.putSede(1L, "NoExiste"))
-                .isInstanceOf(ManejoErrores.class)
-                .hasMessageContaining("La sede especificada no existe: NoExiste");
     }
 
     @Test

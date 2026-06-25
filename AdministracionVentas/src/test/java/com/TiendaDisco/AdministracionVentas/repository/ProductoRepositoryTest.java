@@ -1,6 +1,8 @@
 package com.TiendaDisco.AdministracionVentas.repository;
 
 import com.TiendaDisco.AdministracionVentas.model.Producto;
+import com.TiendaDisco.AdministracionVentas.model.TipoProducto;
+import org.springframework.test.context.ActiveProfiles;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+@ActiveProfiles("test")
 class ProductoRepositoryTest {
 
     @Autowired
@@ -23,7 +26,7 @@ class ProductoRepositoryTest {
 
     @Test
     void debeGuardarYAsignarIdAutomaticamente() {
-        Producto producto = new Producto(null, "Guitarra", 50000);
+        Producto producto = new Producto(null, "Guitarra", 50000, null, TipoProducto.PRODUCTO);
 
         Producto guardado = productoRepository.save(producto);
 
@@ -33,7 +36,7 @@ class ProductoRepositoryTest {
 
     @Test
     void debeBuscarPorIdExistente() {
-        Producto producto = productoRepository.save(new Producto(null, "Bateria", 80000));
+        Producto producto = productoRepository.save(new Producto(null, "Bateria", 80000, null, TipoProducto.PRODUCTO));
 
         Optional<Producto> resultado = productoRepository.findById(producto.getId());
 

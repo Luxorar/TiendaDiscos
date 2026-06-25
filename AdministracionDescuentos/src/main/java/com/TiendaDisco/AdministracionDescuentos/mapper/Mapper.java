@@ -8,8 +8,9 @@ import com.TiendaDisco.AdministracionDescuentos.model.Descuento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class Mapper {
@@ -23,29 +24,41 @@ public class Mapper {
     public DescuentoDTO toDTO(Descuento descuento){
         if(descuento == null) return null;
 
-        List<String> listaDisco = new ArrayList<>();
-        for (Long id : descuento.getDiscoIds()) {
-            var response = discoClient.obtenerDiscoPorId(id);
-            if (response.getBody() != null) {
-                listaDisco.add(response.getBody().getArtista() + " - " + response.getBody().getNombreDisco());
-            }
-        }
-
-        List<String> listaP = new ArrayList<>();
-        for (Long id : descuento.getProductoIds()) {
-            var response = productoClient.obtenerProductoPorId(id);
-            if (response.getBody() != null) {
-                listaP.add(response.getBody().getNombreProducto() + " - " + response.getBody().getMarca());
-            }
-        }
-
         return DescuentoDTO.builder()
                 .id(descuento.getId())
                 .nombre(descuento.getNombre())
                 .estado(descuento.getEstado())
                 .descuento(descuento.getDescuento())
-                .discosAgregados(listaDisco)
-                .productosAgregados(listaP)
+                .discosAgregados(resolverNombresDiscos(descuento.getDiscoIds()))
+                .productosAgregados(resolverNombresProductos(descuento.getProductoIds()))
                 .build();
+    }
+
+    private List<String> resolverNombresDiscos(List<Long> ids) {
+        if (ids == null) return Collections.emptyList();
+        return ids.stream()
+                .map(id -> {
+                    try {
+                        var response = discoClient.obtenerDiscoPorId(id);
+                        return response.getBody() != null ? response.getBody().getNombreDisco() : "Disco no disponible";
+                    } catch (Exception e) {
+                        return "Error al obtener disco ID: " + id;
+                    }
+                })
+                .collect(Collectors.toList());
+    }
+
+    private List<String> resolverNombresProductos(List<Long> ids) {
+        if (ids == null) return Collections.emptyList();
+        return ids.stream()
+                .map(id -> {
+                    try {
+                        var response = productoClient.obtenerProductoPorId(id);
+                        return response.getBody() != null ? response.getBody().getNombreProducto() : "Producto no disponible";
+                    } catch (Exception e) {
+                        return "Error al obtener producto ID: " + id;
+                    }
+                })
+                .collect(Collectors.toList());
     }
 }

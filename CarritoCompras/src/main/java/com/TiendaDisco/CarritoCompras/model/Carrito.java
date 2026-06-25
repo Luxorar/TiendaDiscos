@@ -35,9 +35,8 @@ public class Carrito {
             example = "Juanito"
     )
     @NotNull(message = "Campo de usuario obligatorio")
-    @OneToOne
-    @JoinColumn(name="usuario_id")
-    private User user;
+    @Column(name="user_id")
+    private Long userId;
 
     @Schema(
             name="Productos agregados",
@@ -59,7 +58,7 @@ public class Carrito {
             joinColumns = @JoinColumn(name = "carrito_id"),
             inverseJoinColumns = @JoinColumn(name = "disco_id")
     )
-    private ArrayList<Disco> discosAgregados = new ArrayList<>();
+    private List<Disco> discosAgregados = new ArrayList<>();
 
     @Schema(
             name="Descuento",

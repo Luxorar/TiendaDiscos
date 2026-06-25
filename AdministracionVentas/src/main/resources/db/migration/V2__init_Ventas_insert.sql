@@ -1,6 +1,3 @@
-INSERT INTO USUARIO_B (user_name, gmail) VALUES ('Luchi', 'luchi@gmail.com');
-INSERT INTO USUARIO_B (user_name, gmail) VALUES ('Ana Garcia', 'ana.garcia@gmail.com');
-
 INSERT INTO PRODUCTO (nombre, precio) VALUES ('Thriller - Michael Jackson', 40000);
 INSERT INTO PRODUCTO (nombre, precio) VALUES ('The Dark Side of the Moon - Pink Floyd', 30000);
 INSERT INTO PRODUCTO (nombre, precio) VALUES ('Tocadiscos Portátil', 89000);

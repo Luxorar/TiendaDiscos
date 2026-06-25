@@ -11,8 +11,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -47,10 +45,10 @@ public class SedeControllerTest {
     void debeCrearSede() throws Exception {
         Sede entrada = Sede.builder().nombreSede("Sede Central")
                 .direccionSede("Av. Principal 123").numberSedeTelefono("123456789")
-                .listProducto(new ArrayList<>()).listDisco(new ArrayList<>()).build();
+                .build();
         Sede creado = Sede.builder().id(1L).nombreSede("Sede Central")
                 .direccionSede("Av. Principal 123").numberSedeTelefono("123456789")
-                .listProducto(new ArrayList<>()).listDisco(new ArrayList<>()).build();
+                .build();
 
         when(service.postSede(any())).thenReturn(creado);
 
@@ -66,7 +64,7 @@ public class SedeControllerTest {
     void debeActualizarSede() throws Exception {
         Sede actualizado = Sede.builder().nombreSede("Sede Norte")
                 .direccionSede("Av. Norte 456").numberSedeTelefono("987654321")
-                .listProducto(new ArrayList<>()).listDisco(new ArrayList<>()).build();
+                .build();
 
         when(service.putSede(any(Long.class), any())).thenReturn("Sede actualizada");
 

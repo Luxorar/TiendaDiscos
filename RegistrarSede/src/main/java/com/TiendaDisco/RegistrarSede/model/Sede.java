@@ -29,20 +29,4 @@ public class Sede {
     @NotBlank(message = "numero de Sede obligatorio")
     @Column(name="numero_sede")
     private String numberSedeTelefono;
-
-    @JsonIgnore
-    @ManyToMany @JoinTable(
-            name= "SEDE_PRODUCTOS",
-            joinColumns = @JoinColumn(name = "sede_id"),
-            inverseJoinColumns = @JoinColumn(name = "producto_id")
-    )
-    private List<Producto> listProducto = new ArrayList<>();
-
-    @JsonIgnore
-    @ManyToMany @JoinTable(
-            name= "SEDE_DISCOS",
-            joinColumns = @JoinColumn(name = "sede_id"),
-            inverseJoinColumns = @JoinColumn(name = "disco_id")
-    )
-    private List<Disco> listDisco = new ArrayList<>();
 }

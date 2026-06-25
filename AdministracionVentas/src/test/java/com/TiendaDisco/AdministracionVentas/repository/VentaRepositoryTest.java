@@ -1,11 +1,13 @@
 package com.TiendaDisco.AdministracionVentas.repository;
 
-import com.TiendaDisco.AdministracionVentas.model.Usuario;
+import com.TiendaDisco.AdministracionVentas.model.Producto;
+import com.TiendaDisco.AdministracionVentas.model.TipoProducto;
 import com.TiendaDisco.AdministracionVentas.model.Venta;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,47 +15,49 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+@ActiveProfiles("test")
 class VentaRepositoryTest {
 
     @Autowired
     private VentaRepository ventaRepository;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private ProductoRepository productoRepository;
+
+    private Producto producto;
 
     @BeforeEach
     void setUp() {
         ventaRepository.deleteAll();
-        usuarioRepository.deleteAll();
+        productoRepository.deleteAll();
+        producto = productoRepository.save(new Producto(null, "Test Producto", 10000, null, TipoProducto.PRODUCTO));
     }
 
     @Test
-    void debeBuscarPorUsuarioUserName() {
-        Usuario usuario = usuarioRepository.save(new Usuario(null, "Ana", "ana@mail.com"));
+    void debeBuscarPorUsuarioId() {
         ventaRepository.save(Venta.builder()
-                .usuario(usuario)
+                .usuario(1L)
                 .fechaVenta(LocalDate.now())
                 .puntosGanados(10)
                 .build());
 
-        List<Venta> resultado = ventaRepository.findByUsuarioUserName("Ana");
+        List<Venta> resultado = ventaRepository.findByUsuario(1L);
 
         assertThat(resultado).hasSize(1);
-        assertThat(resultado.get(0).getUsuario().getUserName()).isEqualTo("Ana");
+        assertThat(resultado.get(0).getUsuario()).isEqualTo(1L);
     }
 
     @Test
     void debeRetornarListaVaciaCuandoNoExistenVentas() {
-        List<Venta> resultado = ventaRepository.findByUsuarioUserName("NoExiste");
+        List<Venta> resultado = ventaRepository.findByUsuario(99L);
 
         assertThat(resultado).isEmpty();
     }
 
     @Test
     void debeGuardarYAsignarIdAutomaticamente() {
-        Usuario usuario = usuarioRepository.save(new Usuario(null, "Luis", "luis@mail.com"));
         Venta venta = Venta.builder()
-                .usuario(usuario)
+                .usuario(2L)
                 .fechaVenta(LocalDate.now())
                 .puntosGanados(20)
                 .build();

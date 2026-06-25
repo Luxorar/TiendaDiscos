@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class EnvioDTO {
     private Long id;
-    private Long ventaId;
+    private VentaDTO ventaId;
     private String direccionDestino;
     private TipoDespacho tipoDespacho;
     private String empresaReparto;

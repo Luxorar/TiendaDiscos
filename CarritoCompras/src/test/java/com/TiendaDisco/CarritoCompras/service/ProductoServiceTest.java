@@ -49,18 +49,18 @@ class ProductoServiceTest {
         productos.add(producto);
         Carrito carrito = new Carrito();
         carrito.setProductosAgregados(productos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        ArrayList<Producto> result = productoService.getListaProducto("user", null);
+        ArrayList<Producto> result = productoService.getListaProducto(1L, null);
 
         assertThat(result).hasSize(1).contains(producto);
     }
 
     @Test
     void getListaProducto_whenCarritoNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> productoService.getListaProducto("unknown", null))
+        assertThatThrownBy(() -> productoService.getListaProducto(999L, null))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
     }
@@ -73,18 +73,18 @@ class ProductoServiceTest {
         productos.add(producto);
         Carrito carrito = new Carrito();
         carrito.setProductosAgregados(productos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        Producto result = productoService.getProducto("user", 1L);
+        Producto result = productoService.getProducto(1L, 1L);
 
         assertThat(result).isSameAs(producto);
     }
 
     @Test
     void getProducto_whenCarritoNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> productoService.getProducto("unknown", 1L))
+        assertThatThrownBy(() -> productoService.getProducto(999L, 1L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
     }
@@ -93,9 +93,9 @@ class ProductoServiceTest {
     void getProducto_whenProductoNotFound_throwsManejoErrores() {
         Carrito carrito = new Carrito();
         carrito.setProductosAgregados(new ArrayList<>());
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        assertThatThrownBy(() -> productoService.getProducto("user", 999L))
+        assertThatThrownBy(() -> productoService.getProducto(1L, 999L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Producto no encontrado");
     }
@@ -105,10 +105,10 @@ class ProductoServiceTest {
         Carrito carrito = new Carrito();
         carrito.setProductosAgregados(new ArrayList<>());
         Producto newProducto = new Producto();
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
         when(productoRepository.save(newProducto)).thenReturn(newProducto);
 
-        Producto result = productoService.postProducto("user", 1L, newProducto);
+        Producto result = productoService.postProducto(1L, 1L, newProducto);
 
         assertThat(result).isSameAs(newProducto);
         assertThat(carrito.getProductosAgregados()).contains(newProducto);
@@ -131,10 +131,10 @@ class ProductoServiceTest {
         productos.add(existente);
         Carrito carrito = new Carrito();
         carrito.setProductosAgregados(productos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
         when(productoRepository.save(existente)).thenReturn(existente);
 
-        Producto result = productoService.putProducto("user", update);
+        Producto result = productoService.putProducto(1L, update);
 
         assertThat(result.getNombreProducto()).isEqualTo("new");
         assertThat(result.getPrecio()).isEqualTo(200);
@@ -149,9 +149,9 @@ class ProductoServiceTest {
         productos.add(producto);
         Carrito carrito = new Carrito();
         carrito.setProductosAgregados(productos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        String result = productoService.deleteProducto("user", 1L);
+        String result = productoService.deleteProducto(1L, 1L);
 
         assertThat(result).isEqualTo("Producto eliminado del carrito");
         assertThat(carrito.getProductosAgregados()).doesNotContain(producto);
@@ -161,9 +161,9 @@ class ProductoServiceTest {
 
     @Test
     void deleteProducto_whenCarritoNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> productoService.deleteProducto("unknown", 1L))
+        assertThatThrownBy(() -> productoService.deleteProducto(999L, 1L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
     }

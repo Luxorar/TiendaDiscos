@@ -8,13 +8,13 @@ public interface IDiscoService {
 
     List<Disco> getAllDiscos();
 
-    List<Disco> getListaDiscos(String user);
+    List<Disco> getListaDiscos(Long user);
 
-    Disco putDisco(String user, Disco disco);
+    Disco putDisco(Long user, Disco disco);
 
-    Disco getDisco(String user, Long idDisco);
+    Disco getDisco(Long user, Long idDisco);
 
-    String deleteDiscos(String user, Long idDisco);
+    String deleteDiscos(Long user, Long idDisco);
 
-    Disco postDisco(String user, Long idDisco, Disco newDisco);
+    Disco postDisco(Long user, Long idDisco, Disco newDisco);
 }

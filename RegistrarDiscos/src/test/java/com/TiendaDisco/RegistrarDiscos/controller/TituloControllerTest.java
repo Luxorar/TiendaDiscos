@@ -10,8 +10,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -32,7 +30,7 @@ public class TituloControllerTest {
 
     @Test
     void debeRetornarTituloPorId() throws Exception {
-        Titulo titulo = new Titulo(1L, "Thriller", new ArrayList<>());
+        Titulo titulo = new Titulo(1L, "Thriller", null);
 
         when(tituloService.getTituloId(1L)).thenReturn(titulo);
 
@@ -43,8 +41,8 @@ public class TituloControllerTest {
 
     @Test
     void debeCrearTitulo() throws Exception {
-        Titulo entrada = new Titulo(null, "Thriller", new ArrayList<>());
-        Titulo creado = new Titulo(1L, "Thriller", new ArrayList<>());
+        Titulo entrada = new Titulo(null, "Thriller", null);
+        Titulo creado = new Titulo(1L, "Thriller", null);
 
         when(tituloService.postTitulo(any())).thenReturn(creado);
 
@@ -58,7 +56,7 @@ public class TituloControllerTest {
 
     @Test
     void debeActualizarTitulo() throws Exception {
-        Titulo actualizado = new Titulo(1L, "Thriller 25", new ArrayList<>());
+        Titulo actualizado = new Titulo(1L, "Thriller 25", null);
 
         when(tituloService.putTitulo(any(Long.class), any())).thenReturn("Titulo actualizado");
 

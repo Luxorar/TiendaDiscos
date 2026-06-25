@@ -1,7 +1,6 @@
 package com.TiendaDisco.CarritoCompras.repository;
 
 import com.TiendaDisco.CarritoCompras.model.Carrito;
-import com.TiendaDisco.CarritoCompras.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,37 +16,40 @@ class CarritoRepositoryTest {
     @Autowired
     private CarritoRepository carritoRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @BeforeEach
     void setUp() {
         carritoRepository.deleteAll();
-        userRepository.deleteAll();
     }
 
     @Test
-    void debeBuscarPorUserUserNameExistente() {
-        User user = userRepository.save(new User(null, "Ana", "ana@mail.com", "pass", null));
-        carritoRepository.save(Carrito.builder().user(user).build());
+    void debeBuscarPorUserIdExistente() {
+        Carrito carrito = Carrito.builder()
+                .userId(1L)
+                .productosAgregados(new java.util.ArrayList<>())
+                .discosAgregados(new java.util.ArrayList<>())
+                .build();
+        carritoRepository.save(carrito);
 
-        Optional<Carrito> resultado = carritoRepository.findByUserUserName("Ana");
+        Optional<Carrito> resultado = carritoRepository.findByUserId(1L);
 
         assertThat(resultado).isPresent();
-        assertThat(resultado.get().getUser().getUserName()).isEqualTo("Ana");
+        assertThat(resultado.get().getUserId()).isEqualTo(1L);
     }
 
     @Test
-    void debeRetornarVacioCuandoUserUserNameNoExiste() {
-        Optional<Carrito> resultado = carritoRepository.findByUserUserName("NoExiste");
+    void debeRetornarVacioCuandoUserIdNoExiste() {
+        Optional<Carrito> resultado = carritoRepository.findByUserId(999L);
 
         assertThat(resultado).isEmpty();
     }
 
     @Test
     void debeGuardarYAsignarIdAutomaticamente() {
-        User user = userRepository.save(new User(null, "Luis", "luis@mail.com", "pass", null));
-        Carrito carrito = Carrito.builder().user(user).build();
+        Carrito carrito = Carrito.builder()
+                .userId(2L)
+                .productosAgregados(new java.util.ArrayList<>())
+                .discosAgregados(new java.util.ArrayList<>())
+                .build();
 
         Carrito guardado = carritoRepository.save(carrito);
 

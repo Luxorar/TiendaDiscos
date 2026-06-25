@@ -3,6 +3,7 @@ package com.TiendaDisco.RegistrarDiscos.controller;
 import com.TiendaDisco.RegistrarDiscos.dto.DiscoDTO;
 import com.TiendaDisco.RegistrarDiscos.model.Disco;
 import com.TiendaDisco.RegistrarDiscos.service.DiscoService;
+import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class DiscoControllerTest {
     void debeRetornarDiscoPorId() throws Exception {
         DiscoDTO dto = DiscoDTO.builder()
                 .id(1L).nombreDisco("Thriller").artista("Michael Jackson")
-                .precio(15000).titulo("Thriller").build();
+                .precio(15000).titulos(List.of("Thriller")).build();
 
         when(discoService.getDiscoId(1L)).thenReturn(dto);
 

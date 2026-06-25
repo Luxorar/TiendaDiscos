@@ -2,6 +2,7 @@ package com.TiendaDisco.CarritoCompras.service;
 
 import com.TiendaDisco.CarritoCompras.dto.CarritoDTO;
 import com.TiendaDisco.CarritoCompras.exception.ManejoErrores;
+import com.TiendaDisco.CarritoCompras.mapper.Mapper;
 import com.TiendaDisco.CarritoCompras.model.Carrito;
 import com.TiendaDisco.CarritoCompras.repository.CarritoRepository;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,9 @@ class CarritoServiceTest {
 
     @Mock
     private CarritoRepository carritoRepository;
+
+    @Mock
+    private Mapper mapper;
 
     @InjectMocks
     private CarritoService carritoService;
@@ -49,27 +53,31 @@ class CarritoServiceTest {
 
     @Test
     void getCarrito_whenFound_returnsDTO() {
-        Carrito carrito = new Carrito();
-        com.TiendaDisco.CarritoCompras.model.User user = new com.TiendaDisco.CarritoCompras.model.User();
-        user.setUserName("testuser");
-        carrito.setUser(user);
-        when(carritoRepository.findByUserUserName("testuser")).thenReturn(Optional.of(carrito));
+        Carrito carrito = Carrito.builder()
+                .userId(1L)
+                .productosAgregados(new java.util.ArrayList<>())
+                .discosAgregados(new java.util.ArrayList<>())
+                .build();
+        CarritoDTO dtoEsperado = CarritoDTO.builder().user("testuser").build();
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
+        when(mapper.toDTO(carrito)).thenReturn(dtoEsperado);
 
-        CarritoDTO result = carritoService.getCarrito("testuser");
+        CarritoDTO result = carritoService.getCarrito(1L);
 
         assertThat(result).isNotNull();
         assertThat(result.getUser()).isEqualTo("testuser");
-        verify(carritoRepository).findByUserUserName("testuser");
+        verify(carritoRepository).findByUserId(1L);
+        verify(mapper).toDTO(carrito);
     }
 
     @Test
     void getCarrito_whenNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> carritoService.getCarrito("unknown"))
+        assertThatThrownBy(() -> carritoService.getCarrito(999L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessage("Usuario no encontrado");
-        verify(carritoRepository).findByUserUserName("unknown");
+        verify(carritoRepository).findByUserId(999L);
     }
 
     @Test
@@ -78,9 +86,9 @@ class CarritoServiceTest {
         existing.setDescuento(0.0);
         Carrito update = new Carrito();
         update.setDescuento(10.0);
-        when(carritoRepository.findByUserUserName("testuser")).thenReturn(Optional.of(existing));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(existing));
 
-        String result = carritoService.updateCarrito(update, "testuser");
+        String result = carritoService.updateCarrito(update, 1L);
 
         assertThat(result).isEqualTo("Carrito actualizado");
         assertThat(existing.getDescuento()).isEqualTo(10.0);
@@ -89,33 +97,33 @@ class CarritoServiceTest {
 
     @Test
     void updateCarrito_whenNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> carritoService.updateCarrito(new Carrito(), "unknown"))
+        assertThatThrownBy(() -> carritoService.updateCarrito(new Carrito(), 999L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
-        verify(carritoRepository).findByUserUserName("unknown");
+        verify(carritoRepository).findByUserId(999L);
         verify(carritoRepository, never()).save(any());
     }
 
     @Test
     void deleteCarrito_whenFound_deletesCarrito() {
         Carrito carrito = new Carrito();
-        when(carritoRepository.findByUserUserName("testuser")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        carritoService.deleteCarrito("testuser");
+        carritoService.deleteCarrito(1L);
 
         verify(carritoRepository).delete(carrito);
     }
 
     @Test
     void deleteCarrito_whenNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> carritoService.deleteCarrito("unknown"))
+        assertThatThrownBy(() -> carritoService.deleteCarrito(999L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
-        verify(carritoRepository).findByUserUserName("unknown");
+        verify(carritoRepository).findByUserId(999L);
         verify(carritoRepository, never()).delete(any());
     }
 }

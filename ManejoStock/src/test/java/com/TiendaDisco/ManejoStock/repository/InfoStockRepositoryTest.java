@@ -1,60 +1,65 @@
 package com.TiendaDisco.ManejoStock.repository;
 
-import com.TiendaDisco.ManejoStock.model.Sede;
+import com.TiendaDisco.ManejoStock.model.Producto;
+import com.TiendaDisco.ManejoStock.model.TipoProducto;
 import com.TiendaDisco.ManejoStock.model.infoStock;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ActiveProfiles("test")
 @DataJpaTest
 class InfoStockRepositoryTest {
 
     @Autowired
-    private InfoStockRepository infoStockRepository;
+    private TestEntityManager entityManager;
 
     @Autowired
-    private SedeRepository sedeRepository;
+    private InfoStockRepository infoStockRepository;
 
-    @BeforeEach
-    void setUp() {
-        infoStockRepository.deleteAll();
-        sedeRepository.deleteAll();
+    @Test
+    void debeGuardarYAsignarIdAutomaticamente() {
+        Producto producto = new Producto();
+        producto.setTipoProducto(TipoProducto.PRODUCTO);
+        producto.setIdProducto(1L);
+        producto.setSede(1L);
+        producto.setProducto(producto);
+        entityManager.persist(producto);
+
+        infoStock item = new infoStock();
+        item.setProducto(producto);
+        item.setSede(1L);
+        item.setStockActual(10);
+
+        infoStock guardado = infoStockRepository.save(item);
+
+        assertThat(guardado.getId()).isNotNull();
+        assertThat(guardado.getId()).isPositive();
+        assertThat(guardado.getStockActual()).isEqualTo(10);
     }
 
     @Test
-    void debeBuscarPorSedeNombreSede() {
-        Sede sede = sedeRepository.save(new Sede(null, "Sede Central", "Av. Principal 123"));
-        infoStock item = new infoStock(null, "Camiseta", sede, 10);
+    void debeGuardarYRecuperarStock() {
+        Producto p = new Producto();
+        p.setTipoProducto(TipoProducto.PRODUCTO);
+        p.setIdProducto(1L);
+        p.setSede(1L);
+        p.setProducto(p);
+        entityManager.persist(p);
+
+        infoStock item = new infoStock();
+        item.setProducto(p);
+        item.setSede(1L);
+        item.setStockActual(5);
         infoStockRepository.save(item);
 
-        List<infoStock> resultado = infoStockRepository.findBySede_NombreSede("Sede Central");
-
-        assertThat(resultado).hasSize(1);
-        assertThat(resultado.get(0).getNombreProducto()).isEqualTo("Camiseta");
-    }
-
-    @Test
-    void debeBuscarPorNombreProductoExistente() {
-        Sede sede = sedeRepository.save(new Sede(null, "Sede Norte", "Av. Norte 456"));
-        infoStock item = new infoStock(null, "Guitarra", sede, 5);
-        infoStockRepository.save(item);
-
-        Optional<infoStock> resultado = infoStockRepository.findByNombreProducto("Guitarra");
-
-        assertThat(resultado).isPresent();
-        assertThat(resultado.get().getNombreProducto()).isEqualTo("Guitarra");
-    }
-
-    @Test
-    void debeRetornarVacioCuandoNombreProductoNoExiste() {
-        Optional<infoStock> resultado = infoStockRepository.findByNombreProducto("NoExiste");
-
-        assertThat(resultado).isEmpty();
+        assertThat(infoStockRepository.count()).isEqualTo(2);
+        assertThat(infoStockRepository.findAll())
+                .extracting(infoStock::getStockActual)
+                .contains(5);
     }
 }
