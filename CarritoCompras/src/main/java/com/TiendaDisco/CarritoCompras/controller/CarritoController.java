@@ -32,9 +32,9 @@ public class CarritoController {
         return carritoService.getListaCarrito();
     }
 
-    @GetMapping("/{username}")
-    public CarritoDTO getByUser(@PathVariable String username) {
-        return carritoService.getCarrito(username);
+    @GetMapping("/{userId}")
+    public CarritoDTO getByUser(@PathVariable Long userId) {
+        return carritoService.getCarrito(userId);
     }
 
     @PostMapping
@@ -42,65 +42,65 @@ public class CarritoController {
         return ResponseEntity.ok(carritoService.postCarrito(carrito));
     }
 
-    @PostMapping("/{username}/discos/{idDisco}")
-    public Disco addDisco(@PathVariable String username, @PathVariable Long idDisco,
+    @PostMapping("/{userId}/discos/{idDisco}")
+    public Disco addDisco(@PathVariable Long userId, @PathVariable Long idDisco,
                            @Valid @RequestBody Disco disco) {
-        return discoService.postDisco(username, idDisco, disco);
+        return discoService.postDisco(userId, idDisco, disco);
     }
 
-    @PostMapping("/{username}/productos/{idProducto}")
-    public Producto addProducto(@PathVariable String username, @PathVariable Long idProducto,
+    @PostMapping("/{userId}/productos/{idProducto}")
+    public Producto addProducto(@PathVariable Long userId, @PathVariable Long idProducto,
                                  @Valid @RequestBody Producto producto) {
-        return productoService.postProducto(username, idProducto, producto);
+        return productoService.postProducto(userId, idProducto, producto);
     }
 
-    @DeleteMapping("/{username}/discos/{idDisco}")
-    public String removeDisco(@PathVariable String username, @PathVariable Long idDisco) {
-        return discoService.deleteDiscos(username, idDisco);
+    @DeleteMapping("/{userId}/discos/{idDisco}")
+    public String removeDisco(@PathVariable Long userId, @PathVariable Long idDisco) {
+        return discoService.deleteDiscos(userId, idDisco);
     }
 
-    @DeleteMapping("/{username}/productos/{idProducto}")
-    public String removeProducto(@PathVariable String username, @PathVariable Long idProducto) {
-        return productoService.deleteProducto(username, idProducto);
+    @DeleteMapping("/{userId}/productos/{idProducto}")
+    public String removeProducto(@PathVariable Long userId, @PathVariable Long idProducto) {
+        return productoService.deleteProducto(userId, idProducto);
     }
 
-    @GetMapping("/{username}/productos")
-    public List<Producto> listProductos(@PathVariable String username) {
-        return productoService.getListaProducto(username, null);
+    @GetMapping("/{userId}/productos")
+    public List<Producto> listProductos(@PathVariable Long userId) {
+        return productoService.getListaProducto(userId, null);
     }
 
-    @GetMapping("/{username}/productos/{idProducto}")
-    public Producto getProducto(@PathVariable String username, @PathVariable Long idProducto) {
-        return productoService.getProducto(username, idProducto);
+    @GetMapping("/{userId}/productos/{idProducto}")
+    public Producto getProducto(@PathVariable Long userId, @PathVariable Long idProducto) {
+        return productoService.getProducto(userId, idProducto);
     }
 
-    @GetMapping("/{username}/discos")
-    public List<Disco> listDiscos(@PathVariable String username) {
-        return discoService.getListaDiscos(username);
+    @GetMapping("/{userId}/discos")
+    public List<Disco> listDiscos(@PathVariable Long userId) {
+        return discoService.getListaDiscos(userId);
     }
 
-    @GetMapping("/{username}/discos/{idDisco}")
-    public Disco getDisco(@PathVariable String username, @PathVariable Long idDisco) {
-        return discoService.getDisco(username, idDisco);
+    @GetMapping("/{userId}/discos/{idDisco}")
+    public Disco getDisco(@PathVariable Long userId, @PathVariable Long idDisco) {
+        return discoService.getDisco(userId, idDisco);
     }
 
-    @PutMapping("/{username}")
-    public String updateCarrito(@PathVariable String username, @Valid @RequestBody Carrito carrito) {
-        return carritoService.updateCarrito(carrito, username);
+    @PutMapping("/{userId}")
+    public String updateCarrito(@PathVariable Long userId, @Valid @RequestBody Carrito carrito) {
+        return carritoService.updateCarrito(carrito, userId);
     }
 
-    @PutMapping("/{username}/productos")
-    public Producto updateProducto(@PathVariable String username, @Valid @RequestBody Producto producto) {
-        return productoService.putProducto(username, producto);
+    @PutMapping("/{userId}/productos")
+    public Producto updateProducto(@PathVariable Long userId, @Valid @RequestBody Producto producto) {
+        return productoService.putProducto(userId, producto);
     }
 
-    @PutMapping("/{username}/discos")
-    public Disco updateDisco(@PathVariable String username, @Valid @RequestBody Disco disco) {
-        return discoService.putDisco(username, disco);
+    @PutMapping("/{userId}/discos")
+    public Disco updateDisco(@PathVariable Long userId, @Valid @RequestBody Disco disco) {
+        return discoService.putDisco(userId, disco);
     }
 
-    @DeleteMapping("/{username}")
-    public void deleteByUser(@PathVariable String username) {
-        carritoService.deleteCarrito(username);
+    @DeleteMapping("/{userId}")
+    public void deleteByUser(@PathVariable Long userId) {
+        carritoService.deleteCarrito(userId);
     }
 }

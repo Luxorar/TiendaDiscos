@@ -16,27 +16,27 @@ public class ProductoController {
     private ProductoService service;
 
     @PostMapping
-    public Producto postProducto(@RequestBody Producto producto){
+    public Producto postProducto(@RequestBody Producto producto) {
         return service.postProducto(producto);
     }
 
     @GetMapping
-    public List<ProductoDTO> getAllProductos(){
+    public List<ProductoDTO> getAllProductos() {
         return service.getAllProductos();
     }
 
     @GetMapping("{id}")
-    public ProductoDTO getProductoId(@Valid @PathVariable Long id){
+    public ProductoDTO getProductoId(@Valid @PathVariable Long id) {
         return service.getProductoId(id);
     }
 
     @PutMapping("{id}")
-    public String putProducto(@Valid @RequestBody Producto p, @PathVariable Long id){
+    public String putProducto(@Valid @RequestBody Producto p, @PathVariable Long id) {
         return service.putProducto(id, p);
     }
 
     @DeleteMapping("{id}")
-    public String deleteProducto(@PathVariable Long id){
+    public String deleteProducto(@PathVariable Long id) {
         return service.deleteProducto(id);
     }
 }

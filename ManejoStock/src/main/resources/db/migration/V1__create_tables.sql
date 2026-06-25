@@ -1,29 +1,15 @@
--- 1. Tabla de Sedes
-CREATE TABLE SEDE (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre_sede VARCHAR(255) NOT NULL,
-    direccion_sede VARCHAR(255) NOT NULL
-);
-
--- 2. Tabla padre (INFO_STOCK)
+-- 1. Tabla padre INFO_STOCK (hereda en PRODUCTO_STOCK vía JOINED)
 CREATE TABLE INFO_STOCK (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre_producto VARCHAR(255) NOT NULL,
-    sede_id BIGINT NOT NULL,
-    stock_actual INT NOT NULL,
-    FOREIGN KEY (sede_id) REFERENCES SEDE(id)
+    producto BIGINT,
+    sede_id BIGINT,
+    stock_actual INT NOT NULL
 );
 
--- 3. Tabla hija para los Discos
-CREATE TABLE DISCO_STOCK (
-    id BIGINT PRIMARY KEY,
-    artista VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id) REFERENCES INFO_STOCK(id) ON DELETE CASCADE
-);
-
--- 4. Tabla hija para los Productos
+-- 2. Tabla hija PRODUCTO_STOCK (extiende INFO_STOCK con JOINED)
 CREATE TABLE PRODUCTO_STOCK (
     id BIGINT PRIMARY KEY,
-    marca VARCHAR(255) NOT NULL,
+    tipo_producto VARCHAR(31) NOT NULL,
+    id_producto BIGINT,
     FOREIGN KEY (id) REFERENCES INFO_STOCK(id) ON DELETE CASCADE
 );

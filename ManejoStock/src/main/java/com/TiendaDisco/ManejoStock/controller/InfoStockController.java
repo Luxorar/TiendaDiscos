@@ -43,20 +43,14 @@ public class InfoStockController {
         return ResponseEntity.ok(stockService.getSedeInfo(nombreSede));
     }
 
-    @PutMapping("/{id}/nombre")
-    public ResponseEntity<String> putNombreProducto(@PathVariable Long id, @RequestParam String nuevoNombre) {
-        return ResponseEntity.ok(stockService.putNombreProducto(id, nuevoNombre));
-    }
+
 
     @PutMapping("/{id}/cantidad")
     public ResponseEntity<String> putStock(@PathVariable Long id, @RequestParam int nuevoStock) {
         return ResponseEntity.ok(stockService.putStock(id, nuevoStock));
     }
 
-    @PutMapping("/{id}/sede")
-    public ResponseEntity<String> putSede(@PathVariable Long id, @RequestParam String nombreSede) {
-        return ResponseEntity.ok(stockService.putSede(id, nombreSede));
-    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteInfo(@PathVariable Long id) {

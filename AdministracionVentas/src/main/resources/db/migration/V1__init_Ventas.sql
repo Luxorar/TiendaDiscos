@@ -1,13 +1,9 @@
-CREATE TABLE USUARIO_B (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    user_name VARCHAR(255) NOT NULL,
-    gmail VARCHAR(255) NOT NULL
-);
-
 CREATE TABLE PRODUCTO (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    precio INT NOT NULL
+    precio INT NOT NULL,
+    id_producto BIGINT,
+    tipo TINYINT
 );
 
 CREATE TABLE VENTAS (
@@ -16,14 +12,13 @@ CREATE TABLE VENTAS (
     usuario_id BIGINT NOT NULL,
     puntos_usados INT,
     puntos_ganados INT NOT NULL,
-    descuento INT,
-    FOREIGN KEY (usuario_id) REFERENCES USUARIO_B(id)
+    descuento INT
 );
 
 CREATE TABLE VENTA_PRODUCTOS (
     venta_id BIGINT NOT NULL,
     producto_id BIGINT NOT NULL,
     PRIMARY KEY (venta_id, producto_id),
-    FOREIGN KEY (venta_id) REFERENCES VENTAS(id),
+    FOREIGN KEY (venta_id) REFERENCES VENTAS(id) ON DELETE CASCADE,
     FOREIGN KEY (producto_id) REFERENCES PRODUCTO(id)
 );

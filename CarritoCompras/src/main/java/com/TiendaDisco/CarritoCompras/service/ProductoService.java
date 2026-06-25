@@ -7,11 +7,13 @@ import com.TiendaDisco.CarritoCompras.repository.CarritoRepository;
 import com.TiendaDisco.CarritoCompras.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class ProductoService implements IProductoService {
 
     @Autowired
@@ -26,8 +28,8 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public Producto postProducto(String user, Long idProducto, Producto newProducto) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public Producto postProducto(Long user, Long idProducto, Producto newProducto) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         Producto saved = productoRepository.save(newProducto);
@@ -37,16 +39,16 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public ArrayList<Producto> getListaProducto(String user, Producto producto) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public ArrayList<Producto> getListaProducto(Long user, Producto producto) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         return new ArrayList<>(carro.getProductosAgregados());
     }
 
     @Override
-    public Producto getProducto(String user, Long idProducto) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public Producto getProducto(Long user, Long idProducto) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         return carro.getProductosAgregados().stream()
@@ -56,8 +58,8 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public String deleteProducto(String user, Long idProducto) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public String deleteProducto(Long user, Long idProducto) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         Producto prod = carro.getProductosAgregados().stream()
@@ -72,8 +74,8 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public Producto putProducto(String user, Producto producto) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public Producto putProducto(Long user, Producto producto) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         Producto existente = carro.getProductosAgregados().stream()

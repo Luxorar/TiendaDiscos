@@ -20,7 +20,6 @@ public class Venta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
     @ManyToMany @JoinTable(
             name = "VENTA_PRODUCTOS",
             joinColumns = @JoinColumn(name = "venta_id"),
@@ -31,10 +30,9 @@ public class Venta {
     @Column(name = "fecha_venta")
     private LocalDate fechaVenta;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+
+    @Column(name = "usuario_id")
+    private Long usuario;
 
     @Column(name = "puntos_usados")
     private int puntosUsados;

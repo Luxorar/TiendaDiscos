@@ -7,12 +7,8 @@ import java.util.List;
 
 public interface IDiscoService {
     Disco postDisco(Disco d);
-
-    DiscoDTO getDiscoId(Long id);
-
-    String putDisco(Long id, Disco d);
-
-    String deleteDisco(Long id);
-
     List<DiscoDTO> getAllDiscos();
+    DiscoDTO getDiscoId(Long id);
+    String putDisco(Long id, Disco d);
+    String deleteDisco(Long id);
 }

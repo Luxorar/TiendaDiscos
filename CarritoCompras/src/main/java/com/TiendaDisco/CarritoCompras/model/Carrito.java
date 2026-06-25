@@ -19,9 +19,8 @@ public class Carrito {
     @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
 
     @NotNull(message = "Campo de usuario obligatorio")
-    @OneToOne
-    @JoinColumn(name="usuario_id")
-    private User user;
+    @Column(name="user_id")
+    private Long userId;
 
     @ManyToMany @JoinTable(
             name = "CARRITO_PRODUCTOS",
@@ -36,7 +35,7 @@ public class Carrito {
             joinColumns = @JoinColumn(name = "carrito_id"),
             inverseJoinColumns = @JoinColumn(name = "disco_id")
     )
-    private ArrayList<Disco> discosAgregados = new ArrayList<>();
+    private List<Disco> discosAgregados = new ArrayList<>();
 
     @Column(name= "descuento")
     private double descuento;

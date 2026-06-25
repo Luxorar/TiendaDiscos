@@ -1,7 +1,8 @@
 package com.TiendaDisco.ManejoStock.controller;
 
 import com.TiendaDisco.ManejoStock.DTO.InfoStockDTO;
-import com.TiendaDisco.ManejoStock.model.Sede;
+import com.TiendaDisco.ManejoStock.model.Producto;
+import com.TiendaDisco.ManejoStock.model.TipoProducto;
 import com.TiendaDisco.ManejoStock.model.infoStock;
 import com.TiendaDisco.ManejoStock.service.InfoStockService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,7 +35,7 @@ public class InfoStockControllerTest {
 
     @Test
     void debeRetornarStockPorId() throws Exception {
-        InfoStockDTO dto = new InfoStockDTO(1L, "Guitarra", null, 10);
+        InfoStockDTO dto = new InfoStockDTO(1L, "Guitarra", "Sede Central", 10);
 
         when(stockService.getInfoID(1L)).thenReturn(dto);
 
@@ -57,7 +58,7 @@ public class InfoStockControllerTest {
 
     @Test
     void debeRetornarStockPorSede() throws Exception {
-        InfoStockDTO dto = new InfoStockDTO(1L, "Guitarra", null, 10);
+        InfoStockDTO dto = new InfoStockDTO(1L, "Guitarra", "Sede Central", 10);
 
         when(stockService.getSedeInfo("Sede Central")).thenReturn(List.of(dto));
 
@@ -68,11 +69,12 @@ public class InfoStockControllerTest {
 
     @Test
     void debeCrearStock() throws Exception {
-        Sede sede = new Sede();
-        sede.setId(1L);
-        sede.setNombreSede("Sede Central");
-        infoStock entrada = new infoStock(null, "Guitarra", sede, 10);
-        infoStock creado = new infoStock(1L, "Guitarra", sede, 10);
+        Producto producto = new Producto();
+        producto.setTipoProducto(TipoProducto.PRODUCTO);
+        producto.setIdProducto(1L);
+
+        infoStock entrada = new infoStock(null, producto, 1L, 10);
+        infoStock creado = new infoStock(1L, producto, 1L, 10);
 
         when(stockService.postInfoStock(any())).thenReturn(creado);
 
@@ -81,16 +83,7 @@ public class InfoStockControllerTest {
                         .content(objectMapper.writeValueAsString(entrada)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value(1))
-                .andExpect(jsonPath("$.nombreProducto").value("Guitarra"));
-    }
-
-    @Test
-    void debeActualizarNombreProducto() throws Exception {
-        when(stockService.putNombreProducto(1L, "Bajo")).thenReturn("Nombre actualizado");
-
-        mockMvc.perform(put("/api/v1/stock/1/nombre?nuevoNombre=Bajo"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$").value("Nombre actualizado"));
+                .andExpect(jsonPath("$.stockActual").value(10));
     }
 
     @Test

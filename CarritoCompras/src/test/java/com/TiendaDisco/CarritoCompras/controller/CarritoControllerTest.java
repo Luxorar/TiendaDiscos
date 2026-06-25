@@ -3,8 +3,6 @@ package com.TiendaDisco.CarritoCompras.controller;
 import com.TiendaDisco.CarritoCompras.dto.CarritoDTO;
 import com.TiendaDisco.CarritoCompras.model.Carrito;
 import com.TiendaDisco.CarritoCompras.model.Disco;
-import com.TiendaDisco.CarritoCompras.model.Producto;
-import com.TiendaDisco.CarritoCompras.model.User;
 import com.TiendaDisco.CarritoCompras.service.CarritoService;
 import com.TiendaDisco.CarritoCompras.service.DiscoService;
 import com.TiendaDisco.CarritoCompras.service.ProductoService;
@@ -17,7 +15,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -53,18 +50,26 @@ public class CarritoControllerTest {
                 .discosAgregados(new ArrayList<>())
                 .descuento(0).precioLiquido(10000).build();
 
-        when(carritoService.getCarrito("Ana")).thenReturn(dto);
+        when(carritoService.getCarrito(1L)).thenReturn(dto);
 
-        mockMvc.perform(get("/api/v1/carrito/Ana"))
+        mockMvc.perform(get("/api/v1/carrito/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.user").value("Ana"));
     }
 
     @Test
     void debeCrearCarrito() throws Exception {
-        User usuario = new User(null, "Ana", "ana@mail.com", "pass", null);
-        Carrito entrada = new Carrito(null, usuario, new ArrayList<>(), new ArrayList<>(), 0.0);
-        Carrito creado = new Carrito(1L, usuario, new ArrayList<>(), new ArrayList<>(), 0.0);
+        Carrito entrada = Carrito.builder()
+                .userId(1L)
+                .productosAgregados(new ArrayList<>())
+                .discosAgregados(new ArrayList<>())
+                .build();
+        Carrito creado = Carrito.builder()
+                .id(1L)
+                .userId(1L)
+                .productosAgregados(new ArrayList<>())
+                .discosAgregados(new ArrayList<>())
+                .build();
 
         when(carritoService.postCarrito(any())).thenReturn(creado);
 
@@ -79,9 +84,9 @@ public class CarritoControllerTest {
     void debeAgregarDiscoAlCarrito() throws Exception {
         Disco disco = new Disco(1L, "Thriller", "Michael Jackson", 15000);
 
-        when(discoService.postDisco(eq("Ana"), eq(1L), any())).thenReturn(disco);
+        when(discoService.postDisco(eq(1L), eq(1L), any())).thenReturn(disco);
 
-        mockMvc.perform(post("/api/v1/carrito/Ana/discos/1")
+        mockMvc.perform(post("/api/v1/carrito/1/discos/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(disco)))
                 .andExpect(status().isOk())
@@ -90,18 +95,18 @@ public class CarritoControllerTest {
 
     @Test
     void debeEliminarDiscoDelCarrito() throws Exception {
-        when(discoService.deleteDiscos("Ana", 1L)).thenReturn("Disco eliminado");
+        when(discoService.deleteDiscos(1L, 1L)).thenReturn("Disco eliminado");
 
-        mockMvc.perform(delete("/api/v1/carrito/Ana/discos/1"))
+        mockMvc.perform(delete("/api/v1/carrito/1/discos/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").value("Disco eliminado"));
     }
 
     @Test
     void debeEliminarCarrito() throws Exception {
-        doNothing().when(carritoService).deleteCarrito("Ana");
+        doNothing().when(carritoService).deleteCarrito(1L);
 
-        mockMvc.perform(delete("/api/v1/carrito/Ana"))
+        mockMvc.perform(delete("/api/v1/carrito/1"))
                 .andExpect(status().isOk());
     }
 }

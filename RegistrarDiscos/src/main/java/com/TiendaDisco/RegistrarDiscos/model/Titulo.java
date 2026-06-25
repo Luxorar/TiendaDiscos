@@ -1,12 +1,8 @@
 package com.TiendaDisco.RegistrarDiscos.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor @Builder @Entity
 @Table(name = "TITULO")
@@ -20,7 +16,7 @@ public class Titulo {
     @Column(name = "titulo")
     private String titulo;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "titulo")
-    private List<Disco> listaDiscos = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "disco_id")
+    private Disco disco;
 }

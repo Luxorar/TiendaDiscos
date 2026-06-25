@@ -2,6 +2,7 @@ package com.TiendaDisco.AdministracionVentas.controller;
 
 import com.TiendaDisco.AdministracionVentas.dto.VentaDTO;
 import com.TiendaDisco.AdministracionVentas.model.Producto;
+import com.TiendaDisco.AdministracionVentas.model.TipoProducto;
 import com.TiendaDisco.AdministracionVentas.model.Venta;
 import com.TiendaDisco.AdministracionVentas.service.VentaService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -56,9 +57,9 @@ public class VentaControllerTest {
                 .puntosUsados(0).puntosGanados(10).subtotal(5000)
                 .descuento(0).totalPagar(5000).build();
 
-        when(ventaService.getVentaUser("Ana")).thenReturn(List.of(dto));
+        when(ventaService.getVentaUser(1L)).thenReturn(List.of(dto));
 
-        mockMvc.perform(get("/api/v1/ventas/user/Ana"))
+        mockMvc.perform(get("/api/v1/ventas/user/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].usuario").value("Ana"));
     }
@@ -82,7 +83,7 @@ public class VentaControllerTest {
 
     @Test
     void debeRetornarProductosDeVenta() throws Exception {
-        Producto p = new Producto(1L, "Guitarra", 50000);
+        Producto p = new Producto(1L, "Guitarra", 50000, null, TipoProducto.PRODUCTO);
         when(ventaService.getProductoReciboId(1L)).thenReturn(List.of(p));
 
         mockMvc.perform(get("/api/v1/ventas/productos/1"))

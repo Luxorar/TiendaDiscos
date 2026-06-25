@@ -11,7 +11,6 @@ public class Mapper {
 
     public static SedeDTO toDTO(Sede s) {
         if (s == null) return null;
-
         return SedeDTO.builder()
                 .id(s.getId())
                 .nombreSede(s.getNombreSede())
@@ -22,7 +21,6 @@ public class Mapper {
 
     public static DiscoDTO toDTO(Disco d) {
         if (d == null) return null;
-
         return DiscoDTO.builder()
                 .id(d.getId())
                 .nombreDisco(d.getNombreDisco())
@@ -33,11 +31,11 @@ public class Mapper {
 
     public static ProductoDTO toDTO(Producto p) {
         if (p == null) return null;
-
         return ProductoDTO.builder()
                 .id(p.getId())
                 .nombreProducto(p.getNombreProducto())
                 .precio(p.getPrecio())
                 .build();
     }
+
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,13 @@ public class VentaController {
     private VentaService ventaService;
 
     @GetMapping
-    public List<VentaDTO> getAllVentas() {
+    public List<VentaDTO> getAllVentas(
+            @RequestParam(name = "fecha_inicio", required = false) LocalDate fechaInicio,
+            @RequestParam(name = "fecha_fin", required = false) LocalDate fechaFin,
+            @RequestParam(name = "usuario_id", required = false) Long usuarioId) {
+        if (fechaInicio != null || fechaFin != null || usuarioId != null) {
+            return ventaService.getAllVentas(fechaInicio, fechaFin, usuarioId);
+        }
         return ventaService.getAllVentas();
     }
 
@@ -34,7 +41,7 @@ public class VentaController {
     }
 
     @GetMapping("user/{u}")
-    public List<VentaDTO> getVentaUser(@PathVariable String u) {
+    public List<VentaDTO> getVentaUser(@PathVariable Long u) {
         return ventaService.getVentaUser(u);
     }
 

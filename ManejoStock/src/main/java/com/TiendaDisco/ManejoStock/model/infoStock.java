@@ -2,7 +2,8 @@ package com.TiendaDisco.ManejoStock.model;
 
 import jakarta.persistence.*;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.ConstraintMode;
+import jakarta.persistence.ForeignKey;
 import jakarta.validation.constraints.NotNull;
 
 import lombok.*;
@@ -16,14 +17,14 @@ public class infoStock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Ingreso de nombre de producto obligatorio")
-    @Column(name="nombre_producto")
-    private String nombreProducto;
+    @NotNull(message = "Ingreso de producto obligatorio")
+    @ManyToOne
+    @JoinColumn(name = "producto", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private Producto producto;
 
     @NotNull(message = "Ingreso de sede obligatorio")
-    @ManyToOne
-    @JoinColumn(name="sede_id")
-    private Sede sede;
+    @Column(name="sede_id")
+    private Long sede;
 
     @Column(name="stock_actual")
     private int stockActual;

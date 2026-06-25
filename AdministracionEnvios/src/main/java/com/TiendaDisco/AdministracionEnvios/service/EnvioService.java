@@ -17,6 +17,9 @@ public class EnvioService implements IEnvioService{
     @Autowired
     private EnvioRepository repo;
 
+    @Autowired
+    private Mapper mapper;
+
     @Override
     public Envio postEnvio(Envio envio) {
         return repo.save(envio);
@@ -24,7 +27,7 @@ public class EnvioService implements IEnvioService{
 
     @Override
     public List<EnvioDTO> getAllEnvios() {
-        return repo.findAll().stream().map(Mapper::toDTO).toList();
+        return repo.findAll().stream().map(mapper::toDTO).toList();
     }
 
     @Override

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -22,7 +24,7 @@ class MapperTest {
                 .nombreDisco("Thriller")
                 .artista("Michael Jackson")
                 .precio(20000)
-                .titulo(titulo)
+                .titulos(List.of(titulo))
                 .build();
 
         DiscoDTO dto = Mapper.toDTO(disco);
@@ -32,12 +34,12 @@ class MapperTest {
                 () -> assertEquals("Thriller", dto.getNombreDisco()),
                 () -> assertEquals("Michael Jackson", dto.getArtista()),
                 () -> assertEquals(20000, dto.getPrecio()),
-                () -> assertEquals("Pop", dto.getTitulo())
+                () -> assertEquals(List.of("Pop"), dto.getTitulos())
         );
     }
 
     @Test
-    void toDTO_WithValidDiscoAndNullTitulo_ShouldMapWithoutTitulo() {
+    void toDTO_WithValidDiscoAndNullTitulos_ShouldMapWithoutTitulos() {
         Disco disco = Disco.builder()
                 .id(1L)
                 .nombreDisco("Abbey Road")
@@ -52,7 +54,7 @@ class MapperTest {
                 () -> assertEquals("Abbey Road", dto.getNombreDisco()),
                 () -> assertEquals("The Beatles", dto.getArtista()),
                 () -> assertEquals(25000, dto.getPrecio()),
-                () -> assertNull(dto.getTitulo())
+                () -> assertTrue(dto.getTitulos().isEmpty())
         );
     }
 

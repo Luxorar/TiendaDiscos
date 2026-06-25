@@ -10,13 +10,13 @@ public interface IProductoService {
 
     List<Producto> getAllProductos();
 
-    Producto putProducto(String user, Producto producto);
+    Producto putProducto(Long user, Producto producto);
 
-    ArrayList<Producto> getListaProducto(String user, Producto producto);
+    ArrayList<Producto> getListaProducto(Long user, Producto producto);
 
-    Producto getProducto(String user, Long idProducto);
+    Producto getProducto(Long user, Long idProducto);
 
-    String deleteProducto(String user, Long idProducto);
+    String deleteProducto(Long user, Long idProducto);
 
-    Producto postProducto(String user, Long idProducto, Producto newProducto);
+    Producto postProducto(Long user, Long idProducto, Producto newProducto);
 }

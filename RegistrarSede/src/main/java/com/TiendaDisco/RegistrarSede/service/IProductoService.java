@@ -7,12 +7,8 @@ import java.util.List;
 
 public interface IProductoService {
     Producto postProducto(Producto p);
-
-    ProductoDTO getProductoId(Long id);
-
-    String putProducto(Long id, Producto p);
-
-    String deleteProducto(Long id);
-
     List<ProductoDTO> getAllProductos();
+    ProductoDTO getProductoId(Long id);
+    String putProducto(Long id, Producto p);
+    String deleteProducto(Long id);
 }

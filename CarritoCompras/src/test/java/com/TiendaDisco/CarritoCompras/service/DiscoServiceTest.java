@@ -49,18 +49,18 @@ class DiscoServiceTest {
         discos.add(disco);
         Carrito carrito = new Carrito();
         carrito.setDiscosAgregados(discos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        List<Disco> result = discoService.getListaDiscos("user");
+        List<Disco> result = discoService.getListaDiscos(1L);
 
         assertThat(result).hasSize(1).contains(disco);
     }
 
     @Test
     void getListaDiscos_whenCarritoNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> discoService.getListaDiscos("unknown"))
+        assertThatThrownBy(() -> discoService.getListaDiscos(999L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
     }
@@ -73,18 +73,18 @@ class DiscoServiceTest {
         discos.add(disco);
         Carrito carrito = new Carrito();
         carrito.setDiscosAgregados(discos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        Disco result = discoService.getDisco("user", 1L);
+        Disco result = discoService.getDisco(1L, 1L);
 
         assertThat(result).isSameAs(disco);
     }
 
     @Test
     void getDisco_whenCarritoNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> discoService.getDisco("unknown", 1L))
+        assertThatThrownBy(() -> discoService.getDisco(999L, 1L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
     }
@@ -93,9 +93,9 @@ class DiscoServiceTest {
     void getDisco_whenDiscoNotFound_throwsManejoErrores() {
         Carrito carrito = new Carrito();
         carrito.setDiscosAgregados(new ArrayList<>());
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        assertThatThrownBy(() -> discoService.getDisco("user", 999L))
+        assertThatThrownBy(() -> discoService.getDisco(1L, 999L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Disco no encontrado");
     }
@@ -105,10 +105,10 @@ class DiscoServiceTest {
         Carrito carrito = new Carrito();
         carrito.setDiscosAgregados(new ArrayList<>());
         Disco newDisco = new Disco();
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
         when(discoRepository.save(newDisco)).thenReturn(newDisco);
 
-        Disco result = discoService.postDisco("user", 1L, newDisco);
+        Disco result = discoService.postDisco(1L, 1L, newDisco);
 
         assertThat(result).isSameAs(newDisco);
         assertThat(carrito.getDiscosAgregados()).contains(newDisco);
@@ -133,10 +133,10 @@ class DiscoServiceTest {
         discos.add(existente);
         Carrito carrito = new Carrito();
         carrito.setDiscosAgregados(discos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
         when(discoRepository.save(existente)).thenReturn(existente);
 
-        Disco result = discoService.putDisco("user", update);
+        Disco result = discoService.putDisco(1L, update);
 
         assertThat(result.getNombreDisco()).isEqualTo("new");
         assertThat(result.getArtista()).isEqualTo("new");
@@ -152,9 +152,9 @@ class DiscoServiceTest {
         discos.add(disco);
         Carrito carrito = new Carrito();
         carrito.setDiscosAgregados(discos);
-        when(carritoRepository.findByUserUserName("user")).thenReturn(Optional.of(carrito));
+        when(carritoRepository.findByUserId(1L)).thenReturn(Optional.of(carrito));
 
-        String result = discoService.deleteDiscos("user", 1L);
+        String result = discoService.deleteDiscos(1L, 1L);
 
         assertThat(result).isEqualTo("Disco eliminado del carrito");
         assertThat(carrito.getDiscosAgregados()).doesNotContain(disco);
@@ -164,9 +164,9 @@ class DiscoServiceTest {
 
     @Test
     void deleteDiscos_whenCarritoNotFound_throwsManejoErrores() {
-        when(carritoRepository.findByUserUserName("unknown")).thenReturn(Optional.empty());
+        when(carritoRepository.findByUserId(999L)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> discoService.deleteDiscos("unknown", 1L))
+        assertThatThrownBy(() -> discoService.deleteDiscos(999L, 1L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("Carrito no encontrado");
     }

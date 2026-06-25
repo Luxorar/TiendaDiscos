@@ -9,6 +9,7 @@ import com.TiendaDisco.RegistrarDiscos.repository.DiscoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class DiscoService implements IDiscoService {
@@ -22,6 +23,7 @@ public class DiscoService implements IDiscoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public DiscoDTO getDiscoId(Long id) {
         Disco disco = discoRepository.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
@@ -51,6 +53,7 @@ public class DiscoService implements IDiscoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<DiscoDTO> getAllDiscos() {
         return discoRepository.findAll().stream()
                 .map(Mapper::toDTO)

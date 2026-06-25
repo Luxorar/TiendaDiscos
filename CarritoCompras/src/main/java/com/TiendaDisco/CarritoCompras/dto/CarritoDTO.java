@@ -21,7 +21,7 @@ public class CarritoDTO {
 
     private List<Producto> productosAgregados = new ArrayList<>();
 
-    private ArrayList<Disco> discosAgregados = new ArrayList<>();
+    private List<Disco> discosAgregados = new ArrayList<>();
 
     private double descuento;
 

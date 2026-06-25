@@ -11,37 +11,37 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DiscoService implements IDiscoService{
+public class DiscoService implements IDiscoService {
     @Autowired
     private DiscoRepository repo;
 
-    public Disco postDisco(Disco d){
+    public Disco postDisco(Disco d) {
         return repo.save(d);
     }
 
-    public DiscoDTO getDiscoId(Long id){
+    public DiscoDTO getDiscoId(Long id) {
         Disco disco = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrada"));
         return Mapper.toDTO(disco);
     }
 
-    public String putDisco(Long id, Disco d){
-        Disco disc = repo.findById(id)
-                .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrada"));
-
-        disc.setNombreDisco(d.getNombreDisco());
-        disc.setArtista(d.getArtista());
-        return "Datos del disco modificados";
-    }
-
-    public List<DiscoDTO> getAllDiscos(){
+    public List<DiscoDTO> getAllDiscos() {
         return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
-    public String deleteDisco(Long id){
-        Disco disc = repo.findById(id)
+    public String putDisco(Long id, Disco d) {
+        Disco disco = repo.findById(id)
+                .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrada"));
+        disco.setNombreDisco(d.getNombreDisco());
+        disco.setArtista(d.getArtista());
+        repo.save(disco);
+        return "Datos del disco modificados";
+    }
+
+    public String deleteDisco(Long id) {
+        Disco disco = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Usuario no encontrado"));
-        repo.delete(disc);
+        repo.delete(disco);
         return "Disco elimiando";
     }
 }

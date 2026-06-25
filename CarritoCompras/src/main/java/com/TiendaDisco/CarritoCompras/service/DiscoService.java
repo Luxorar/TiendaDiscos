@@ -7,10 +7,12 @@ import com.TiendaDisco.CarritoCompras.repository.CarritoRepository;
 import com.TiendaDisco.CarritoCompras.repository.DiscoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class DiscoService implements IDiscoService {
 
     @Autowired
@@ -25,15 +27,15 @@ public class DiscoService implements IDiscoService {
     }
 
     @Override
-    public List<Disco> getListaDiscos(String user) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public List<Disco> getListaDiscos(Long user) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
         return carro.getDiscosAgregados();
     }
 
     @Override
-    public Disco postDisco(String user, Long idDisco, Disco newDisco) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public Disco postDisco(Long user, Long idDisco, Disco newDisco) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         Disco saved = discoRepository.save(newDisco);
@@ -43,8 +45,8 @@ public class DiscoService implements IDiscoService {
     }
 
     @Override
-    public Disco getDisco(String user, Long idDisco) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public Disco getDisco(Long user, Long idDisco) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         return carro.getDiscosAgregados().stream()
@@ -54,8 +56,8 @@ public class DiscoService implements IDiscoService {
     }
 
     @Override
-    public String deleteDiscos(String user, Long idDisco) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public String deleteDiscos(Long user, Long idDisco) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         Disco disc = carro.getDiscosAgregados().stream()
@@ -70,8 +72,8 @@ public class DiscoService implements IDiscoService {
     }
 
     @Override
-    public Disco putDisco(String user, Disco disco) {
-        Carrito carro = carritoRepository.findByUserUserName(user)
+    public Disco putDisco(Long user, Disco disco) {
+        Carrito carro = carritoRepository.findByUserId(user)
                 .orElseThrow(() -> new ManejoErrores("Carrito no encontrado para el usuario: " + user));
 
         Disco existente = carro.getDiscosAgregados().stream()
