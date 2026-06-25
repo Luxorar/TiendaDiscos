@@ -115,6 +115,7 @@ services:
       SPRING_FLYWAY_TABLE: flyway_schema_history_resenas
       SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
       SPRING_FLYWAY_BASELINE_VERSION: 0
+      MS_RESENAS_URI: http://localhost:8085
     ports:
       - "8085:8085"
     depends_on:
@@ -157,6 +158,7 @@ services:
       SPRING_FLYWAY_TABLE: flyway_schema_history_descuentos
       SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
       SPRING_FLYWAY_BASELINE_VERSION: 0
+      MS_CARRITO_URI: http://localhost:8088
     ports:
       - "8087:8087"
     depends_on:
@@ -178,6 +180,7 @@ services:
       SPRING_FLYWAY_TABLE: flyway_schema_history_carrito
       SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
       SPRING_FLYWAY_BASELINE_VERSION: 0
+
     ports:
       - "8088:8088"
     depends_on:
@@ -222,6 +225,30 @@ services:
       SPRING_FLYWAY_BASELINE_VERSION: 0
     ports:
       - "8091:8091"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - tiendadiscos-net
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: tiendadiscos-gateway
+    environment:
+      MS_USUARIO_URI: http://administracion-usuario:8081
+      MS_ENVIOS_URI: http://administracion-envios:8082
+      MS_PRODUCTOS_URI: http://registrar-productos:8083
+      MS_SEDE_URI: http://registrar-sede:8084
+      MS_RESENAS_URI: http://registro-resenas:8085
+      MS_DISCOS_URI: http://registrar-discos:8086
+      MS_DESCUENTOS_URI: http://administracion-descuentos:8087
+      MS_CARRITO_URI: http://carrito-compras:8088
+      MS_STOCK_URI: http://manejo-stock:8089
+      MS_VENTAS_URI: http://administracion-ventas:8091
+    ports:
+      - "8080:8080"
     depends_on:
       mysql:
         condition: service_healthy

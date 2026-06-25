@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: admin-usuario-route
+          uri: ${MS_USUARIO_URI:http://localhost:8081}
+          predicates:
+            - Path=/api/v1/admin/**
+        - id: envios-route
+          uri: ${MS_ENVIOS_URI:http://localhost:8082}
+          predicates:
+            - Path=/api/v1/envios/**
+        - id: productos-route
+          uri: ${MS_PRODUCTOS_URI:http://localhost:8083}
+          predicates:
+            - Path=/api/v1/productos/**
+        - id: sede-route
+          uri: ${MS_SEDE_URI:http://localhost:8084}
+          predicates:
+            - Path=/api/v1/Sede/**,/api/v1/Producto/**,/api/v1/Disco/**
+        - id: resenas-route
+          uri: ${MS_RESENAS_URI:http://localhost:8085}
+          predicates:
+            - Path=/api/v1/Resena/**,/api/v1/User/**
+        - id: discos-route
+          uri: ${MS_DISCOS_URI:http://localhost:8086}
+          predicates:
+            - Path=/api/v1/titulos/**
+        - id: descuentos-route
+          uri: ${MS_DESCUENTOS_URI:http://localhost:8087}
+          predicates:
+            - Path=/api/v1/descuentos/**
+        - id: carrito-route
+          uri: ${MS_CARRITO_URI:http://localhost:8088}
+          predicates:
+            - Path=/api/v1/carrito/**
+        - id: stock-route
+          uri: ${MS_STOCK_URI:http://localhost:8089}
+          predicates:
+            - Path=/api/v1/stock/**
+        - id: ventas-route
+          uri: ${MS_VENTAS_URI:http://localhost:8091}
+          predicates:
+            - Path=/api/v1/ventas/**
