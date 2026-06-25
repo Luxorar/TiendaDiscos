@@ -5,120 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
-      <change afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/DTO/VentaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/client/VentaClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/client/DiscoClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/client/ProductoClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/client/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/dto/ProductoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/TipoProducto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/resources/db/migration/V2__init_Ventas_insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/client/DiscoClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/client/ProductoClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/client/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/DTO/DiscoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/DTO/ProductoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/client/DiscoClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/client/ProductoClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/client/SedeClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/model/TipoProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/DTO/EnvioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/DTO/EnvioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/service/EnvioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/java/com/TiendaDisco/AdministracionEnvios/service/EnvioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/db/migration/V2__insert_envio.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/main/resources/db/migration/V2__insert_envio.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionEnvios/src/test/java/com/TiendaDisco/AdministracionEnvios/mapper/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionEnvios/src/test/java/com/TiendaDisco/AdministracionEnvios/mapper/MapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/controller/VentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/controller/VentaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Usuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/model/Venta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/repository/UsuarioRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/repository/VentaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/repository/VentaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/service/IVentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/service/IVentaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/service/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/service/VentaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/resources/db/migration/V1__create_venta.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/resources/db/migration/V2__insert_venta.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/controller/VentaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/controller/VentaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/mapper/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/mapper/MapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/repository/ProductoRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/repository/ProductoRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/repository/UsuarioRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/repository/VentaRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/repository/VentaRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/service/VentaServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/test/java/com/TiendaDisco/AdministracionVentas/service/VentaServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/controller/CarritoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/controller/CarritoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/CarritoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/CarritoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/ProductoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/ProductoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/model/Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/model/Carrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/CarritoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/CarritoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/CarritoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/CarritoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/DiscoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/DiscoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ICarritoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ICarritoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IDiscoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IDiscoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IProductoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/ProductoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V1__create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V1__create_tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V2__insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/resources/db/migration/V2__insert_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/controller/CarritoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/controller/CarritoControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/controller/UserControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/mapper/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/mapper/MapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/repository/CarritoRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/repository/CarritoRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/repository/UserRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/service/CarritoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/service/CarritoServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/service/DiscoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/service/DiscoServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/service/ProductoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/service/ProductoServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/test/java/com/TiendaDisco/CarritoCompras/service/UserServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/controller/InfoStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/controller/InfoStockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/model/Disco.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/model/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/model/Sede.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/model/infoStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/model/infoStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/repository/DiscoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/repository/InfoStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/repository/InfoStockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/repository/SedeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/service/IInfoStockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/service/IInfoStockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/service/InfoStockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/service/InfoStockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/resources/db/migration/V1__create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/resources/db/migration/V1__create_tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/resources/db/migration/V2__insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/resources/db/migration/V2__insert_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/controller/InfoStockControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/controller/InfoStockControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/mapper/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/mapper/MapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/repository/DiscoRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/repository/InfoStockRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/repository/InfoStockRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/repository/ProductoRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/repository/ProductoRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/repository/SedeRepositoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/service/InfoStockServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/test/java/com/TiendaDisco/ManejoStock/service/InfoStockServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManejoStock/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/test/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/dto/DiscoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/dto/DiscoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/model/Disco.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/model/Disco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/model/Titulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/model/Titulo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/service/DiscoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/main/java/com/TiendaDisco/RegistrarDiscos/service/DiscoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/controller/DiscoControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/controller/DiscoControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/controller/TituloControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/controller/TituloControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/mapper/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/mapper/MapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/repository/DiscoRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/repository/DiscoRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/service/DiscoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarDiscos/src/test/java/com/TiendaDisco/RegistrarDiscos/service/DiscoServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/controller/DiscoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/controller/ProductoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/dto/DiscoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/dto/DiscoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/dto/ProductoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/DTO/SedeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/mapper/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/model/Sede.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/model/Sede.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/DiscoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/IDiscoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/IProductoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/main/java/com/TiendaDisco/RegistrarSede/service/ProductoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RegistrarSede/src/test/java/com/TiendaDisco/RegistrarSede/controller/SedeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistrarSede/src/test/java/com/TiendaDisco/RegistrarSede/controller/SedeControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/client/DiscoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionDescuentos/src/main/java/com/TiendaDisco/AdministracionDescuentos/client/DiscoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/client/DiscoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionVentas/src/main/java/com/TiendaDisco/AdministracionVentas/client/DiscoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/client/DiscoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompras/src/main/java/com/TiendaDisco/CarritoCompras/client/DiscoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/client/DiscoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/client/DiscoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RegistroResenas/src/main/java/com/TiendaDisco/RegistroResenas/controller/ResenaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/RegistroResenas/src/main/java/com/TiendaDisco/RegistroResenas/controller/ResenaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,49 +56,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.AdministracionEnviosApplicationTests.executor": "Run",
-    "JUnit.ManejoStockApplicationTests.executor": "Run",
-    "JUnit.RegistroResenasApplicationTests.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AdministracionDescuentosApplication.executor": "Run",
-    "Spring Boot.AdministracionEnviosApplication.executor": "Run",
-    "Spring Boot.AdministracionUsuarioApplication.executor": "Run",
-    "Spring Boot.AdministracionVentasApplication.executor": "Run",
-    "Spring Boot.CarritoComprasApplication.executor": "Run",
-    "Spring Boot.ManejoStockApplication.executor": "Run",
-    "Spring Boot.RegistrarDiscosApplication.executor": "Run",
-    "Spring Boot.RegistrarProductosApplication.executor": "Run",
-    "Spring Boot.RegistrarSedeApplication.executor": "Run",
-    "Spring Boot.RegistroResenasApplication.executor": "Run",
-    "git-widget-placeholder": "comunicacionMicroservicios",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/luchi/hola/Escritorio/microservicios/TiendaDiscos/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/controller",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.31149426",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.AdministracionEnviosApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ManejoStockApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistroResenasApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;OpenAPI/Swagger Code Generator.bibliotecaDuoc-openapi.yaml.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AdministracionDescuentosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AdministracionEnviosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AdministracionUsuarioApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AdministracionVentasApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CarritoComprasApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ManejoStockApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistrarDiscosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistrarProductosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistrarSedeApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.RegistroResenasApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gateway&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luchi/hola/Escritorio/microservicios/TiendaDiscos/ManejoStock/src/main/java/com/TiendaDisco/ManejoStock/controller&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.31149426&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\luchi\hola\Escritorio\microservicios\TiendaDiscos\ManejoStock\src\main\java\com\TiendaDisco\ManejoStock\controller" />
@@ -462,6 +357,7 @@
       <workItem from="1781759658931" duration="613000" />
       <workItem from="1782161766216" duration="783000" />
       <workItem from="1782168846248" duration="15783000" />
+      <workItem from="1782373082330" duration="7588000" />
     </task>
     <servers />
   </component>

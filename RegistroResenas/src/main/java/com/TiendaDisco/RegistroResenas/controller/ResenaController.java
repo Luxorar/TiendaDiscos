@@ -39,6 +39,19 @@ public class ResenaController {
     }
 
     @Operation(
+            summary="Obtener todas las resenas",
+            description="Retorna una lista con todas las resenas registradas"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200",
+                    description = "Obtencion exitosa")
+    })
+    @GetMapping
+    public List<ResenaDTO> getAllResenas(){
+        return service.getAllResenas();
+    }
+
+    @Operation(
             summary="Obtencion de resena con id",
             description="Obtiene una resena en base a su id"
     )

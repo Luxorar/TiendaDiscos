@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name="DiscoClient", url= "http://registrar-discos:8086")
 public interface DiscoClient {
 
-    @GetMapping("/api/v1/discos/{id}")
+    @GetMapping("/api/v1/productos/{id}")
     ResponseEntity<DiscoDTO> obtenerDiscoPorId(@PathVariable Long id);
 
 }
