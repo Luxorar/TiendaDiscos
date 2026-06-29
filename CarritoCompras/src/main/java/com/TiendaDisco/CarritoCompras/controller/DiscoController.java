@@ -14,6 +14,7 @@ public class DiscoController {
     @Autowired
     private DiscoService discoService;
 
+    //==================OBTIENE TODOS LOS DISCOS================================
     @GetMapping
     public List<Disco> getAll() {
         return discoService.getAllDiscos();

@@ -21,6 +21,7 @@ public class CarritoService implements ICarritoService{
     @Autowired
     private Mapper mapper;
 
+    //==================OBTIENE TODOS LOS CARRITOS================================
     @Override
     public List<CarritoDTO> getListaCarrito() {
         return carritoRepository.findAll()
@@ -29,11 +30,13 @@ public class CarritoService implements ICarritoService{
                 .toList();
     }
 
+    //==================CREA UN CARRITO================================
     @Override
     public Carrito postCarrito(Carrito c) {
         return carritoRepository.save(c);
     }
 
+    //==================OBTIENE CARRITO POR USUARIO================================
     @Override
     public CarritoDTO getCarrito(Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)
@@ -42,6 +45,7 @@ public class CarritoService implements ICarritoService{
         return mapper.toDTO(carro);
     }
 
+    //==================ACTUALIZA DESCUENTO DEL CARRITO================================
     @Override
     public String updateCarrito(Carrito c, Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)
@@ -52,6 +56,7 @@ public class CarritoService implements ICarritoService{
         return "Carrito actualizado";
     }
 
+    //==================ELIMINA CARRITO================================
     @Override
     public void deleteCarrito(Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)

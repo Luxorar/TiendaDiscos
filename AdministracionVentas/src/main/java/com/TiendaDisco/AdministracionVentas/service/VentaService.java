@@ -23,6 +23,7 @@ public class VentaService implements IVentaService {
     @Autowired
     private Mapper mapper;
 
+    //==================REGISTRA UNA VENTA================================
     @Override
     @Transactional
     public VentaDTO postVenta(Venta v) {
@@ -30,6 +31,7 @@ public class VentaService implements IVentaService {
         return mapper.toDTO(v);
     }
 
+    //==================ELIMINA UNA VENTA================================
     @Override
     @Transactional
     public void delVenta(Long id) {
@@ -39,6 +41,7 @@ public class VentaService implements IVentaService {
         ventaRepository.delete(venta);
     }
 
+    //==================OBTIENE TODAS LAS VENTAS================================
     @Override
     @Transactional(readOnly = true)
     public List<VentaDTO> getAllVentas() {
@@ -48,6 +51,7 @@ public class VentaService implements IVentaService {
                 .toList();
     }
 
+    //==================OBTIENE TODAS LASVENTAS================================
     @Override
     @Transactional(readOnly = true)
     public List<VentaDTO> getAllVentas(LocalDate fechaInicio, LocalDate fechaFin, Long usuarioId) {
@@ -57,6 +61,7 @@ public class VentaService implements IVentaService {
                 .toList();
     }
 
+    //==================OBTIENE VENTA POR ID================================
     @Override
     @Transactional(readOnly = true)
     public VentaDTO getVentaId(Long id) {
@@ -66,6 +71,7 @@ public class VentaService implements IVentaService {
         return mapper.toDTO(venta);
     }
 
+    //==================OBTIENE VENTAS POR USUARIO================================
     @Override
     @Transactional(readOnly = true)
     public List<VentaDTO> getVentaUser(Long u) {
@@ -73,13 +79,5 @@ public class VentaService implements IVentaService {
                 .stream()
                 .map(mapper::toDTO)
                 .toList();
-    }
-
-    @Override
-    public List<Producto> getProductoReciboId(Long id) {
-        Venta v = ventaRepository
-                .findById(id).orElseThrow(() -> new ManejoErrores("Venta no enocntrada"));
-
-        return v.getProductosComprados();
     }
 }

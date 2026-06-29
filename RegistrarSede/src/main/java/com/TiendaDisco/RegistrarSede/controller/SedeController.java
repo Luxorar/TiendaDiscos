@@ -15,26 +15,31 @@ public class SedeController {
     @Autowired
     private SedeService service;
 
+    //==================REGISTRA UNA SEDE================================
     @PostMapping
     public Sede postSede(@RequestBody Sede sede){
         return service.postSede(sede);
     }
 
+    //==================OBTIENE TODAS LAS SEDES================================
     @GetMapping
     public List<SedeDTO> getAllSedes(){
         return service.getAllSedes();
     }
 
+    //==================OBTIENE SEDE POR ID================================
     @GetMapping("{id}")
     public SedeDTO getSedeId(@Valid @PathVariable Long id){
         return service.getSedeId(id);
     }
 
+    //==================MODIFICA UNA SEDE================================
     @PutMapping("{id}")
     public String PutSede(@Valid @RequestBody Sede s, @PathVariable Long id){
         return service.putSede(id, s);
     }
 
+    //==================ELIMINA UNA SEDE================================
     @DeleteMapping("{id}")
     public String deleteEnvio(@PathVariable Long id){
         return service.deleteSedeId(id);

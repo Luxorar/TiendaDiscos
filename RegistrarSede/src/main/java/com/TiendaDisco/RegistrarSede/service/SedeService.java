@@ -15,20 +15,24 @@ public class SedeService implements ISedeService{
     @Autowired
     private SedeRepository repo;
 
+    //==================REGISTRA UNA SEDE================================
     public Sede postSede(Sede s){
         return repo.save(s);
     }
 
+    //==================OBTIENE SEDE POR ID================================
     public SedeDTO getSedeId(Long id){
         Sede sede = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
         return Mapper.toDTO(sede);
     }
 
+    //==================OBTIENE TODAS LAS SEDES================================
     public List<SedeDTO> getAllSedes(){
         return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
+    //==================MODIFICA UNA SEDE================================
     public String putSede(Long id, Sede s){
         Sede sede = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrada"));
@@ -38,6 +42,7 @@ public class SedeService implements ISedeService{
         return "Numero modificado";
     }
 
+    //==================ELIMINA UNA SEDE================================
     public String deleteSedeId(Long id){
         Sede sede = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Sede no encontrado"));

@@ -22,11 +22,13 @@ public class AdminService implements IAdminService{
     @Autowired
     private AdminRepository adminRepository;
 
+    //==================OBTIENE TODOS LOS USUARIOS================================
     @Override
     public List<UserDTO> getAllUser() {
         return userRepository.findAll().stream().map(Mapper::toDTO).toList();
     }
 
+    //==================REGISTRA UN USUARIO================================
     @Override
     public User postUsuario(User u) {
         u.setFechaRegistro(LocalDate.now());
@@ -35,6 +37,7 @@ public class AdminService implements IAdminService{
         return userRepository.save(u) ;
     }
 
+    //==================REGISTRA UN ADMINISTRADOR================================
     @Override
     public Admin postAdmin(Admin a) {
         a.setFechaRegistro(LocalDate.now());
@@ -43,6 +46,7 @@ public class AdminService implements IAdminService{
         return adminRepository.save(a) ;
     }
 
+    //==================OBTIENE USUARIO POR ID================================
     @Override
     public UserDTO getUserId(Long id) {
         User u =userRepository.findById(id)
@@ -51,6 +55,7 @@ public class AdminService implements IAdminService{
         return Mapper.toDTO(u);
     }
 
+    //==================OBTIENE USUARIO POR NOMBRE================================
     @Override
     public UserDTO getUserName(String name) {
         User u = userRepository.findByUserName(name)
@@ -62,6 +67,7 @@ public class AdminService implements IAdminService{
         }
     }
 
+    //==================ELIMINA UN USUARIO================================
     @Override
     public void deleteUserId(Long id) {
         User u = userRepository.findById(id)
@@ -70,6 +76,7 @@ public class AdminService implements IAdminService{
         userRepository.delete(u);
     }
 
+    //==================MODIFICA UN USUARIO================================
     @Override
     public User putUser(Long id, User u) {
         User usuario = userRepository.findById(id)
@@ -83,6 +90,7 @@ public class AdminService implements IAdminService{
         return userRepository.save(usuario);
     }
 
+    //==================ACTUALIZA PUNTAJE DE USUARIO================================
     @Override
     public User putPuntaje(Long id, Integer puntaje) {
         User usuario = userRepository.findById(id)
@@ -92,11 +100,13 @@ public class AdminService implements IAdminService{
         return userRepository.save(usuario);
     }
 
+    //==================OBTIENE TODOS LOS ADMINISTRADORES================================
     @Override
     public List<AdminDTO> getAllAdmin() {
         return adminRepository.findAll().stream().map(Mapper::toDTO).toList();
     }
 
+    //==================OBTIENE ADMINISTRADOR POR ID================================
     @Override
     public AdminDTO getAdminId(Long id) {
         Admin a = adminRepository.findById(id)
@@ -104,6 +114,7 @@ public class AdminService implements IAdminService{
         return Mapper.toDTO(a);
     }
 
+    //==================OBTIENE ADMINISTRADOR POR NOMBRE================================
     @Override
     public AdminDTO getAdminName(String name) {
         Admin a = adminRepository.findByUserName(name)
@@ -111,6 +122,7 @@ public class AdminService implements IAdminService{
         return Mapper.toDTO(a);
     }
 
+    //==================ELIMINA ADMINISTRADOR================================
     @Override
     public void deleteAdminId(Long id) {
         Admin a = adminRepository.findById(id)
@@ -118,6 +130,7 @@ public class AdminService implements IAdminService{
         adminRepository.delete(a);
     }
 
+    //==================MODIFICA ADMINISTRADOR================================
     @Override
     public Admin putAdmin(Long id, Admin a) {
         Admin admin = adminRepository.findById(id)

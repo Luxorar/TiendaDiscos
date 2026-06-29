@@ -37,6 +37,7 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE TODAS LAS VENTAS================================
     @GetMapping
     public List<VentaDTO> getAllVentas(
             @RequestParam(name = "fecha_inicio", required = false) LocalDate fechaInicio,
@@ -58,6 +59,7 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================REGISTRA UNA VENTA================================
     @PostMapping
     public ResponseEntity<VentaDTO> postVenta(@Valid @RequestBody Venta v) {
         return ResponseEntity.ok(ventaService.postVenta(v));
@@ -73,6 +75,7 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE VENTA POR ID================================
     @GetMapping("id/{id}")
     public ResponseEntity<VentaDTO> getVentaId(@PathVariable Long id) {
         return ResponseEntity.ok(ventaService.getVentaId(id));
@@ -88,6 +91,7 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE VENTAS POR USUARIO================================
     @GetMapping("user/{u}")
     public List<VentaDTO> getVentaUser(@PathVariable Long u) {
         return ventaService.getVentaUser(u);
@@ -103,6 +107,7 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE PRODUCTOS DE VENTA================================
     @GetMapping("productos/{id}")
     public List<Producto> getProductoReciboId(@PathVariable Long id) {
         return ventaService.getProductoReciboId(id);
@@ -119,6 +124,7 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================ELIMINA UNA VENTA================================
     @DeleteMapping("{id}")
     public void delVenta(@PathVariable Long id) {
         ventaService.delVenta(id);

@@ -36,6 +36,7 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
+    //==================OBTIENE TODOS LOS USUARIOS================================
     @GetMapping
     public List<UserDTO> getAllUser() {
         return adminService.getAllUser();
@@ -51,6 +52,7 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
+    //==================REGISTRA UN USUARIO================================
     @PostMapping
     public ResponseEntity<User> postUsuario(@Valid @RequestBody User u) {
         return ResponseEntity.ok(adminService.postUsuario(u));
@@ -66,6 +68,7 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
+    //==================OBTIENE USUARIO POR ID================================
     @GetMapping("id/{id}")
     public ResponseEntity<UserDTO> getUserId(@PathVariable Long id) {
         return ResponseEntity.ok(adminService.getUserId(id));
@@ -81,6 +84,7 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
+    //==================OBTIENE USUARIO POR NOMBRE================================
     @GetMapping("name/{name}")
     public UserDTO getUserName(@PathVariable String name) {
         return adminService.getUserName(name);
@@ -96,6 +100,7 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
+    //==================ELIMINA USUARIO================================
     @DeleteMapping("{id}")
     public void deleteUserId(@PathVariable Long id) {
         adminService.deleteUserId(id);
@@ -111,6 +116,7 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
+    //==================MODIFICA USUARIO================================
     @PutMapping("{id}")
     public User putUser(@PathVariable Long id,@Valid @RequestBody User u) {
         return adminService.putUser(id, u);
@@ -126,37 +132,44 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Dato invalido")
     })
+    //==================ACTUALIZA PUNTAJE================================
     @PutMapping("/id/{id}")
     public User putPuntaje(@PathVariable Long id,@RequestBody Integer puntaje) {
         return adminService.putPuntaje(id, puntaje);
     }
 
+    //==================OBTIENE TODOS LOS ADMINISTRADORES================================
     @GetMapping("/admins")
     public List<AdminDTO> getAllAdmin() {
         return adminService.getAllAdmin();
     }
 
+    //==================REGISTRA UN ADMINISTRADOR================================
     @PostMapping("/admins")
     public ResponseEntity<Admin> postAdmin(@Valid @RequestBody Admin a) {
         return ResponseEntity.ok(adminService.postAdmin(a));
     }
 
+    //==================OBTIENE ADMINISTRADOR POR ID================================
     @GetMapping("/admins/{id}")
     public ResponseEntity<AdminDTO> getAdminId(@PathVariable Long id) {
         return ResponseEntity.ok(adminService.getAdminId(id));
     }
 
+    //==================OBTIENE ADMINISTRADOR POR NOMBRE================================
     @GetMapping("/admins/name/{name}")
     public ResponseEntity<AdminDTO> getAdminName(@PathVariable String name) {
         return ResponseEntity.ok(adminService.getAdminName(name));
     }
 
+    //==================ELIMINA ADMINISTRADOR================================
     @DeleteMapping("/admins/{id}")
     public ResponseEntity<Void> deleteAdminId(@PathVariable Long id) {
         adminService.deleteAdminId(id);
         return ResponseEntity.ok().build();
     }
 
+    //==================MODIFICA ADMINISTRADOR================================
     @PutMapping("/admins/{id}")
     public ResponseEntity<Admin> putAdmin(@PathVariable Long id, @Valid @RequestBody Admin a) {
         return ResponseEntity.ok(adminService.putAdmin(id, a));

@@ -14,6 +14,7 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
+    //==================OBTIENE TODOS LOS PRODUCTOS================================
     @GetMapping
     public List<Producto> getAll() {
         return productoService.getAllProductos();
