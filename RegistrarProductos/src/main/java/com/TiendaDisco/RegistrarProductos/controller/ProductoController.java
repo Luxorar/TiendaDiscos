@@ -34,6 +34,7 @@ public class ProductoController {
             @ApiResponse(responseCode="400",
                     description = "datos invalidos")
     })
+    //==================REGISTRA UN PRODUCTO================================
     @PostMapping
     public Producto postProducto(@Valid @RequestBody Producto producto) {
         return productoService.postProducto(producto);
@@ -49,6 +50,7 @@ public class ProductoController {
             @ApiResponse(responseCode="400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE TODOS LOS PRODUCTOS================================
     @GetMapping
     public List<ProductoDTO> getAllProductos() {
         return productoService.getAllProductos();
@@ -64,6 +66,7 @@ public class ProductoController {
             @ApiResponse(responseCode="400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE PRODUCTO POR ID================================
     @GetMapping("/{id}")
     public ProductoDTO getProductoID(@PathVariable Long id) {
         return productoService.getProductoID(id);
@@ -79,6 +82,7 @@ public class ProductoController {
             @ApiResponse(responseCode="400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE PRODUCTO POR NOMBRE================================
     @GetMapping("/nombre/{nombre}")
     public List<ProductoDTO> getProductoNombre(@PathVariable String nombre) {
         return productoService.getProductoNombre(nombre);
@@ -94,6 +98,7 @@ public class ProductoController {
             @ApiResponse(responseCode="400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE PRODUCTO POR MARCA================================
     @GetMapping("/marca/{marca}")
     public List<ProductoDTO> getProductoMarca(@PathVariable String marca) {
         return productoService.getProductoMarca(marca);
@@ -109,6 +114,7 @@ public class ProductoController {
             @ApiResponse(responseCode="400",
                     description = "Datos invalidos")
     })
+    //==================ELIMINA UN PRODUCTO================================
     @DeleteMapping("/{id}")
     public String deleteProducto(@PathVariable Long id) {
         return productoService.deleteProducto(id);

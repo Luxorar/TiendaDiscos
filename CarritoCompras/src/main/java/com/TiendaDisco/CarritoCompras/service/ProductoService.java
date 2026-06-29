@@ -22,11 +22,13 @@ public class ProductoService implements IProductoService {
     @Autowired
     private ProductoRepository productoRepository;
 
+    //==================OBTIENE TODOS LOS PRODUCTOS================================
     @Override
     public List<Producto> getAllProductos() {
         return productoRepository.findAll();
     }
 
+    //==================AGREGA PRODUCTO AL CARRITO================================
     @Override
     public Producto postProducto(Long user, Long idProducto, Producto newProducto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -38,6 +40,7 @@ public class ProductoService implements IProductoService {
         return saved;
     }
 
+    //==================OBTIENE PRODUCTOS DEL CARRITO================================
     @Override
     public ArrayList<Producto> getListaProducto(Long user, Producto producto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -46,6 +49,7 @@ public class ProductoService implements IProductoService {
         return new ArrayList<>(carro.getProductosAgregados());
     }
 
+    //==================OBTIENE PRODUCTO DEL CARRITO================================
     @Override
     public Producto getProducto(Long user, Long idProducto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -57,6 +61,7 @@ public class ProductoService implements IProductoService {
                 .orElseThrow(() -> new ManejoErrores("Producto no encontrado en el carrito"));
     }
 
+    //==================ELIMINA PRODUCTO DEL CARRITO================================
     @Override
     public String deleteProducto(Long user, Long idProducto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -73,6 +78,7 @@ public class ProductoService implements IProductoService {
         return "Producto eliminado del carrito";
     }
 
+    //==================MODIFICA PRODUCTO EN EL CARRITO================================
     @Override
     public Producto putProducto(Long user, Producto producto) {
         Carrito carro = carritoRepository.findByUserId(user)

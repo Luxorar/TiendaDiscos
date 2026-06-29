@@ -33,6 +33,7 @@ public class ResenaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================REGISTRA UNA RESENA================================
     @PostMapping
     public Resena postResena(@RequestBody Resena resena){
         return service.postResena(resena);
@@ -46,6 +47,7 @@ public class ResenaController {
             @ApiResponse(responseCode="200",
                     description = "Obtencion exitosa")
     })
+    //==================OBTIENE TODAS LAS RESENAS================================
     @GetMapping
     public List<ResenaDTO> getAllResenas(){
         return service.getAllResenas();
@@ -61,6 +63,7 @@ public class ResenaController {
             @ApiResponse(responseCode="400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE RESENA POR ID================================
     @GetMapping("{id}")
     public ResenaDTO getResenaId(@Valid @PathVariable Long id){
         return service.getResenaId(id);
@@ -76,6 +79,7 @@ public class ResenaController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
+    //==================ELIMINA UNA RESENA================================
     @DeleteMapping("{id}")
     public String deleteResenaId(@PathVariable Long id){
         return service.deleteResena(id);

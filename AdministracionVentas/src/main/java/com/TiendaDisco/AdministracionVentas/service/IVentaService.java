@@ -20,5 +20,4 @@ public interface IVentaService {
 
     List<VentaDTO> getVentaUser(Long u);
 
-    List<Producto> getProductoReciboId(Long id);
 }

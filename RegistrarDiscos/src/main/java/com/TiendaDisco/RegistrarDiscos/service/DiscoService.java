@@ -17,11 +17,13 @@ public class DiscoService implements IDiscoService {
     @Autowired
     private DiscoRepository discoRepository;
 
+    //==================REGISTRA UN DISCO================================
     @Override
     public Disco postDisco(Disco d) {
         return discoRepository.save(d);
     }
 
+    //==================OBTIENE DISCO POR ID================================
     @Override
     @Transactional(readOnly = true)
     public DiscoDTO getDiscoId(Long id) {
@@ -30,6 +32,7 @@ public class DiscoService implements IDiscoService {
         return Mapper.toDTO(disco);
     }
 
+    //==================MODIFICA UN DISCO================================
     @Override
     public String putDisco(Long id, Disco d) {
         Disco disc = discoRepository.findById(id)
@@ -43,6 +46,7 @@ public class DiscoService implements IDiscoService {
         return "Disco modificado";
     }
 
+    //==================ELIMINA UN DISCO================================
     @Override
     public String deleteDisco(Long id) {
         Disco disc = discoRepository.findById(id)
@@ -52,6 +56,7 @@ public class DiscoService implements IDiscoService {
         return "Disco eliminado";
     }
 
+    //==================OBTIENE TODOS LOS DISCOS================================
     @Override
     @Transactional(readOnly = true)
     public List<DiscoDTO> getAllDiscos() {

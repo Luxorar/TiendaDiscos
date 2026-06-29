@@ -36,6 +36,7 @@ public class DiscoController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
 })
+    //==================REGISTRA UN DISCO================================
     @PostMapping
     public Disco registrarDisco(@Valid @RequestBody Disco disco) {
         return discoService.postDisco(disco);
@@ -51,6 +52,7 @@ public class DiscoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE DISCO POR ID================================
     @GetMapping("/{id}")
     public ResponseEntity<DiscoDTO> obtenerDiscoPorId(@PathVariable Long id) {
         return ResponseEntity.ok(discoService.getDiscoId(id));
@@ -68,6 +70,7 @@ public class DiscoController {
 
             )
     })
+    //==================MODIFICA UN DISCO================================
     @PutMapping("/{id}")
     public String actualizarDisco(@PathVariable Long id, @Valid @RequestBody Disco disco) {
         return discoService.putDisco(id, disco);
@@ -83,11 +86,13 @@ public class DiscoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================ELIMINA UN DISCO================================
     @DeleteMapping("/{id}")
     public String eliminarDisco(@PathVariable Long id) {
         return discoService.deleteDisco(id);
     }
 
+    //==================OBTIENE TODOS LOS DISCOS================================
     @GetMapping
     public ResponseEntity<List<DiscoDTO>> obtenerTodosLosDiscos() {
         return ResponseEntity.ok(discoService.getAllDiscos());

@@ -31,6 +31,7 @@ public class DescuentoService implements IDescuentoService {
     @Autowired
     private Mapper mapper;
 
+    //==================OBTENER TODOS LOS DESCUENTOS================================================
     @Override
     public List<DescuentoDTO> getAllDescuentos() {
         return descuentoRepo.findAll()
@@ -39,6 +40,7 @@ public class DescuentoService implements IDescuentoService {
                 .toList();
     }
 
+    //==================OBTIENE DESCUENTTO POR ID=====================================================
     @Override
     public DescuentoDTO getDescuentoId(Long id) {
         Descuento descuento = descuentoRepo.findById(id)
@@ -47,6 +49,7 @@ public class DescuentoService implements IDescuentoService {
         return mapper.toDTO(descuento);
     }
 
+    //==================OBTIENE DESCUENTTO POR NOMBRE=====================================================
     @Override
     public DescuentoDTO getDescuentoNombre(String nombre) {
         Descuento descuento = descuentoRepo.findByNombre(nombre)
@@ -55,11 +58,13 @@ public class DescuentoService implements IDescuentoService {
         return mapper.toDTO(descuento);
     }
 
+    //==================REGISTRA DESCUENTTO====================================================
     @Override
     public Descuento postDescuento(Descuento d) {
         return descuentoRepo.save(d);
     }
 
+    //==================AJUSTA DESCUENTTO====================================================
     @Override
     public String putDescuento(Long id, Descuento d) {
         Descuento desc = descuentoRepo.findById(id)
@@ -73,6 +78,7 @@ public class DescuentoService implements IDescuentoService {
         return "Descuento modificado exitosamente";
     }
 
+    //==================ELIMINA DESCUENTTO====================================================
     @Override
     public String deleteDescuento(Long id) {
         Descuento desc = descuentoRepo.findById(id)
@@ -82,6 +88,7 @@ public class DescuentoService implements IDescuentoService {
         return "Descuento eliminado exitosamente";
     }
 
+    //==================AGREGA DISCO A DESCUENTO====================================================
     @Override
     public String agregarDisco(String nombreDescuento, Long idDisco) {
         Descuento desc = descuentoRepo.findByNombre(nombreDescuento)
@@ -99,6 +106,7 @@ public class DescuentoService implements IDescuentoService {
         return "Disco agregado al descuento exitosamente";
     }
 
+    //==================RETIRA DISCO A DESCUENTO====================================================
     @Override
     public String quitarDisco(String nombreDescuento, Long idDisco) {
         Descuento desc = descuentoRepo.findByNombre(nombreDescuento)
@@ -112,6 +120,7 @@ public class DescuentoService implements IDescuentoService {
         return "Disco eliminado del descuento exitosamente";
     }
 
+    //==================AGREGA PRODUCTO A DESCUENTO====================================================
     @Override
     public String agregarProducto(String nombreDescuento, Long idProducto) {
         Descuento desc = descuentoRepo.findByNombre(nombreDescuento)
@@ -129,6 +138,7 @@ public class DescuentoService implements IDescuentoService {
         return "Producto agregado al descuento exitosamente";
     }
 
+    //==================ELIMINA PRODUCTO A DESCUENTO====================================================
     @Override
     public String quitarProducto(String nombreDescuento, Long idProducto) {
         Descuento desc = descuentoRepo.findByNombre(nombreDescuento)

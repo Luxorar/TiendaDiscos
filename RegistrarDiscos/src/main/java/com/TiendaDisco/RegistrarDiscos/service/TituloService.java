@@ -14,17 +14,20 @@ public class TituloService implements ITituloService {
     @Autowired
     private TituloRepository repo;
 
+    //==================REGISTRA UN TITULO================================
     @Override
     public Titulo postTitulo(Titulo t) {
         return repo.save(t);
     }
 
+    //==================OBTIENE TITULO POR ID================================
     @Override
     public Titulo getTituloId(Long id) {
         return repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
     }
 
+    //==================MODIFICA UN TITULO================================
     @Override
     public String putTitulo(Long id, Titulo t) {
         Titulo tit = repo.findById(id)
@@ -36,6 +39,7 @@ public class TituloService implements ITituloService {
         return "Titulo modificado";
     }
 
+    //==================ELIMINA UN TITULO================================
     @Override
     public String deleteTitulo(Long id) {
         Titulo disc = repo.findById(id)
@@ -45,6 +49,7 @@ public class TituloService implements ITituloService {
         return "Titulo eliminado";
     }
 
+    //==================OBTIENE TODOS LOS TITULOS================================
     @Override
     public List<Titulo> getAllTitulos() {
         return repo.findAll();

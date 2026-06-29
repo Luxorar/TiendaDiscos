@@ -15,26 +15,31 @@ public class ProductoController {
     @Autowired
     private ProductoService service;
 
+    //==================REGISTRA UN PRODUCTO================================
     @PostMapping
     public Producto postProducto(@RequestBody Producto producto) {
         return service.postProducto(producto);
     }
 
+    //==================OBTIENE TODOS LOS PRODUCTOS================================
     @GetMapping
     public List<ProductoDTO> getAllProductos() {
         return service.getAllProductos();
     }
 
+    //==================OBTIENE PRODUCTO POR ID================================
     @GetMapping("{id}")
     public ProductoDTO getProductoId(@Valid @PathVariable Long id) {
         return service.getProductoId(id);
     }
 
+    //==================MODIFICA UN PRODUCTO================================
     @PutMapping("{id}")
     public String putProducto(@Valid @RequestBody Producto p, @PathVariable Long id) {
         return service.putProducto(id, p);
     }
 
+    //==================ELIMINA UN PRODUCTO================================
     @DeleteMapping("{id}")
     public String deleteProducto(@PathVariable Long id) {
         return service.deleteProducto(id);

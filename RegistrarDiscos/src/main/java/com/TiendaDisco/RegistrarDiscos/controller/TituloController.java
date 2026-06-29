@@ -16,26 +16,31 @@ public class TituloController {
     @Autowired
     private ITituloService tituloService;
 
+    //==================REGISTRA UN TITULO================================
     @PostMapping
     public Titulo registrarTitulo(@Valid @RequestBody Titulo titulo) {
         return tituloService.postTitulo(titulo);
     }
 
+    //==================OBTIENE TITULO POR ID================================
     @GetMapping("/{id}")
     public Titulo obtenerTituloPorId(@PathVariable Long id) {
         return tituloService.getTituloId(id);
     }
 
+    //==================MODIFICA UN TITULO================================
     @PutMapping("/{id}")
     public String actualizarTitulo(@PathVariable Long id, @Valid @RequestBody Titulo titulo) {
         return tituloService.putTitulo(id, titulo);
     }
 
+    //==================ELIMINA UN TITULO================================
     @DeleteMapping("/{id}")
     public String eliminarTitulo(@PathVariable Long id) {
         return tituloService.deleteTitulo(id);
     }
 
+    //==================OBTIENE TODOS LOS TITULOS================================
     @GetMapping
     public ResponseEntity<List<Titulo>> obtenerTodosLosTitulos() {
         return ResponseEntity.ok(tituloService.getAllTitulos());

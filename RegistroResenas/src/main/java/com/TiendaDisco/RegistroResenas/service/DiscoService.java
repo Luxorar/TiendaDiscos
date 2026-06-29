@@ -15,20 +15,24 @@ public class DiscoService implements IDiscoService{
     @Autowired
     private DiscoRepository repo;
 
+    //==================REGISTRA UN DISCO================================
     public Disco postDisco(Disco d){
         return repo.save(d);
     }
 
+    //==================OBTIENE TODOS LOS DISCOS================================
     public List<DiscoDTO> getAllDiscos(){
         return repo.findAll().stream().map(Mapper::toDTO).toList();
     }
 
+    //==================OBTIENE DISCO POR ID================================
     public DiscoDTO getDiscoId(Long id){
         Disco disco = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id no encontrada"));
         return Mapper.toDTO(disco);
     }
 
+    //==================MODIFICA UN DISCO================================
     public String putDisco(Long id, Disco d){
         Disco disc = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Id a modificar no encontrada"));
@@ -38,6 +42,7 @@ public class DiscoService implements IDiscoService{
         return "Usuario modificado";
     }
 
+    //==================ELIMINA UN DISCO================================
     public String deleteDisco(Long id){
         Disco disc = repo.findById(id)
                 .orElseThrow(() -> new ManejoErrores("Usuario no encontrado"));

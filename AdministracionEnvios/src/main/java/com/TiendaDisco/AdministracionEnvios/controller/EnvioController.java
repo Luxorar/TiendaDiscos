@@ -34,6 +34,7 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================REGISTRA UN ENVIO================================
     @PostMapping
     public Envio postEnvio(@RequestBody Envio envio) {
         return envioService.postEnvio(envio);
@@ -49,6 +50,7 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================OBTIENE TODOS LOS ENVIOS================================
     @GetMapping
     public List<EnvioDTO> getAllEnvios() {
         return envioService.getAllEnvios();
@@ -64,6 +66,7 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Dato invalido")
     })
+    //==================CAMBIA ESTADO DE ENVIO================================
     @PutMapping("{id}")
     public Envio PutEstadoEnvio(@Valid @RequestBody EstadoEnvio estado, @PathVariable Long id) {
         return envioService.PutEstadoEnvio(estado, id);
@@ -79,6 +82,7 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Dato invalido")
     })
+    //==================CAMBIA DIRECCION DE ENVIO================================
     @PutMapping("dir/{id}")
     public Envio PutDirEnvio(@Valid @RequestBody String direccion,@PathVariable Long id) {
         return envioService.PutDirEnvio(direccion, id);
@@ -94,6 +98,7 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
+    //==================ELIMINA UN ENVIO================================
     @DeleteMapping("{id}")
     public void deleteEnvio(@PathVariable Long id) {
         envioService.deleteEnvio(id);
