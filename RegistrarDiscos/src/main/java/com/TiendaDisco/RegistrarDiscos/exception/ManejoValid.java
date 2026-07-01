@@ -12,6 +12,16 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Controlador de asesoramiento global (Interceptor de excepciones) encargado de
+ * capturar, formatear y estandarizar las respuestas de error en formato JSON
+ * cuando fallan las validaciones físicas de los datos enviados por los clientes.
+ * Intercepta principalmente excepciones del tipo {@code MethodArgumentNotValidException}.
+ * * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @RestControllerAdvice
 public class ManejoValid {
 

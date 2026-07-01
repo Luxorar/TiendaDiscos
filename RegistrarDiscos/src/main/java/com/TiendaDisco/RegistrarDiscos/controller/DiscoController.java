@@ -15,6 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Controlador REST que expone los endpoints para la gestion del catalogo de discos.
+ * Se encarga de procesar las peticiones http y delegar la logica al servicio correspondiente.
+ * * Ruta base: /api/v1/productos
+ * * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("/api/v1/productos")
 @Tag(
@@ -26,6 +35,11 @@ public class DiscoController {
     @Autowired
     private IDiscoService discoService;
 
+    /**
+     * Endpoint para registrar un nuevo disco en el sistema.
+     * * @param disco Objeto con los datos del disco a registrar
+     * @return El disco persistido
+     */
     @Operation(
             summary="Registro de un disco",
             description="Permite agregar un nuevo disco"
@@ -36,12 +50,16 @@ public class DiscoController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
 })
-    //==================REGISTRA UN DISCO================================
     @PostMapping
     public Disco registrarDisco(@Valid @RequestBody Disco disco) {
         return discoService.postDisco(disco);
     }
 
+    /**
+     * Endpoint para buscar la información detallada de un disco específico.
+     * * @param id El identificador único del disco enviado por URL.
+     * @return Una respuesta HTTP 200 con el DTO del disco, o 400/404 si hay un error.
+     */
     @Operation(
             summary="Obtencion de un disco por id",
             description ="Obtiene un disco en base a su id"
@@ -52,12 +70,17 @@ public class DiscoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================OBTIENE DISCO POR ID================================
     @GetMapping("/{id}")
     public ResponseEntity<DiscoDTO> obtenerDiscoPorId(@PathVariable Long id) {
         return ResponseEntity.ok(discoService.getDiscoId(id));
     }
 
+    /**
+     * Endpoint para modificar los datos de un disco ya existente.
+     * * @param id El identificador del disco a modificar.
+     * @param disco El objeto con los nuevos datos del disco.
+     * @return Un mensaje de confirmación en formato String.
+     */
     @Operation(
             summary="Actualizar disco",
             description = "Actualiza los datos de un disco"
@@ -70,12 +93,16 @@ public class DiscoController {
 
             )
     })
-    //==================MODIFICA UN DISCO================================
     @PutMapping("/{id}")
     public String actualizarDisco(@PathVariable Long id, @Valid @RequestBody Disco disco) {
         return discoService.putDisco(id, disco);
     }
 
+    /**
+     * Endpoint para eliminar un disco del catálogo.
+    * * @param id El identificador del disco que se desea borrar.
+    * @return Un mensaje de confirmación de la eliminación.
+    */
     @Operation(
             summary="Eliminar disco",
             description = "Elimina un disco"
@@ -86,13 +113,15 @@ public class DiscoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================ELIMINA UN DISCO================================
     @DeleteMapping("/{id}")
     public String eliminarDisco(@PathVariable Long id) {
         return discoService.deleteDisco(id);
     }
 
-    //==================OBTIENE TODOS LOS DISCOS================================
+    /**
+     * Endpoint para obtener el catálogo completo de discos registrados.
+     * * @return Una respuesta HTTP 200 con la lista completa de discos en formato DTO.
+     */
     @GetMapping
     public ResponseEntity<List<DiscoDTO>> obtenerTodosLosDiscos() {
         return ResponseEntity.ok(discoService.getAllDiscos());
