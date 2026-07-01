@@ -9,6 +9,15 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Entidad que representa un usuario.
+ * Esta clase esta mapeada a la tabla "USUARIO_D" en la base de datos y
+ * se utiliza para registrar y transferir informacion de los usuarios.
+ * * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +28,11 @@ import java.util.List;
         description = "microservicio capaz de obtener las resenas de los usuarios"
 )
 public class User {
+
+    /**
+     * Identificador unico del usuario.
+     * se genera de forma automatica por la base de datos
+     */
     @Schema(
             title="Users",
             description = "Indica al usuario dueño de la resena",
@@ -28,6 +42,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Nombre de usuario
+     * Este campo es obligatorio
+     */
     @Schema(
             title="Users",
             description = "Indica al usuario dueño de la resena",
@@ -37,6 +55,10 @@ public class User {
     @Column(name = "nombre")
     private String userName;
 
+    /**
+     * Gmail del usuario
+     * Este campo es obligatorio
+     */
     @Schema(
             title="Users",
             description = "Indica al usuario dueño de la resena",
@@ -46,6 +68,9 @@ public class User {
     @Column(name = "gmail")
     private String gmail;
 
+    /**
+     * Lista de resenas de un disco
+     */
     @Schema(
             title="Users",
             description = "Indica al usuario dueño de la resena",
