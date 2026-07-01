@@ -6,6 +6,15 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+/**
+ * Entidad que representa una reseña de un disco.
+ * Esta clase esta mapeada a la tabla "RESENA" en la base de datos y
+ * se utiliza para registrar y transferir informacion de las resenas.
+ * * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,6 +25,11 @@ import lombok.*;
         description = "microservicio capaz de obtener las resenas de los usuarios"
 )
 public class Resena {
+
+    /**
+     * Identificador unico de la resena.
+     * se genera de forma automatica por la base de datos
+     */
     @Schema(
             title="id",
             description="Identificador unico para las reseñas",
@@ -25,6 +39,10 @@ public class Resena {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Nombre del usuario dueño de la resena
+     * Este campo es obligatorio
+     */
     @Schema(
             title="Users",
             description = "Indica al usuario dueño de la resena",
@@ -35,6 +53,10 @@ public class Resena {
     @JoinColumn(name = "user_id")
     private User user;
 
+    /**
+     * Disco relacionado a la resena
+     * Este campo es obligatorio
+     */
     @Schema(
             title="Disco",
             description = "Indica el disco donde proviene de la resena",
@@ -45,6 +67,10 @@ public class Resena {
     @JoinColumn(name = "disco_id")
     private Disco disco;
 
+    /**
+     * Reseña guardada como un mensaje
+     * Este campo es obligatorio
+     */
     @Schema(
             title="Mensaje",
             description = "Es el mensaje de la reseña",
