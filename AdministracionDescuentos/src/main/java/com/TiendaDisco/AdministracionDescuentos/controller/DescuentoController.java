@@ -18,7 +18,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/**
+ * Controlador REST para la gestion de descuentos.
+ * <p>Expone endpoints para registrar, consultar, actualizar y eliminar
+ * descuentos, asi como asociar discos y productos a los mismos.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("/api/v1/descuentos")
 @Tag(
@@ -40,7 +49,7 @@ public class DescuentoController {
             @ApiResponse(responseCode = "500",
                     description = "Problema del servidor")
     })
-    //==================OBTIENE TODOS LOS DESCUENTOS================================
+
     @GetMapping
     public ResponseEntity<List<DescuentoDTO>> getAllDescuentos() {
         return ResponseEntity.ok(descuentoService.getAllDescuentos());
@@ -56,12 +65,18 @@ public class DescuentoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================OBTIENE DESCUENTO POR ID================================
+
     @GetMapping("/{id}")
     public ResponseEntity<DescuentoDTO> getDescuentoId(@PathVariable Long id) {
         return ResponseEntity.ok(descuentoService.getDescuentoId(id));
     }
 
+    /**
+     * Obtiene un descuento por su nombre.
+     *
+     * @param nombre nombre del descuento
+     * @return {@link ResponseEntity} con el {@link DescuentoDTO}
+     */
     @Operation(
             summary="Obtener nombre de los descuentos",
             description="Permite obtener los nombres de los descuentos"
@@ -72,7 +87,6 @@ public class DescuentoController {
             @ApiResponse(responseCode = "500",
                     description = "Problema del servidor")
     })
-    //==================OBTIENE DESCUENTO POR NOMBRE================================
     @GetMapping("/buscar")
     public ResponseEntity<DescuentoDTO> getDescuentoNombre(@RequestBody String nombre) {
         return ResponseEntity.ok(descuentoService.getDescuentoNombre(nombre));
@@ -88,12 +102,19 @@ public class DescuentoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================REGISTRA UN DESCUENTO================================
+
     @PostMapping
     public ResponseEntity<Descuento> postDescuento(@Valid @RequestBody Descuento d) {
         return ResponseEntity.status(HttpStatus.CREATED).body(descuentoService.postDescuento(d));
     }
 
+    /**
+     * Actualiza los datos de un descuento existente.
+     *
+     * @param id identificador del descuento
+     * @param d  objeto {@link Descuento} con los datos actualizados
+     * @return mensaje de confirmacion
+     */
     @Operation(
             summary="Actualizar descuento",
             description=""
@@ -104,11 +125,11 @@ public class DescuentoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================MODIFICA UN DESCUENTO================================
     @PutMapping("/{id}")
     public ResponseEntity<String> putDescuento(@PathVariable Long id, @Valid @RequestBody Descuento d) {
         return ResponseEntity.ok(descuentoService.putDescuento(id, d));
     }
+
 
     @Operation(
             summary="Borrar descuento",
@@ -120,12 +141,19 @@ public class DescuentoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================ELIMINA UN DESCUENTO================================
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteDescuento(@PathVariable Long id) {
         return ResponseEntity.ok(descuentoService.deleteDescuento(id));
     }
 
+    /**
+     * Agrega un disco a un descuento existente.
+     *
+     * @param nombreDescuento nombre del descuento
+     * @param idDisco         identificador del disco
+     * @return mensaje de confirmacion
+     */
     @Operation(
             summary="Agregar disco",
             description="Permite agregar un disco al descuento"
@@ -136,25 +164,30 @@ public class DescuentoController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================AGREGA DISCO A DESCUENTO================================
     @PostMapping("/{nombreDescuento}/discos/{idDisco}")
     public ResponseEntity<String> agregarDisco(@PathVariable String nombreDescuento, @PathVariable Long idDisco) {
         return ResponseEntity.ok(descuentoService.agregarDisco(nombreDescuento, idDisco));
     }
 
-    //==================QUITA DISCO DE DESCUENTO================================
+    /**
+     * Quita un disco de un descuento.
+     *
+     * @param nombreDescuento nombre del descuento
+     * @param idDisco         identificador del disco
+     * @return mensaje de confirmacion
+     */
     @DeleteMapping("/descuento/{nombreDescuento}")
     public ResponseEntity<String> quitarDisco(@PathVariable String nombreDescuento, @RequestBody Long idDisco) {
         return ResponseEntity.ok(descuentoService.quitarDisco(nombreDescuento, idDisco));
     }
 
-    //==================AGREGA PRODUCTO A DESCUENTO================================
+
     @PostMapping("/producto/{nombreDescuento}")
     public ResponseEntity<String> agregarProducto(@PathVariable String nombreDescuento, @RequestBody Long idProducto) {
         return ResponseEntity.ok(descuentoService.agregarProducto(nombreDescuento, idProducto));
     }
 
-    //==================QUITA PRODUCTO DE DESCUENTO================================
+
     @DeleteMapping("/producto/{nombreDescuento}")
     public ResponseEntity<String> quitarProducto(@PathVariable String nombreDescuento, @RequestBody Long idProducto) {
         return ResponseEntity.ok(descuentoService.quitarProducto(nombreDescuento, idProducto));

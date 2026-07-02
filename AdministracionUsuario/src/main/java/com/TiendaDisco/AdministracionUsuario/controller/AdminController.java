@@ -16,6 +16,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controlador REST para la administracion de usuarios y administradores.
+ * <p>Expone endpoints para registrar, consultar, actualizar y eliminar
+ * usuarios y administradores del sistema.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("api/v1/admin")
 @Tag(
@@ -36,7 +46,11 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
-    //==================OBTIENE TODOS LOS USUARIOS================================
+    /**
+     * Obtiene todos los usuarios registrados.
+     *
+     * @return lista de {@link UserDTO}
+     */
     @GetMapping
     public List<UserDTO> getAllUser() {
         return adminService.getAllUser();
@@ -52,7 +66,12 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
-    //==================REGISTRA UN USUARIO================================
+    /**
+     * Registra un nuevo usuario en el sistema.
+     *
+     * @param u objeto {@link User} con los datos del usuario
+     * @return el usuario creado
+     */
     @PostMapping
     public ResponseEntity<User> postUsuario(@Valid @RequestBody User u) {
         return ResponseEntity.ok(adminService.postUsuario(u));
@@ -68,7 +87,12 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
-    //==================OBTIENE USUARIO POR ID================================
+    /**
+     * Obtiene un usuario por su identificador.
+     *
+     * @param id identificador del usuario
+     * @return {@link ResponseEntity} con el {@link UserDTO}
+     */
     @GetMapping("id/{id}")
     public ResponseEntity<UserDTO> getUserId(@PathVariable Long id) {
         return ResponseEntity.ok(adminService.getUserId(id));
@@ -84,7 +108,12 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
-    //==================OBTIENE USUARIO POR NOMBRE================================
+    /**
+     * Obtiene un usuario por su nombre de usuario.
+     *
+     * @param name nombre del usuario
+     * @return {@link UserDTO} del usuario encontrado
+     */
     @GetMapping("name/{name}")
     public UserDTO getUserName(@PathVariable String name) {
         return adminService.getUserName(name);
@@ -100,7 +129,11 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
-    //==================ELIMINA USUARIO================================
+    /**
+     * Elimina un usuario por su identificador.
+     *
+     * @param id identificador del usuario a eliminar
+     */
     @DeleteMapping("{id}")
     public void deleteUserId(@PathVariable Long id) {
         adminService.deleteUserId(id);
@@ -116,7 +149,13 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Datos invalidos")
     })
-    //==================MODIFICA USUARIO================================
+    /**
+     * Actualiza los datos de un usuario existente.
+     *
+     * @param id identificador del usuario
+     * @param u  objeto {@link User} con los datos actualizados
+     * @return el usuario actualizado
+     */
     @PutMapping("{id}")
     public User putUser(@PathVariable Long id,@Valid @RequestBody User u) {
         return adminService.putUser(id, u);
@@ -132,44 +171,140 @@ public class AdminController {
             @ApiResponse(responseCode="400",
                     description="Dato invalido")
     })
-    //==================ACTUALIZA PUNTAJE================================
+    /**
+     * Actualiza el puntaje de un usuario.
+     *
+     * @param id      identificador del usuario
+     * @param puntaje nuevo puntaje a asignar
+     * @return el usuario con el puntaje actualizado
+     */
     @PutMapping("/id/{id}")
     public User putPuntaje(@PathVariable Long id,@RequestBody Integer puntaje) {
         return adminService.putPuntaje(id, puntaje);
     }
 
-    //==================OBTIENE TODOS LOS ADMINISTRADORES================================
+    /**
+     * Obtiene todos los administradores registrados.
+     *
+     * @return lista de {@link AdminDTO}
+     */
+    @Operation(
+            summary="Obtener administradores",
+            description="Obtiene todos los administradores registrados"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200",
+                    description="Administradores obtenidos"),
+            @ApiResponse(responseCode="400",
+                    description="Datos invalidos")
+    })
     @GetMapping("/admins")
     public List<AdminDTO> getAllAdmin() {
         return adminService.getAllAdmin();
     }
 
-    //==================REGISTRA UN ADMINISTRADOR================================
+    /**
+     * Registra un nuevo administrador en el sistema.
+     *
+     * @param a objeto {@link Admin} con los datos del administrador
+     * @return el administrador creado
+     */
+    @Operation(
+            summary="Crear administrador",
+            description="Permite registrar un nuevo administrador"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="201",
+                    description="Administrador creado"),
+            @ApiResponse(responseCode="400",
+                    description="Datos invalidos")
+    })
     @PostMapping("/admins")
     public ResponseEntity<Admin> postAdmin(@Valid @RequestBody Admin a) {
         return ResponseEntity.ok(adminService.postAdmin(a));
     }
 
-    //==================OBTIENE ADMINISTRADOR POR ID================================
+    /**
+     * Obtiene un administrador por su identificador.
+     *
+     * @param id identificador del administrador
+     * @return {@link ResponseEntity} con el {@link AdminDTO}
+     */
+    @Operation(
+            summary="Obtener administrador por id",
+            description="Permite obtener un administrador segun su id"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200",
+                    description="Administrador obtenido"),
+            @ApiResponse(responseCode="400",
+                    description="Datos invalidos")
+    })
     @GetMapping("/admins/{id}")
     public ResponseEntity<AdminDTO> getAdminId(@PathVariable Long id) {
         return ResponseEntity.ok(adminService.getAdminId(id));
     }
 
-    //==================OBTIENE ADMINISTRADOR POR NOMBRE================================
+    /**
+     * Obtiene un administrador por su nombre de usuario.
+     *
+     * @param name nombre del administrador
+     * @return {@link ResponseEntity} con el {@link AdminDTO}
+     */
+    @Operation(
+            summary="Obtener administrador por nombre",
+            description="Permite obtener un administrador segun su nombre"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200",
+                    description="Administrador obtenido"),
+            @ApiResponse(responseCode="400",
+                    description="Datos invalidos")
+    })
     @GetMapping("/admins/name/{name}")
     public ResponseEntity<AdminDTO> getAdminName(@PathVariable String name) {
         return ResponseEntity.ok(adminService.getAdminName(name));
     }
 
-    //==================ELIMINA ADMINISTRADOR================================
+    /**
+     * Elimina un administrador por su identificador.
+     *
+     * @param id identificador del administrador a eliminar
+     * @return {@link ResponseEntity} vacio
+     */
+    @Operation(
+            summary="Eliminar administrador",
+            description="Permite eliminar un administrador segun su id"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200",
+                    description="Administrador eliminado"),
+            @ApiResponse(responseCode="400",
+                    description="Datos invalidos")
+    })
     @DeleteMapping("/admins/{id}")
     public ResponseEntity<Void> deleteAdminId(@PathVariable Long id) {
         adminService.deleteAdminId(id);
         return ResponseEntity.ok().build();
     }
 
-    //==================MODIFICA ADMINISTRADOR================================
+    /**
+     * Actualiza los datos de un administrador existente.
+     *
+     * @param id identificador del administrador
+     * @param a  objeto {@link Admin} con los datos actualizados
+     * @return el administrador actualizado
+     */
+    @Operation(
+            summary="Actualizar administrador",
+            description="Permite actualizar los datos de un administrador"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200",
+                    description="Administrador actualizado"),
+            @ApiResponse(responseCode="400",
+                    description="Datos invalidos")
+    })
     @PutMapping("/admins/{id}")
     public ResponseEntity<Admin> putAdmin(@PathVariable Long id, @Valid @RequestBody Admin a) {
         return ResponseEntity.ok(adminService.putAdmin(id, a));

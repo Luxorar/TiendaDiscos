@@ -12,6 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementacion del servicio de productos del carrito.
+ * Contiene la logica de negocio para gestionar productos dentro del carrito.
+ */
 @Service
 @Transactional
 public class ProductoService implements IProductoService {
@@ -22,13 +26,24 @@ public class ProductoService implements IProductoService {
     @Autowired
     private ProductoRepository productoRepository;
 
-    //==================OBTIENE TODOS LOS PRODUCTOS================================
+    /**
+     * Obtiene todos los productos registrados.
+     *
+     * @return lista de productos
+     */
     @Override
     public List<Producto> getAllProductos() {
         return productoRepository.findAll();
     }
 
-    //==================AGREGA PRODUCTO AL CARRITO================================
+    /**
+     * Agrega un nuevo producto al carrito de un usuario.
+     *
+     * @param user         identificador del usuario
+     * @param idProducto   identificador del producto
+     * @param newProducto  datos del producto a agregar
+     * @return el producto persistido
+     */
     @Override
     public Producto postProducto(Long user, Long idProducto, Producto newProducto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -40,7 +55,13 @@ public class ProductoService implements IProductoService {
         return saved;
     }
 
-    //==================OBTIENE PRODUCTOS DEL CARRITO================================
+    /**
+     * Obtiene la lista de productos del carrito de un usuario.
+     *
+     * @param user     identificador del usuario
+     * @param producto filtro opcional
+     * @return lista de productos en el carrito
+     */
     @Override
     public ArrayList<Producto> getListaProducto(Long user, Producto producto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -49,7 +70,13 @@ public class ProductoService implements IProductoService {
         return new ArrayList<>(carro.getProductosAgregados());
     }
 
-    //==================OBTIENE PRODUCTO DEL CARRITO================================
+    /**
+     * Obtiene un producto especifico del carrito de un usuario.
+     *
+     * @param user       identificador del usuario
+     * @param idProducto identificador del producto
+     * @return el producto solicitado
+     */
     @Override
     public Producto getProducto(Long user, Long idProducto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -61,7 +88,13 @@ public class ProductoService implements IProductoService {
                 .orElseThrow(() -> new ManejoErrores("Producto no encontrado en el carrito"));
     }
 
-    //==================ELIMINA PRODUCTO DEL CARRITO================================
+    /**
+     * Elimina un producto del carrito de un usuario.
+     *
+     * @param user       identificador del usuario
+     * @param idProducto identificador del producto
+     * @return mensaje de confirmacion
+     */
     @Override
     public String deleteProducto(Long user, Long idProducto) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -78,7 +111,13 @@ public class ProductoService implements IProductoService {
         return "Producto eliminado del carrito";
     }
 
-    //==================MODIFICA PRODUCTO EN EL CARRITO================================
+    /**
+     * Modifica un producto existente en el carrito de un usuario.
+     *
+     * @param user     identificador del usuario
+     * @param producto objeto con los datos actualizados
+     * @return el producto modificado
+     */
     @Override
     public Producto putProducto(Long user, Producto producto) {
         Carrito carro = carritoRepository.findByUserId(user)

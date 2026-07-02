@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+/**
+ * Implementacion del servicio de envios.
+ * Contiene la logica de negocio para gestionar los envios del sistema.
+ */
 @Service
 public class EnvioService implements IEnvioService{
     @Autowired
@@ -20,19 +23,34 @@ public class EnvioService implements IEnvioService{
     @Autowired
     private Mapper mapper;
 
-    //==================REGISTRA UN ENVIO================================
+    /**
+     * Registra un nuevo envio en la base de datos.
+     *
+     * @param envio datos del envio
+     * @return el envio persistido
+     */
     @Override
     public Envio postEnvio(Envio envio) {
         return repo.save(envio);
     }
 
-    //==================OBTIENE TODOS LOS ENVIOS================================
+    /**
+     * Obtiene todos los envios y los convierte a DTO.
+     *
+     * @return lista de EnvioDTO
+     */
     @Override
     public List<EnvioDTO> getAllEnvios() {
         return repo.findAll().stream().map(mapper::toDTO).toList();
     }
 
-    //==================CAMBIA EL ESTADO DE UN ENVIO================================
+    /**
+     * Actualiza el estado de un envio, lanzando excepcion si no existe.
+     *
+     * @param estado nuevo estado
+     * @param id     identificador del envio
+     * @return el envio con el estado actualizado
+     */
     @Override
     public Envio PutEstadoEnvio(EstadoEnvio estado, Long id) {
         Envio e = repo.findById(id)
@@ -42,7 +60,13 @@ public class EnvioService implements IEnvioService{
         return repo.save(e);
     }
 
-    //==================CAMBIA LA DIRECCION DE UN ENVIO================================
+    /**
+     * Actualiza la direccion de destino de un envio.
+     *
+     * @param direccion nueva direccion
+     * @param id        identificador del envio
+     * @return el envio con la direccion actualizada
+     */
     @Override
     public Envio PutDirEnvio(String direccion, Long id) {
         Envio e = repo.findById(id)
@@ -52,7 +76,11 @@ public class EnvioService implements IEnvioService{
         return repo.save(e);
     }
 
-    //==================ELIMINA UN ENVIO================================
+    /**
+     * Elimina un envio si existe, lanzando excepcion en caso contrario.
+     *
+     * @param id identificador del envio
+     */
     @Override
     public void deleteEnvio(Long id) {
         if(!repo.existsById(id)){

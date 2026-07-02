@@ -16,6 +16,16 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Controlador REST para la gestion de ventas.
+ * <p>Expone endpoints para registrar, consultar y eliminar ventas,
+ * asi como obtener productos asociados a las mismas.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("api/v1/ventas")
 @Tag(
@@ -37,7 +47,14 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================OBTIENE TODAS LAS VENTAS================================
+    /**
+     * Obtiene todas las ventas, con filtros opcionales por fecha y usuario.
+     *
+     * @param fechaInicio fecha de inicio del filtro (opcional)
+     * @param fechaFin    fecha de fin del filtro (opcional)
+     * @param usuarioId   identificador del usuario (opcional)
+     * @return lista de {@link VentaDTO}
+     */
     @GetMapping
     public List<VentaDTO> getAllVentas(
             @RequestParam(name = "fecha_inicio", required = false) LocalDate fechaInicio,
@@ -59,7 +76,12 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================REGISTRA UNA VENTA================================
+    /**
+     * Registra una nueva venta en el sistema.
+     *
+     * @param v objeto {@link Venta} con los datos de la venta
+     * @return la venta registrada como {@link VentaDTO}
+     */
     @PostMapping
     public ResponseEntity<VentaDTO> postVenta(@Valid @RequestBody Venta v) {
         return ResponseEntity.ok(ventaService.postVenta(v));
@@ -75,7 +97,12 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================OBTIENE VENTA POR ID================================
+    /**
+     * Obtiene una venta por su identificador.
+     *
+     * @param id identificador de la venta
+     * @return {@link ResponseEntity} con el {@link VentaDTO}
+     */
     @GetMapping("id/{id}")
     public ResponseEntity<VentaDTO> getVentaId(@PathVariable Long id) {
         return ResponseEntity.ok(ventaService.getVentaId(id));
@@ -91,7 +118,12 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================OBTIENE VENTAS POR USUARIO================================
+    /**
+     * Obtiene todas las ventas de un usuario.
+     *
+     * @param u identificador del usuario
+     * @return lista de {@link VentaDTO}
+     */
     @GetMapping("user/{u}")
     public List<VentaDTO> getVentaUser(@PathVariable Long u) {
         return ventaService.getVentaUser(u);
@@ -107,7 +139,12 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================OBTIENE PRODUCTOS DE VENTA================================
+    /**
+     * Obtiene los productos asociados a una venta.
+     *
+     * @param id identificador de la venta
+     * @return lista de productos de la venta
+     */
     @GetMapping("productos/{id}")
     public List<Producto> getProductoReciboId(@PathVariable Long id) {
         return ventaService.getProductoReciboId(id);
@@ -124,7 +161,11 @@ public class VentaController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================ELIMINA UNA VENTA================================
+    /**
+     * Elimina una venta por su identificador.
+     *
+     * @param id identificador de la venta a eliminar
+     */
     @DeleteMapping("{id}")
     public void delVenta(@PathVariable Long id) {
         ventaService.delVenta(id);
