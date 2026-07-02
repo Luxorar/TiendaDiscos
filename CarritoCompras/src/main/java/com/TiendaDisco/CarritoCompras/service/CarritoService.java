@@ -12,6 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Implementacion del servicio de carrito de compras.
+ * Contiene la logica de negocio para gestionar los carritos del sistema.
+ */
 @Service
 @Transactional(readOnly = true)
 public class CarritoService implements ICarritoService{
@@ -21,7 +25,11 @@ public class CarritoService implements ICarritoService{
     @Autowired
     private Mapper mapper;
 
-    //==================OBTIENE TODOS LOS CARRITOS================================
+    /**
+     * Obtiene todos los carritos y los convierte a DTO.
+     *
+     * @return lista de CarritoDTO
+     */
     @Override
     public List<CarritoDTO> getListaCarrito() {
         return carritoRepository.findAll()
@@ -30,13 +38,23 @@ public class CarritoService implements ICarritoService{
                 .toList();
     }
 
-    //==================CREA UN CARRITO================================
+    /**
+     * Persiste un nuevo carrito en la base de datos.
+     *
+     * @param c objeto Carrito a guardar
+     * @return el carrito persistido
+     */
     @Override
     public Carrito postCarrito(Carrito c) {
         return carritoRepository.save(c);
     }
 
-    //==================OBTIENE CARRITO POR USUARIO================================
+    /**
+     * Busca un carrito por usuario, lanzando excepcion si no existe.
+     *
+     * @param usuario identificador del usuario
+     * @return CarritoDTO del usuario encontrado
+     */
     @Override
     public CarritoDTO getCarrito(Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)
@@ -45,7 +63,13 @@ public class CarritoService implements ICarritoService{
         return mapper.toDTO(carro);
     }
 
-    //==================ACTUALIZA DESCUENTO DEL CARRITO================================
+    /**
+     * Actualiza el descuento del carrito de un usuario.
+     *
+     * @param c       objeto con el nuevo descuento
+     * @param usuario identificador del usuario
+     * @return mensaje de confirmacion
+     */
     @Override
     public String updateCarrito(Carrito c, Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)
@@ -56,7 +80,11 @@ public class CarritoService implements ICarritoService{
         return "Carrito actualizado";
     }
 
-    //==================ELIMINA CARRITO================================
+    /**
+     * Elimina el carrito de un usuario, lanzando excepcion si no existe.
+     *
+     * @param usuario identificador del usuario
+     */
     @Override
     public void deleteCarrito(Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)

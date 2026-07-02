@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Implementacion del servicio de administracion de usuarios.
+ * Contiene la logica de negocio para gestionar usuarios y administradores del sistema.
+ */
 @Service
 public class AdminService implements IAdminService{
     @Autowired
@@ -22,13 +26,22 @@ public class AdminService implements IAdminService{
     @Autowired
     private AdminRepository adminRepository;
 
-    //==================OBTIENE TODOS LOS USUARIOS================================
+    /**
+     * Obtiene todos los usuarios registrados y los convierte a DTO.
+     *
+     * @return lista de UserDTO
+     */
     @Override
     public List<UserDTO> getAllUser() {
         return userRepository.findAll().stream().map(Mapper::toDTO).toList();
     }
 
-    //==================REGISTRA UN USUARIO================================
+    /**
+     * Registra un nuevo usuario con fecha actual y cuenta activa por defecto.
+     *
+     * @param u objeto User a persistir
+     * @return el usuario persistido
+     */
     @Override
     public User postUsuario(User u) {
         u.setFechaRegistro(LocalDate.now());
@@ -37,7 +50,12 @@ public class AdminService implements IAdminService{
         return userRepository.save(u) ;
     }
 
-    //==================REGISTRA UN ADMINISTRADOR================================
+    /**
+     * Registra un nuevo administrador con fecha actual y cuenta activa por defecto.
+     *
+     * @param a objeto Admin a persistir
+     * @return el administrador persistido
+     */
     @Override
     public Admin postAdmin(Admin a) {
         a.setFechaRegistro(LocalDate.now());
@@ -46,7 +64,12 @@ public class AdminService implements IAdminService{
         return adminRepository.save(a) ;
     }
 
-    //==================OBTIENE USUARIO POR ID================================
+    /**
+     * Busca un usuario por id, lanzando excepcion si no existe.
+     *
+     * @param id identificador del usuario
+     * @return UserDTO del usuario encontrado
+     */
     @Override
     public UserDTO getUserId(Long id) {
         User u =userRepository.findById(id)
@@ -55,11 +78,16 @@ public class AdminService implements IAdminService{
         return Mapper.toDTO(u);
     }
 
-    //==================OBTIENE USUARIO POR NOMBRE================================
+    /**
+     * Busca un usuario por nombre, validando que la cuenta este activa.
+     *
+     * @param name nombre del usuario
+     * @return UserDTO del usuario encontrado, o null si esta inactivo
+     */
     @Override
     public UserDTO getUserName(String name) {
         User u = userRepository.findByUserName(name)
-                .orElseThrow(()-> new ManejoErrores( "No se encontró un usuario con ese nombre"));
+                .orElseThrow(()-> new ManejoErrores( "No se encontr\u00f3 un usuario con ese nombre"));
         if(u.getCuentaActiva()==true) {
             return Mapper.toDTO(u);
         }else {
@@ -67,20 +95,30 @@ public class AdminService implements IAdminService{
         }
     }
 
-    //==================ELIMINA UN USUARIO================================
+    /**
+     * Elimina un usuario por su id, lanzando excepcion si no existe.
+     *
+     * @param id identificador del usuario
+     */
     @Override
     public void deleteUserId(Long id) {
         User u = userRepository.findById(id)
-                .orElseThrow(()-> new ManejoErrores( "No se encontró un usuario con ese nombre"));
+                .orElseThrow(()-> new ManejoErrores( "No se encontr\u00f3 un usuario con ese nombre"));
 
         userRepository.delete(u);
     }
 
-    //==================MODIFICA UN USUARIO================================
+    /**
+     * Actualiza los campos modificables de un usuario existente.
+     *
+     * @param id identificador del usuario
+     * @param u  objeto con los campos a actualizar
+     * @return el usuario actualizado
+     */
     @Override
     public User putUser(Long id, User u) {
         User usuario = userRepository.findById(id)
-                .orElseThrow(()-> new ManejoErrores( "No se encontró un usuario con ese id"));
+                .orElseThrow(()-> new ManejoErrores( "No se encontr\u00f3 un usuario con ese id"));
 
         if(u.getUserName()!=null)usuario.setUserName(u.getUserName());
         if(u.getPuntos()!=null)usuario.setPuntos(u.getPuntos());
@@ -90,23 +128,38 @@ public class AdminService implements IAdminService{
         return userRepository.save(usuario);
     }
 
-    //==================ACTUALIZA PUNTAJE DE USUARIO================================
+    /**
+     * Actualiza unicamente el puntaje de un usuario.
+     *
+     * @param id      identificador del usuario
+     * @param puntaje nuevo puntaje
+     * @return el usuario con el puntaje actualizado
+     */
     @Override
     public User putPuntaje(Long id, Integer puntaje) {
         User usuario = userRepository.findById(id)
-                .orElseThrow(()-> new ManejoErrores( "No se encontró un usuario con ese id"));
+                .orElseThrow(()-> new ManejoErrores( "No se encontr\u00f3 un usuario con ese id"));
 
         usuario.setPuntos(puntaje);
         return userRepository.save(usuario);
     }
 
-    //==================OBTIENE TODOS LOS ADMINISTRADORES================================
+    /**
+     * Obtiene todos los administradores y los convierte a DTO.
+     *
+     * @return lista de AdminDTO
+     */
     @Override
     public List<AdminDTO> getAllAdmin() {
         return adminRepository.findAll().stream().map(Mapper::toDTO).toList();
     }
 
-    //==================OBTIENE ADMINISTRADOR POR ID================================
+    /**
+     * Busca un administrador por id, lanzando excepcion si no existe.
+     *
+     * @param id identificador del administrador
+     * @return AdminDTO del administrador encontrado
+     */
     @Override
     public AdminDTO getAdminId(Long id) {
         Admin a = adminRepository.findById(id)
@@ -114,15 +167,24 @@ public class AdminService implements IAdminService{
         return Mapper.toDTO(a);
     }
 
-    //==================OBTIENE ADMINISTRADOR POR NOMBRE================================
+    /**
+     * Busca un administrador por nombre, lanzando excepcion si no existe.
+     *
+     * @param name nombre del administrador
+     * @return AdminDTO del administrador encontrado
+     */
     @Override
     public AdminDTO getAdminName(String name) {
         Admin a = adminRepository.findByUserName(name)
-                .orElseThrow(() -> new ManejoErrores("No se encontró un administrador con ese nombre: " + name));
+                .orElseThrow(() -> new ManejoErrores("No se encontr\u00f3 un administrador con ese nombre: " + name));
         return Mapper.toDTO(a);
     }
 
-    //==================ELIMINA ADMINISTRADOR================================
+    /**
+     * Elimina un administrador por su id, lanzando excepcion si no existe.
+     *
+     * @param id identificador del administrador
+     */
     @Override
     public void deleteAdminId(Long id) {
         Admin a = adminRepository.findById(id)
@@ -130,7 +192,13 @@ public class AdminService implements IAdminService{
         adminRepository.delete(a);
     }
 
-    //==================MODIFICA ADMINISTRADOR================================
+    /**
+     * Actualiza los campos modificables de un administrador existente.
+     *
+     * @param id identificador del administrador
+     * @param a  objeto con los campos a actualizar
+     * @return el administrador actualizado
+     */
     @Override
     public Admin putAdmin(Long id, Admin a) {
         Admin admin = adminRepository.findById(id)

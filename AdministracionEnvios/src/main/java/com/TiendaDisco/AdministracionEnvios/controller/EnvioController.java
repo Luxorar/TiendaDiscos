@@ -14,6 +14,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controlador REST para la gestion de envios.
+ * <p>Expone endpoints para registrar, consultar, actualizar y eliminar
+ * envios, asi como cambiar su estado y direccion de destino.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("api/v1/envios")
 @Tag(
@@ -34,7 +44,12 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================REGISTRA UN ENVIO================================
+    /**
+     * Registra un nuevo envio en el sistema.
+     *
+     * @param envio objeto {@link Envio} con los datos del envio
+     * @return el envio registrado
+     */
     @PostMapping
     public Envio postEnvio(@RequestBody Envio envio) {
         return envioService.postEnvio(envio);
@@ -50,7 +65,11 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================OBTIENE TODOS LOS ENVIOS================================
+    /**
+     * Obtiene todos los envios registrados.
+     *
+     * @return lista de {@link EnvioDTO}
+     */
     @GetMapping
     public List<EnvioDTO> getAllEnvios() {
         return envioService.getAllEnvios();
@@ -66,7 +85,13 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Dato invalido")
     })
-    //==================CAMBIA ESTADO DE ENVIO================================
+    /**
+     * Actualiza el estado de un envio existente.
+     *
+     * @param estado nuevo estado del envio
+     * @param id     identificador del envio
+     * @return el envio actualizado
+     */
     @PutMapping("{id}")
     public Envio PutEstadoEnvio(@Valid @RequestBody EstadoEnvio estado, @PathVariable Long id) {
         return envioService.PutEstadoEnvio(estado, id);
@@ -82,7 +107,13 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Dato invalido")
     })
-    //==================CAMBIA DIRECCION DE ENVIO================================
+    /**
+     * Actualiza la direccion de destino de un envio.
+     *
+     * @param direccion nueva direccion de destino
+     * @param id        identificador del envio
+     * @return el envio actualizado
+     */
     @PutMapping("dir/{id}")
     public Envio PutDirEnvio(@Valid @RequestBody String direccion,@PathVariable Long id) {
         return envioService.PutDirEnvio(direccion, id);
@@ -98,7 +129,11 @@ public class EnvioController {
             @ApiResponse(responseCode = "400",
                     description = "Datos invalidos")
     })
-    //==================ELIMINA UN ENVIO================================
+    /**
+     * Elimina un envio por su identificador.
+     *
+     * @param id identificador del envio a eliminar
+     */
     @DeleteMapping("{id}")
     public void deleteEnvio(@PathVariable Long id) {
         envioService.deleteEnvio(id);
