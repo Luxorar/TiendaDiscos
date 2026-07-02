@@ -5,6 +5,14 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+/**
+ * Entidad que representa un producto agregado al carrito.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor

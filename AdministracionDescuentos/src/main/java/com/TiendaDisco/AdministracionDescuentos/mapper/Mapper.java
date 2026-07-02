@@ -12,6 +12,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Clase utilitaria para mapear entidades de descuento a DTOs.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Component
 public class Mapper {
 
@@ -21,6 +29,13 @@ public class Mapper {
     @Autowired
     private ProductoClient productoClient;
 
+    /**
+     * Convierte una entidad {@link Descuento} a su DTO, resolviendo
+     * los nombres de discos y productos asociados mediante Feign clients.
+     *
+     * @param descuento entidad Descuento a convertir, puede ser {@code null}
+     * @return {@link DescuentoDTO} con los datos mapeados
+     */
     public DescuentoDTO toDTO(Descuento descuento){
         if(descuento == null) return null;
 
@@ -34,6 +49,12 @@ public class Mapper {
                 .build();
     }
 
+    /**
+     * Resuelve los nombres de los discos a partir de sus IDs.
+     *
+     * @param ids lista de identificadores de discos
+     * @return lista de nombres de discos
+     */
     private List<String> resolverNombresDiscos(List<Long> ids) {
         if (ids == null) return Collections.emptyList();
         return ids.stream()
@@ -48,6 +69,12 @@ public class Mapper {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Resuelve los nombres de los productos a partir de sus IDs.
+     *
+     * @param ids lista de identificadores de productos
+     * @return lista de nombres de productos
+     */
     private List<String> resolverNombresProductos(List<Long> ids) {
         if (ids == null) return Collections.emptyList();
         return ids.stream()

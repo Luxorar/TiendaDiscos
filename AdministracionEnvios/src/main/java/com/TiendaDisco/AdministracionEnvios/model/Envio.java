@@ -9,6 +9,16 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+/**
+ * Entidad que representa un envio asociado a una venta.
+ * <p>Almacena la informacion de despacho incluyendo direccion, tipo de
+ * despacho, empresa de reparto, estado y fecha de entrega.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Getter
 @Setter
 @AllArgsConstructor

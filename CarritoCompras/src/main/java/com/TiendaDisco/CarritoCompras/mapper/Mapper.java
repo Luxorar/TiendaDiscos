@@ -12,6 +12,17 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * Clase utilitaria para mapear entidades del dominio a DTOs.
+ * <p>Convierte una entidad {@link Carrito} a {@link CarritoDTO},
+ * consultando los microservicios de discos, productos y usuarios
+ * para obtener informacion enriquecida.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Component
 public class Mapper {
 
@@ -24,6 +35,13 @@ public class Mapper {
     @Autowired
     private UserClient userClient;
 
+    /**
+     * Convierte una entidad {@link Carrito} a su DTO, calculando
+     * precios totales y aplicando descuentos.
+     *
+     * @param c entidad Carrito a convertir, puede ser {@code null}
+     * @return {@link CarritoDTO} con los datos mapeados, o {@code null} si la entrada es {@code null}
+     */
     public CarritoDTO toDTO(Carrito c) {
         if (c == null) return null;
         int suma = 0;

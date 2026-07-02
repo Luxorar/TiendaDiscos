@@ -4,6 +4,14 @@ import com.TiendaDisco.CarritoCompras.model.Disco;
 
 import java.util.List;
 
+/**
+ * Interface que define las operaciones de negocio para discos en el carrito.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 public interface IDiscoService {
 
     List<Disco> getAllDiscos();

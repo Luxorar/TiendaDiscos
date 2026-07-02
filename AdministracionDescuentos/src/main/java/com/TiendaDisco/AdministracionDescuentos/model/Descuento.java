@@ -11,6 +11,16 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Entidad que representa un descuento aplicable a productos y discos.
+ * <p>Almacena el nombre, estado, porcentaje de descuento y las listas
+ * de discos y productos a los que aplica.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor @Builder @Entity
 @Table(name="DESCUENTO")
 @Schema(

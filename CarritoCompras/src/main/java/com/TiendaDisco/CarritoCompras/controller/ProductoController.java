@@ -7,14 +7,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @deprecated
+ * Esta clase fue creada antes de la comunicación de los microservicios, eliminar en versionaes futuras
+ */
 @RestController
-@RequestMapping("/api/v1/carrito/productos")
+@RequestMapping("/api/v1/carrito/productos_p")
 public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
 
-    //==================OBTIENE TODOS LOS PRODUCTOS================================
+    /**
+     * Obtiene todos los productos del sistema.
+     *
+     * @return lista de {@link Producto}
+     */
     @GetMapping
     public List<Producto> getAll() {
         return productoService.getAllProductos();

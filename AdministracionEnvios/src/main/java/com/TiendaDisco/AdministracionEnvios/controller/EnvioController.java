@@ -14,6 +14,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Controlador REST para la gestion de envios.
+ * <p>Expone endpoints para registrar, consultar, actualizar y eliminar
+ * envios asociados a las ventas del sistema.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @RestController
 @RequestMapping("api/v1/envios")
 @Tag(
@@ -24,81 +34,56 @@ public class EnvioController {
     @Autowired
     private EnvioService envioService;
 
-    @Operation(
-            summary="Registro de envios",
-            description="Permite agregar un nuevo envio"
-    )
-    @ApiResponses({
-            @ApiResponse(responseCode="201",
-                    description="Envio creado"),
-            @ApiResponse(responseCode = "400",
-                    description = "Datos invalidos")
-    })
-    //==================REGISTRA UN ENVIO================================
+    /**
+     * Registra un nuevo envio.
+     *
+     * @param envio objeto {@link Envio} con los datos del envio
+     * @return {@link Envio} persistido
+     */
     @PostMapping
     public Envio postEnvio(@RequestBody Envio envio) {
         return envioService.postEnvio(envio);
     }
 
-    @Operation(
-            summary="Obtener todos los envios",
-            description="Obtiene todos los envios guardados"
-    )
-    @ApiResponses({
-            @ApiResponse(responseCode="200",
-                    description="Envio obtenido"),
-            @ApiResponse(responseCode = "400",
-                    description = "Datos invalidos")
-    })
-    //==================OBTIENE TODOS LOS ENVIOS================================
+    /**
+     * Obtiene todos los envios registrados.
+     *
+     * @return lista de {@link EnvioDTO}
+     */
     @GetMapping
     public List<EnvioDTO> getAllEnvios() {
         return envioService.getAllEnvios();
     }
 
-    @Operation(
-            summary="Actualizar estado de envio",
-            description="Permite actualizar el estado de un envio"
-    )
-    @ApiResponses({
-            @ApiResponse(responseCode="200",
-                    description="Estado actualizado"),
-            @ApiResponse(responseCode = "400",
-                    description = "Dato invalido")
-    })
-    //==================CAMBIA ESTADO DE ENVIO================================
+    /**
+     * Actualiza el estado de un envio.
+     *
+     * @param estado nuevo estado del envio
+     * @param id     identificador del envio
+     * @return {@link Envio} actualizado
+     */
     @PutMapping("{id}")
     public Envio PutEstadoEnvio(@Valid @RequestBody EstadoEnvio estado, @PathVariable Long id) {
         return envioService.PutEstadoEnvio(estado, id);
     }
 
-    @Operation(
-            summary="Actualizar direccion de envio",
-            description="Permite actualizar la direccion del envio"
-    )
-    @ApiResponses({
-            @ApiResponse(responseCode="200",
-                    description="Direccion actualizada"),
-            @ApiResponse(responseCode = "400",
-                    description = "Dato invalido")
-    })
-    //==================CAMBIA DIRECCION DE ENVIO================================
+    /**
+     * Actualiza la direccion de destino de un envio.
+     *
+     * @param direccion nueva direccion de destino
+     * @param id        identificador del envio
+     * @return {@link Envio} actualizado
+     */
     @PutMapping("dir/{id}")
     public Envio PutDirEnvio(@Valid @RequestBody String direccion,@PathVariable Long id) {
         return envioService.PutDirEnvio(direccion, id);
     }
 
-    @Operation(
-            summary="Borrar envio",
-            description="Permite borrar un envio"
-    )
-    @ApiResponses({
-            @ApiResponse(responseCode="200",
-                    description="Envio eliminado"),
-            @ApiResponse(responseCode = "400",
-                    description = "Datos invalidos")
-    })
-    //==================ELIMINA UN ENVIO================================
+    /**
+     * Elimina un envio por su identificador.
+     *
+     * @param id identificador del envio
+     */
     @DeleteMapping("{id}")
     public void deleteEnvio(@PathVariable Long id) {
         envioService.deleteEnvio(id);

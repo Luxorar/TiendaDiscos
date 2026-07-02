@@ -11,6 +11,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Implementacion del servicio de discos en el carrito.
+ * <p>Contiene la logica de negocio para agregar, consultar, modificar
+ * y eliminar discos del carrito de compras.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Service
 @Transactional
 public class DiscoService implements IDiscoService {
@@ -21,13 +31,11 @@ public class DiscoService implements IDiscoService {
     @Autowired
     private DiscoRepository discoRepository;
 
-    //==================OBTIENE TODOS LOS DISCOS================================
     @Override
     public List<Disco> getAllDiscos() {
         return discoRepository.findAll();
     }
 
-    //==================OBTIENE DISCOS DEL CARRITO================================
     @Override
     public List<Disco> getListaDiscos(Long user) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -35,7 +43,6 @@ public class DiscoService implements IDiscoService {
         return carro.getDiscosAgregados();
     }
 
-    //==================AGREGA DISCO AL CARRITO================================
     @Override
     public Disco postDisco(Long user, Long idDisco, Disco newDisco) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -47,7 +54,6 @@ public class DiscoService implements IDiscoService {
         return saved;
     }
 
-    //==================OBTIENE DISCO DEL CARRITO================================
     @Override
     public Disco getDisco(Long user, Long idDisco) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -59,7 +65,6 @@ public class DiscoService implements IDiscoService {
                 .orElseThrow(() -> new ManejoErrores("Disco no encontrado en el carrito"));
     }
 
-    //==================ELIMINA DISCO DEL CARRITO================================
     @Override
     public String deleteDiscos(Long user, Long idDisco) {
         Carrito carro = carritoRepository.findByUserId(user)
@@ -76,7 +81,6 @@ public class DiscoService implements IDiscoService {
         return "Disco eliminado del carrito";
     }
 
-    //==================MODIFICA DISCO EN EL CARRITO================================
     @Override
     public Disco putDisco(Long user, Disco disco) {
         Carrito carro = carritoRepository.findByUserId(user)

@@ -9,6 +9,16 @@ import lombok.*;
 import java.time.LocalDate;
 
 
+/**
+ * Entidad que representa un administrador del sistema.
+ * <p>Almacena la informacion personal y de cuenta del administrador,
+ * incluyendo nombre, correo y estado de la cuenta.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor

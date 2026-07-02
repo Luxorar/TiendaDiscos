@@ -6,6 +6,14 @@ import com.TiendaDisco.AdministracionEnvios.model.EstadoEnvio;
 
 import java.util.List;
 
+/**
+ * Interface que define las operaciones de negocio para envios.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 public interface IEnvioService {
 
     Envio postEnvio(Envio envio);

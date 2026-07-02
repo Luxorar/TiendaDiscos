@@ -10,6 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * Entidad que representa el carrito de compras de un usuario.
+ * <p>Contiene los discos y productos agregados por el usuario, asi
+ * como el descuento aplicable al total de la compra.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor

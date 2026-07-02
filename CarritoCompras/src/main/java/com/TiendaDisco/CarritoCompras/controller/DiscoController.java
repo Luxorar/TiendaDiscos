@@ -7,14 +7,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @deprecated
+ * esta clase fue creada antes de la comunicación de los microservicios, eliminar en versionaes futuras
+ */
 @RestController
-@RequestMapping("/api/v1/carrito/discos")
+@RequestMapping("/api/v1/carrito/discosp")
 public class DiscoController {
 
     @Autowired
     private DiscoService discoService;
 
-    //==================OBTIENE TODOS LOS DISCOS================================
+    /**
+     * Obtiene todos los discos del sistema.
+     *
+     * @return lista de {@link Disco}
+     */
     @GetMapping
     public List<Disco> getAll() {
         return discoService.getAllDiscos();

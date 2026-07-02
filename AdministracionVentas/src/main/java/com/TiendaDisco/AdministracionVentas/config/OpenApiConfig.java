@@ -8,6 +8,14 @@ import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuracion de OpenAPI (Swagger) para el microservicio de Ventas.
+ * <p>Define la informacion de contacto, licencia y documentacion externa
+ * que aparecera en la interfaz de Swagger UI.</p>
+ *
+ * @author Fernando Castillo
+ * @version 1.0.0
+ */
 @Configuration
 public class OpenApiConfig {
 

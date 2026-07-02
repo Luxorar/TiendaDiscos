@@ -7,7 +7,17 @@ import com.TiendaDisco.AdministracionUsuario.model.User;
 
 import java.util.List;
 
+/**
+ * Interface que define las operaciones de negocio para la gestion
+ * de usuarios y administradores.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 public interface IAdminService {
+
     List<UserDTO> getAllUser();
 
     User postUsuario(User u);

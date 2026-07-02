@@ -6,6 +6,14 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * DTO que transporta los datos de un descuento entre capas.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Builder
 @Getter
 @Setter

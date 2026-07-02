@@ -16,6 +16,16 @@ import jakarta.validation.ConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Manejador global de excepciones para el microservicio de Usuarios.
+ * <p>Intercepta excepciones de validacion y de negocio, retornando
+ * respuestas estructuradas con codigos HTTP adecuados.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @ControllerAdvice
 public class ExceptionValid extends ResponseEntityExceptionHandler {
 

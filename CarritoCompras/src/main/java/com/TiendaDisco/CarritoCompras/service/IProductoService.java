@@ -6,6 +6,14 @@ import com.TiendaDisco.CarritoCompras.model.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Interface que define las operaciones de negocio para productos en el carrito.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 public interface IProductoService {
 
     List<Producto> getAllProductos();

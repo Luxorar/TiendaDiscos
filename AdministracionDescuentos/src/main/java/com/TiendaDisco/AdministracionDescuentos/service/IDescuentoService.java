@@ -5,17 +5,25 @@ import com.TiendaDisco.AdministracionDescuentos.model.Descuento;
 
 import java.util.List;
 
+/**
+ * Interface que define las operaciones de negocio para descuentos.
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 public interface IDescuentoService {
 
-    public List<DescuentoDTO> getAllDescuentos();
-    public DescuentoDTO getDescuentoId(Long id);
-    public DescuentoDTO getDescuentoNombre(String nombre);
-    public Descuento postDescuento(Descuento d);
-    public String putDescuento(Long id, Descuento d);
-    public String deleteDescuento(Long id);
+    List<DescuentoDTO> getAllDescuentos();
+    DescuentoDTO getDescuentoId(Long id);
+    DescuentoDTO getDescuentoNombre(String nombre);
+    Descuento postDescuento(Descuento d);
+    String putDescuento(Long id, Descuento d);
+    String deleteDescuento(Long id);
 
-    public String agregarDisco(String nombreDescuento, Long idDisco);
-    public String quitarDisco(String nombreDescuento, Long idDisco);
-    public String agregarProducto(String nombreDescuento, Long idProducto);
-    public String quitarProducto(String nombreDescuento, Long idProducto);
+    String agregarDisco(String nombreDescuento, Long idDisco);
+    String quitarDisco(String nombreDescuento, Long idDisco);
+    String agregarProducto(String nombreDescuento, Long idProducto);
+    String quitarProducto(String nombreDescuento, Long idProducto);
 }

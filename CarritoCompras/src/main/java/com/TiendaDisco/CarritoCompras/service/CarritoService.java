@@ -12,6 +12,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Implementacion del servicio de carrito de compras.
+ * <p>Contiene la logica de negocio para gestionar carritos de usuarios,
+ * incluyendo la creacion, consulta, actualizacion de descuentos y
+ * eliminacion de carritos.</p>
+ *
+ * @author Diego Barria
+ * @author Fernando Castillo
+ * @author Luis Villalon
+ * @version 1.0.0
+ */
 @Service
 @Transactional(readOnly = true)
 public class CarritoService implements ICarritoService{
@@ -21,7 +32,6 @@ public class CarritoService implements ICarritoService{
     @Autowired
     private Mapper mapper;
 
-    //==================OBTIENE TODOS LOS CARRITOS================================
     @Override
     public List<CarritoDTO> getListaCarrito() {
         return carritoRepository.findAll()
@@ -30,13 +40,11 @@ public class CarritoService implements ICarritoService{
                 .toList();
     }
 
-    //==================CREA UN CARRITO================================
     @Override
     public Carrito postCarrito(Carrito c) {
         return carritoRepository.save(c);
     }
 
-    //==================OBTIENE CARRITO POR USUARIO================================
     @Override
     public CarritoDTO getCarrito(Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)
@@ -45,7 +53,7 @@ public class CarritoService implements ICarritoService{
         return mapper.toDTO(carro);
     }
 
-    //==================ACTUALIZA DESCUENTO DEL CARRITO================================
+
     @Override
     public String updateCarrito(Carrito c, Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)
@@ -56,7 +64,6 @@ public class CarritoService implements ICarritoService{
         return "Carrito actualizado";
     }
 
-    //==================ELIMINA CARRITO================================
     @Override
     public void deleteCarrito(Long usuario) {
         Carrito carro = carritoRepository.findByUserId(usuario)

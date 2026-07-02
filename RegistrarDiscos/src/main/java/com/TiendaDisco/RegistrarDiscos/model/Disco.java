@@ -15,7 +15,7 @@ import java.util.List;
  * Entidad que representa un disco en el catalogo.
  * Esta clase esta mapeada a la tabla "DISCOS" en la base de datos y
  * se utiliza para registrar y transferir informacion de los albumes.
- * * @author Diego Barria
+ * @author Diego Barria
  * @author Fernando Castillo
  * @author Luis Villalon
  * @version 1.0.0
