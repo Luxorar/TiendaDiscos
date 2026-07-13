@@ -36,6 +36,11 @@ public class DiscoDTO {
     private Integer precio;
 
     /**
+     * URL de la portada del disco.
+     */
+    private String imagen;
+
+    /**
      * Lista de titulos.
      */
     private List<String> titulos;

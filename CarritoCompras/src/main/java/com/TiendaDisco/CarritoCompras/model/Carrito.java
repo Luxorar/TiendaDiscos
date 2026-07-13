@@ -51,14 +51,10 @@ public class Carrito {
 
     @Schema(
             name="Discos agregados",
-            description = "lista de discos agregados"
+            description = "lista de discos referenciados por ID"
     )
-    @ManyToMany @JoinTable(
-            name = "CARRITO_DISCOS",
-            joinColumns = @JoinColumn(name = "carrito_id"),
-            inverseJoinColumns = @JoinColumn(name = "disco_id")
-    )
-    private List<Disco> discosAgregados = new ArrayList<>();
+    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CarritoDisco> discosAgregados = new ArrayList<>();
 
     @Schema(
             name="Descuento",

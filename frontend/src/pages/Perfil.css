@@ -1,0 +1,134 @@
+.perfil-page {
+  min-height: 100vh;
+  background: var(--bg-white);
+}
+
+.perfil-content {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.perfil-avatar {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.avatar-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F5F5F5;
+}
+
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.perfil-field label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 6px;
+}
+
+.perfil-field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.perfil-field input:focus {
+  border-color: var(--primary);
+}
+
+.perfil-toggle {
+  padding: 8px 0;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-label input {
+  display: none;
+}
+
+.toggle-slider {
+  width: 44px;
+  height: 24px;
+  background: #ccc;
+  border-radius: 12px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.toggle-slider::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.toggle-label input:checked + .toggle-slider {
+  background: var(--primary);
+}
+
+.toggle-label input:checked + .toggle-slider::after {
+  transform: translateX(20px);
+}
+
+.perfil-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn-cerrar {
+  flex: 1;
+  padding: 12px;
+  background: #E74C3C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-cerrar:hover {
+  background: #C0392B;
+}
+
+.btn-guardar {
+  flex: 1;
+  padding: 12px;
+  background: var(--primary);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-guardar:hover {
+  background: var(--primary-dark);
+}

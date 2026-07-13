@@ -35,6 +35,7 @@ public class Mapper {
                 .nombreDisco(disco.getNombreDisco())
                 .artista(disco.getArtista())
                 .precio(disco.getPrecio())
+                .imagen(disco.getImagen())
                 .titulos(titulos)
                 .build();
     }

@@ -52,4 +52,13 @@ public interface IDiscoService {
      * @return Una lista {@link List} de objetos {@link DiscoDTO}.
      */
     List<DiscoDTO> getAllDiscos();
+
+    List<DiscoDTO> searchByNombre(String query);
+
+    /**
+     * Actualiza la URL de la imagen de portada de un disco.
+     * @param id identificador del disco
+     * @param url URL de la imagen subida
+     */
+    void setImagen(Long id, String url);
 }

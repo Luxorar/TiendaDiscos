@@ -1,6 +1,5 @@
 package com.TiendaDisco.CarritoCompras.dto;
 
-import com.TiendaDisco.CarritoCompras.model.Disco;
 import com.TiendaDisco.CarritoCompras.model.Producto;
 import lombok.*;
 
@@ -21,7 +20,7 @@ public class CarritoDTO {
 
     private List<Producto> productosAgregados = new ArrayList<>();
 
-    private List<Disco> discosAgregados = new ArrayList<>();
+    private List<CarritoDiscoDTO> discosAgregados = new ArrayList<>();
 
     private double descuento;
 

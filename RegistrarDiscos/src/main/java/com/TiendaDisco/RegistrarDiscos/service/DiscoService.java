@@ -66,6 +66,7 @@ public class DiscoService implements IDiscoService {
         disc.setNombreDisco(d.getNombreDisco());
         disc.setArtista(d.getArtista());
         disc.setPrecio(d.getPrecio());
+        if (d.getImagen() != null) disc.setImagen(d.getImagen());
 
         discoRepository.save(disc);
         return "Disco modificado";
@@ -97,5 +98,21 @@ public class DiscoService implements IDiscoService {
         return discoRepository.findAll().stream()
                 .map(Mapper::toDTO)
                 .toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<DiscoDTO> searchByNombre(String query) {
+        return discoRepository.search(query).stream()
+                .map(Mapper::toDTO)
+                .toList();
+    }
+
+    @Override
+    public void setImagen(Long id, String url) {
+        Disco disco = discoRepository.findById(id)
+                .orElseThrow(() -> new ManejoErrores("Id no encontrado"));
+        disco.setImagen(url);
+        discoRepository.save(disco);
     }
 }

@@ -56,6 +56,9 @@ public class Disco {
     @Column(name = "precio")
     private Integer precio;
 
+    @Column(name = "imagen")
+    private String imagen;
+
     /**
      * Lista de titulos que componen el disco.
      * Se ignora en la serializacion JSON para evitar
