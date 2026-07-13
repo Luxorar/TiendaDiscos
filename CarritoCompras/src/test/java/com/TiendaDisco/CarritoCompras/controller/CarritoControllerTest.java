@@ -1,10 +1,10 @@
 package com.TiendaDisco.CarritoCompras.controller;
 
 import com.TiendaDisco.CarritoCompras.dto.CarritoDTO;
+import com.TiendaDisco.CarritoCompras.dto.CarritoDiscoDTO;
 import com.TiendaDisco.CarritoCompras.model.Carrito;
-import com.TiendaDisco.CarritoCompras.model.Disco;
+import com.TiendaDisco.CarritoCompras.service.CarritoDiscoService;
 import com.TiendaDisco.CarritoCompras.service.CarritoService;
-import com.TiendaDisco.CarritoCompras.service.DiscoService;
 import com.TiendaDisco.CarritoCompras.service.ProductoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -37,7 +37,7 @@ public class CarritoControllerTest {
     private ProductoService productoService;
 
     @MockBean
-    private DiscoService discoService;
+    private CarritoDiscoService carritoDiscoService;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -82,24 +82,24 @@ public class CarritoControllerTest {
 
     @Test
     void debeAgregarDiscoAlCarrito() throws Exception {
-        Disco disco = new Disco(1L, "Thriller", "Michael Jackson", 15000);
+        CarritoDiscoDTO dto = CarritoDiscoDTO.builder()
+                .id(1L).discoId(1L).qty(1).nombreDisco("Thriller").artista("Michael Jackson").precio(40000).build();
 
-        when(discoService.postDisco(eq(1L), eq(1L), any())).thenReturn(disco);
+        when(carritoDiscoService.addDisco(1L, 1L)).thenReturn(dto);
 
-        mockMvc.perform(post("/api/v1/carrito/1/discos/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(disco)))
+        mockMvc.perform(post("/api/v1/carrito/1/discos/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.nombreDisco").value("Thriller"));
+                .andExpect(jsonPath("$.nombreDisco").value("Thriller"))
+                .andExpect(jsonPath("$.qty").value(1));
     }
 
     @Test
     void debeEliminarDiscoDelCarrito() throws Exception {
-        when(discoService.deleteDiscos(1L, 1L)).thenReturn("Disco eliminado");
+        when(carritoDiscoService.deleteDisco(1L, 1L)).thenReturn("Disco eliminado del carrito");
 
         mockMvc.perform(delete("/api/v1/carrito/1/discos/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$").value("Disco eliminado"));
+                .andExpect(jsonPath("$").value("Disco eliminado del carrito"));
     }
 
     @Test

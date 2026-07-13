@@ -11,4 +11,5 @@ public class DiscoDTO {
     private String nombreDisco;
     private String artista;
     private int precio;
+    private String imagen;
 }

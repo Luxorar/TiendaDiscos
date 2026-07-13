@@ -31,8 +31,8 @@ class DiscoServiceTest {
     @Test
     void debeRetornarTodosLosDiscos() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco1 = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
-        Disco disco2 = new Disco(2L, "The Wall", "Pink Floyd", 20000, Collections.emptyList());
+        Disco disco1 = new Disco(1L, "Back in Black", "AC/DC", 15000, null, List.of(titulo));
+        Disco disco2 = new Disco(2L, "The Wall", "Pink Floyd", 20000, null, Collections.emptyList());
 
         when(discoRepository.findAll()).thenReturn(List.of(disco1, disco2));
 
@@ -51,7 +51,7 @@ class DiscoServiceTest {
     @Test
     void debeRetornarDiscoCuandoExiste() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
+        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, null, List.of(titulo));
 
         when(discoRepository.findById(1L)).thenReturn(Optional.of(disco));
 
@@ -76,7 +76,7 @@ class DiscoServiceTest {
     @Test
     void debeGuardarDisco() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco = new Disco(null, "Back in Black", "AC/DC", 15000, List.of(titulo));
+        Disco disco = new Disco(null, "Back in Black", "AC/DC", 15000, null, List.of(titulo));
 
         when(discoRepository.save(any(Disco.class))).thenReturn(disco);
 
@@ -90,8 +90,8 @@ class DiscoServiceTest {
     @Test
     void debeModificarDisco() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco discoExistente = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
-        Disco nuevosDatos = new Disco(null, "Highway to Hell", "AC/DC", 18000, List.of(titulo));
+        Disco discoExistente = new Disco(1L, "Back in Black", "AC/DC", 15000, null, List.of(titulo));
+        Disco nuevosDatos = new Disco(null, "Highway to Hell", "AC/DC", 18000, null, List.of(titulo));
 
         when(discoRepository.findById(1L)).thenReturn(Optional.of(discoExistente));
 
@@ -115,7 +115,7 @@ class DiscoServiceTest {
     @Test
     void debeEliminarDisco() {
         Titulo titulo = new Titulo(1L, "Rock Clasico", null);
-        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, List.of(titulo));
+        Disco disco = new Disco(1L, "Back in Black", "AC/DC", 15000, null, List.of(titulo));
 
         when(discoRepository.findById(1L)).thenReturn(Optional.of(disco));
 

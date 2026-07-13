@@ -1,0 +1,154 @@
+.disco-detail-page {
+  min-height: 100vh;
+  background: var(--bg-white);
+}
+
+.disco-detail-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.disco-detail-main {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.disco-detail-img {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.disco-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.disco-detail-info {
+  flex: 1;
+}
+
+.disco-detail-info h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.detail-artist {
+  font-size: 16px;
+  color: var(--text-gray);
+  margin-bottom: 4px;
+}
+
+.detail-sku {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.detail-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.detail-stock {
+  font-size: 13px;
+  color: var(--success);
+  margin-bottom: 20px;
+}
+
+.detail-desc h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.detail-desc p {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.detail-qty {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.detail-qty button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-qty span {
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+}
+
+.btn-add-cart {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-add-cart:hover {
+  background: var(--primary-dark);
+}
+
+.disco-detail-recs h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.recs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.rec-card {
+  text-align: center;
+}
+
+.rec-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.rec-card p {
+  font-size: 13px;
+  color: var(--text-gray);
+}
+
+.rec-price {
+  font-weight: 600 !important;
+  color: var(--text-dark) !important;
+}

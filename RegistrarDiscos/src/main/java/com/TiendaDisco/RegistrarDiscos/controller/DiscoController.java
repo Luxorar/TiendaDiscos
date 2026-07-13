@@ -1,6 +1,11 @@
 package com.TiendaDisco.RegistrarDiscos.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 import com.TiendaDisco.RegistrarDiscos.dto.DiscoDTO;
 import com.TiendaDisco.RegistrarDiscos.model.Disco;
 import com.TiendaDisco.RegistrarDiscos.service.IDiscoService;
@@ -12,8 +17,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Controlador REST que expone los endpoints para la gestion del catalogo de discos.
@@ -25,7 +32,7 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0.0
  */
 @RestController
-@RequestMapping("/api/v1/productos")
+@RequestMapping("/api/v1/discos")
 @Tag(
         name="Discos",
         description="Se administran los discos"
@@ -34,6 +41,9 @@ public class DiscoController {
 
     @Autowired
     private IDiscoService discoService;
+
+    @Value("${upload.path:/app/uploads}")
+    private String uploadPath;
 
     /**
      * Endpoint para registrar un nuevo disco en el sistema.
@@ -125,5 +135,49 @@ public class DiscoController {
     @GetMapping
     public ResponseEntity<List<DiscoDTO>> obtenerTodosLosDiscos() {
         return ResponseEntity.ok(discoService.getAllDiscos());
+    }
+
+    @Operation(
+            summary="Buscar discos por nombre o artista",
+            description="Busca discos cuyo nombre o artista contengan el texto indicado"
+    )
+    @GetMapping("/nombre/{query}")
+    public ResponseEntity<List<DiscoDTO>> buscarPorNombre(@PathVariable String query) {
+        return ResponseEntity.ok(discoService.searchByNombre(query));
+    }
+
+    @Operation(
+            summary="Subir portada de un disco",
+            description="Permite subir una imagen como portada de un disco"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200",
+                    description="Imagen subida exitosamente"),
+            @ApiResponse(responseCode="400",
+                    description="Datos invalidos")
+    })
+    @PostMapping("/{id}/imagen")
+    public ResponseEntity<String> subirImagen(@PathVariable Long id,
+                                              @RequestParam("imagen") MultipartFile imagen) throws IOException {
+        DiscoDTO disco = discoService.getDiscoId(id);
+        if (disco == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        String ext = Paths.get(imagen.getOriginalFilename()).toString().replaceAll(".*\\.", "");
+        String nombreArchivo = "disco_" + id + "_" + UUID.randomUUID() + "." + ext;
+
+        Path directorio = Paths.get(uploadPath);
+        if (!Files.exists(directorio)) {
+            Files.createDirectories(directorio);
+        }
+
+        Path destino = directorio.resolve(nombreArchivo);
+        imagen.transferTo(destino.toFile());
+
+        String url = "/uploads/" + nombreArchivo;
+        discoService.setImagen(id, url);
+
+        return ResponseEntity.ok(url);
     }
 }

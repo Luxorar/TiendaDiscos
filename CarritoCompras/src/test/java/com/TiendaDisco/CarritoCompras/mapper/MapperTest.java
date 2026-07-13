@@ -8,7 +8,7 @@ import com.TiendaDisco.CarritoCompras.dto.DiscoDTO;
 import com.TiendaDisco.CarritoCompras.dto.ProductoDTO;
 import com.TiendaDisco.CarritoCompras.dto.UserDTO;
 import com.TiendaDisco.CarritoCompras.model.Carrito;
-import com.TiendaDisco.CarritoCompras.model.Disco;
+import com.TiendaDisco.CarritoCompras.model.CarritoDisco;
 import com.TiendaDisco.CarritoCompras.model.Producto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,19 +40,16 @@ class MapperTest {
 
     @Test
     void toDTO_WithValidCarrito_ShouldMapAllFields() {
-        Disco disco = Disco.builder()
-                .id(1L).nombreDisco("Thriller").artista("Michael Jackson").precio(20000)
-                .build();
+        CarritoDisco cd = CarritoDisco.builder()
+                .id(1L).discoId(1L).qty(1).build();
         Producto producto = Producto.builder()
                 .id(1L).nombreProducto("Guitarra").precio(150000)
                 .build();
-        List<Disco> discos = new ArrayList<>();
-        discos.add(disco);
         Carrito carrito = Carrito.builder()
                 .id(1L)
                 .userId(1L)
                 .productosAgregados(List.of(producto))
-                .discosAgregados(discos)
+                .discosAgregados(new ArrayList<>(List.of(cd)))
                 .descuento(10.0)
                 .build();
 
@@ -76,7 +73,7 @@ class MapperTest {
                 () -> assertEquals(sumaEsperada, dto.getPrecioSolid()),
                 () -> assertEquals(1, dto.getProductosAgregados().size()),
                 () -> assertEquals(1, dto.getDiscosAgregados().size()),
-
+                () -> assertEquals("Thriller", dto.getDiscosAgregados().get(0).getNombreDisco()),
                 () -> assertEquals(10.0, dto.getDescuento(), 0.001),
                 () -> assertEquals(precioLiquidoEsperado, dto.getPrecioLiquido())
         );

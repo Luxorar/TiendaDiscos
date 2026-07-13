@@ -30,7 +30,7 @@ spring:
         - id: discos-route
           uri: ${MS_DISCOS_URI:http://localhost:8086}
           predicates:
-            - Path=/api/v1/titulos/**
+            - Path=/api/v1/discos/**,/api/v1/titulos/**
         - id: descuentos-route
           uri: ${MS_DESCUENTOS_URI:http://localhost:8087}
           predicates:

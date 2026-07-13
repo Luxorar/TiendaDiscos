@@ -1,0 +1,86 @@
+.busqueda-page {
+  min-height: 100vh;
+  background: var(--bg-white);
+}
+
+.busqueda-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.busqueda-banner {
+  background: var(--primary);
+  color: var(--bg-dark);
+  padding: 14px 24px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.busqueda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.busqueda-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.busqueda-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.busqueda-info {
+  flex: 1;
+}
+
+.busqueda-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.busqueda-artist {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 4px;
+}
+
+.busqueda-price {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn-agregar {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.btn-agregar:hover {
+  background: var(--primary-dark);
+}
+
+.no-results {
+  text-align: center;
+  color: var(--text-gray);
+  padding: 48px;
+  font-size: 15px;
+}
