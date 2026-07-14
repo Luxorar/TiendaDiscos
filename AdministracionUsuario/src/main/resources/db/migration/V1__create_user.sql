@@ -5,7 +5,10 @@ CREATE TABLE USUARIO (
     fecha_registro DATE NOT NULL,
     puntos NUMERIC DEFAULT NULL,
     contrasena VARCHAR(250) NOT NULL,
-    cuenta_activa BOOLEAN NOT NULL
+    cuenta_activa BOOLEAN NOT NULL,
+    credito NUMERIC NOT NULL,
+    modo_oscuro BOOLEAN NOT NULL DEFAULT FALSE
+
 );
 
 CREATE TABLE ADMINISTRADOR (

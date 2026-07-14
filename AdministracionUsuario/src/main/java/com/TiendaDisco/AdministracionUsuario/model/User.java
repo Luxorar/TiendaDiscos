@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter @Setter
@@ -78,4 +79,10 @@ public class User {
     )
     @Column(name = "cuenta_activa")
     private Boolean cuentaActiva;
+
+    @Column(name = "credito")
+    private BigDecimal credito;
+
+    @Column(name = "Modo_oscuro")
+    private Boolean modoOscuro;
 }
