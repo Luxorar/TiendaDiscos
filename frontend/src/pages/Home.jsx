@@ -39,7 +39,7 @@ export default function Home() {
               {group.items.map((disco, j) => (
                 <Link to={`/disco/${disco.id || j}`} key={j} className="disco-card">
                   <div className="disco-img">
-                    <img src={disco.imagen || DISCO_IMAGE} alt={disco.nombreDisco || 'Disco'} />
+                    <img src={disco.imagen || DISCO_IMAGE} alt={disco.nombreDisco || 'Disco'} onError={(e) => { e.target.src = DISCO_IMAGE }} />
                   </div>
                   <p className="disco-artist">{disco.artista || 'Artista'}</p>
                   <p className="disco-price">${disco.precio?.toLocaleString() || '0'}</p>
