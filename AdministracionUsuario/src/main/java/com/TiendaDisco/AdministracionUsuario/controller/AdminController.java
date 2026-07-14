@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -308,5 +309,31 @@ public class AdminController {
     @PutMapping("/admins/{id}")
     public ResponseEntity<Admin> putAdmin(@PathVariable Long id, @Valid @RequestBody Admin a) {
         return ResponseEntity.ok(adminService.putAdmin(id, a));
+    }
+
+    @Operation(
+            summary="Agregar credito",
+            description="Permite agregar o descontar credito a un usuario"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200", description="Credito actualizado"),
+            @ApiResponse(responseCode="400", description="Dato invalido")
+    })
+    @PutMapping("/credito/{id}")
+    public User putCredito(@PathVariable Long id, @RequestBody BigDecimal monto) {
+        return adminService.addCredito(id, monto);
+    }
+
+    @Operation(
+            summary="Actualizar modo oscuro",
+            description="Permite activar o desactivar el modo oscuro de un usuario"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200", description="Preferencia actualizada"),
+            @ApiResponse(responseCode="400", description="Dato invalido")
+    })
+    @PutMapping("/modo-oscuro/{id}")
+    public User putModoOscuro(@PathVariable Long id, @RequestBody Boolean modoOscuro) {
+        return adminService.putModoOscuro(id, modoOscuro);
     }
 }

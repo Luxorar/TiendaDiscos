@@ -5,6 +5,7 @@ import com.TiendaDisco.AdministracionUsuario.DTO.UserDTO;
 import com.TiendaDisco.AdministracionUsuario.model.Admin;
 import com.TiendaDisco.AdministracionUsuario.model.User;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -115,4 +116,8 @@ public interface IAdminService {
      * @return el administrador actualizado
      */
     Admin putAdmin(Long id, Admin a);
+
+    User addCredito(Long id, BigDecimal monto);
+
+    User putModoOscuro(Long id, Boolean modoOscuro);
 }

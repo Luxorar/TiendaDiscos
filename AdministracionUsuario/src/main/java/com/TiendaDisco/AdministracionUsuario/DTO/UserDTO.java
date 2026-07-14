@@ -2,6 +2,7 @@ package com.TiendaDisco.AdministracionUsuario.DTO;
 
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
@@ -15,4 +16,6 @@ public class UserDTO {
     private String userName;
     private LocalDate fechaRegistro;
     private int puntos;
+    private BigDecimal credito;
+    private Boolean modoOscuro;
 }

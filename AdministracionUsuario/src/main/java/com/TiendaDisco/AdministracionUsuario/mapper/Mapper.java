@@ -15,6 +15,8 @@ public class Mapper {
                 .userName(u.getUserName())
                 .fechaRegistro(u.getFechaRegistro())
                 .puntos(u.getPuntos())
+                .credito(u.getCredito())
+                .modoOscuro(u.getModoOscuro())
                 .build();
     }
 
