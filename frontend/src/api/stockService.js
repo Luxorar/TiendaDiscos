@@ -18,6 +18,7 @@ export const stockService = {
   getById: (id) => request(`/v1/stock/${id}`),
   getByProduct: (name) => request(`/v1/stock/producto/${name}`),
   getByBranch: (name) => request(`/v1/stock/sede/${name}`),
+  getByDisco: (discoId) => request(`/v1/stock/disco/${discoId}`),
   create: (data) => request('/v1/stock', { method: 'POST', body: JSON.stringify(data) }),
   updateQuantity: (id, qty) => request(`/v1/stock/${id}/cantidad?nuevoStock=${qty}`, { method: 'PUT' }),
   delete: (id) => request(`/v1/stock/${id}`, { method: 'DELETE' })

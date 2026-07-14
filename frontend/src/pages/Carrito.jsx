@@ -41,7 +41,12 @@ export default function Carrito() {
             <div className="carrito-list">
               {items.map((item) => (
                 <div key={item.discoId} className="carrito-item">
-                  <img src={item.imagen || DISCO_IMAGE} alt={item.nombreDisco || ''} className="carrito-img" />
+                  <img
+                    src={item.imagen || DISCO_IMAGE}
+                    alt={item.nombreDisco || ''}
+                    className="carrito-img"
+                    onError={(e) => { e.target.src = DISCO_IMAGE }}
+                  />
                   <div className="carrito-info">
                     <h3>{item.nombreDisco}</h3>
                     <p className="carrito-desc">{item.artista || ''}</p>

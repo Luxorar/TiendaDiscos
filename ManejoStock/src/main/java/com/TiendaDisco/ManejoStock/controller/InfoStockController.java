@@ -77,6 +77,16 @@ public class InfoStockController {
     }
 
     /**
+     * Obtiene el stock total disponible de un disco por su ID, sumando todas las sedes.
+     * * @param discoId El identificador del disco.
+     * @return Un objeto ResponseEntity con la cantidad total de stock.
+     */
+    @GetMapping("/disco/{discoId}")
+    public ResponseEntity<Integer> getStockByDiscoId(@PathVariable Long discoId) {
+        return ResponseEntity.ok(stockService.getStockTotalByDiscoId(discoId));
+    }
+
+    /**
      * Actualiza únicamente la cantidad disponible en el stock de un registro específico.
      * * @param id El identificador único del registro de stock a modificar.
      * @param nuevoStock La nueva cantidad numérica que reemplazará al stock actual.

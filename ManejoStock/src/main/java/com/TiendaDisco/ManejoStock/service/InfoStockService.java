@@ -4,6 +4,7 @@ import com.TiendaDisco.ManejoStock.DTO.InfoStockDTO;
 import com.TiendaDisco.ManejoStock.exception.ManejoErrores;
 
 import com.TiendaDisco.ManejoStock.mapper.Mapper;
+import com.TiendaDisco.ManejoStock.model.TipoProducto;
 import com.TiendaDisco.ManejoStock.model.infoStock;
 
 import com.TiendaDisco.ManejoStock.repository.InfoStockRepository;
@@ -88,5 +89,16 @@ public class InfoStockService implements IInfoStockService {
         infoStock stock = getInfoStockEntity(id);
         stockRepo.delete(stock);
         return "Registro de stock eliminado exitosamente";
+    }
+
+    //==================OBTIENE STOCK TOTAL POR DISCO ID================================
+    @Override
+    public int getStockTotalByDiscoId(Long discoId) {
+        return stockRepo.findAll().stream()
+                .filter(s -> s.getProducto() != null
+                        && s.getProducto().getTipoProducto() == TipoProducto.DISCO
+                        && s.getProducto().getIdProducto().equals(discoId))
+                .mapToInt(s -> s.getStockActual())
+                .sum();
     }
 }

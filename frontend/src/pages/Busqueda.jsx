@@ -45,7 +45,7 @@ export default function Busqueda() {
           <div className="busqueda-list">
             {results.map((item, i) => (
               <div key={i} className="busqueda-item">
-                <img src={item.imagen || DISCO_IMAGE} alt={item.nombreDisco || item.nombreProducto || ''} className="busqueda-img" />
+                <img src={item.imagen || DISCO_IMAGE} alt={item.nombreDisco || item.nombreProducto || ''} className="busqueda-img" onError={(e) => { e.target.src = DISCO_IMAGE }} />
                 <div className="busqueda-info">
                   <h3>{item.nombreDisco || item.nombreProducto}</h3>
                   <p className="busqueda-artist">{item.artista || item.marca || ''}</p>

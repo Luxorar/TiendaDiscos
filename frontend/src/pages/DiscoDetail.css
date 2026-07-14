@@ -64,6 +64,18 @@
   margin-bottom: 20px;
 }
 
+.detail-stock.in-stock {
+  color: var(--success);
+}
+
+.detail-stock.low-stock {
+  color: #e67e22;
+}
+
+.detail-stock.out-of-stock {
+  color: var(--danger);
+}
+
 .detail-desc h3 {
   font-size: 14px;
   font-weight: 600;
@@ -117,6 +129,11 @@
 
 .btn-add-cart:hover {
   background: var(--primary-dark);
+}
+
+.btn-add-cart:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
 .disco-detail-recs h2 {

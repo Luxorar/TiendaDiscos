@@ -70,7 +70,7 @@ class MapperTest {
 
         infoStock stock = new infoStock(1L, producto, 10L, 30);
 
-        DiscoDTO discoDTO = new DiscoDTO(1L, "Thriller", "Michael Jackson", 20);
+        DiscoDTO discoDTO = new DiscoDTO(1L, "Thriller", "Michael Jackson", 20, null);
         SedeDTO sedeDTO = SedeDTO.builder().id(10L).nombreSede("Sede Principal").direccionSede("Av. Central").build();
 
         when(discoClient.obtenerDiscoPorId(1L)).thenReturn(ResponseEntity.ok(discoDTO));

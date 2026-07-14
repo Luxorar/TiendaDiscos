@@ -15,8 +15,9 @@ public interface IInfoStockService {
 
     String putStock(Long id, int nuevoStock);
 
-
     String deleteInfo(Long id);
 
     List<InfoStockDTO> getAllInfoStock();
+
+    int getStockTotalByDiscoId(Long discoId);
 }
