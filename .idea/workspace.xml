@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Carrito.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Carrito.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/usuarioService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/usuarioService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/CartContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/CartContext.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Carrito.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Carrito.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/__tests__/Carrito.test.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/__tests__/Carrito.test.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Checkout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Checkout.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +359,7 @@
       <workItem from="1783795982946" duration="3366000" />
       <workItem from="1783900551371" duration="6682000" />
       <workItem from="1783994744719" duration="40000" />
-      <workItem from="1784068557586" duration="6622000" />
+      <workItem from="1784068557586" duration="7712000" />
     </task>
     <servers />
   </component>

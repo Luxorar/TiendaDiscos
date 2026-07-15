@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
+import { usuarioService } from '../api/usuarioService'
 import Navbar from '../components/Navbar'
 import './Checkout.css'
 
 export default function Checkout() {
   const navigate = useNavigate()
-  const { user } = useAuth()
-  const { items, total, clearCart } = useCart()
+  const { user, login } = useAuth()
+  const { items, total, clearCart, puntosUsados, setPuntosUsados } = useCart()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({
@@ -26,7 +27,7 @@ export default function Checkout() {
     setError('')
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
 
@@ -51,12 +52,21 @@ export default function Checkout() {
     }
 
     setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
+    try {
+      if (puntosUsados > 0 && user?.id) {
+        const nuevosPuntos = user.puntos - puntosUsados
+        await usuarioService.putPuntaje(user.id, nuevosPuntos)
+        login({ ...user, puntos: nuevosPuntos })
+      }
       clearCart()
+      setPuntosUsados(0)
       alert('¡Compra realizada con éxito!')
       navigate('/')
-    }, 1500)
+    } catch {
+      setError('Error al procesar la compra')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -103,9 +113,15 @@ export default function Checkout() {
               <span>SUB TOTAL</span>
               <span>${total.toLocaleString()}</span>
             </div>
+            {puntosUsados > 0 && (
+              <div className="summary-row summary-descuento">
+                <span>Descuento por puntos ({puntosUsados} pts)</span>
+                <span>-${puntosUsados.toLocaleString()}</span>
+              </div>
+            )}
             <div className="summary-row summary-total">
               <span>TOTAL</span>
-              <span>${total.toLocaleString()}</span>
+              <span>${Math.max(total - puntosUsados, 0).toLocaleString()}</span>
             </div>
           </div>
           {error && <p className="checkout-error">{error}</p>}

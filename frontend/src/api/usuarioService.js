@@ -26,5 +26,6 @@ export const usuarioService = {
   updateAdmin: (id, data) => request(`/v1/admin/admins/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteAdmin: (id) => request(`/v1/admin/admins/${id}`, { method: 'DELETE' }),
   putModoOscuro: (id, modoOscuro) => request(`/v1/admin/modo-oscuro/${id}`, { method: 'PUT', body: JSON.stringify(modoOscuro) }),
+  putPuntaje: (id, puntos) => request(`/v1/admin/id/${id}`, { method: 'PUT', body: JSON.stringify(puntos) }),
   getUserInfo: (id) => request(`/v1/admin/info-user/${id}`)
 }
