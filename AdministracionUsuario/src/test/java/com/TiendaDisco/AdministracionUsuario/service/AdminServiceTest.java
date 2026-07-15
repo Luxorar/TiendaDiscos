@@ -324,4 +324,57 @@ class AdminServiceTest {
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("99");
     }
+
+    //---------------------------------LOGIN-------------------------------------
+
+    @Test
+    void debeLoginUsuarioContrasenaCorrecta() {
+        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "123456", true, BigDecimal.ZERO, false, null, null);
+        when(userRepository.findByGmail("ana@mail.com")).thenReturn(Optional.of(user));
+
+        UserDTO resultado = adminService.loginUser("ana@mail.com", "123456");
+
+        assertThat(resultado.getUserName()).isEqualTo("Ana");
+        verify(userRepository, times(1)).findByGmail("ana@mail.com");
+    }
+
+    @Test
+    void debeLanzarExcepcionLoginUsuarioContrasenaIncorrecta() {
+        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "123456", true, BigDecimal.ZERO, false, null, null);
+        when(userRepository.findByGmail("ana@mail.com")).thenReturn(Optional.of(user));
+
+        assertThatThrownBy(() -> adminService.loginUser("ana@mail.com", "wrong"))
+                .isInstanceOf(ManejoErrores.class)
+                .hasMessageContaining("Credenciales incorrectas");
+    }
+
+    @Test
+    void debeLanzarExcepcionLoginUsuarioNoExiste() {
+        when(userRepository.findByGmail("noexiste@mail.com")).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> adminService.loginUser("noexiste@mail.com", "123456"))
+                .isInstanceOf(ManejoErrores.class)
+                .hasMessageContaining("Credenciales incorrectas");
+    }
+
+    @Test
+    void debeLoginAdminContrasenaCorrecta() {
+        Admin admin = new Admin(1L, "Admin Principal", "admin@mail.com", null, "123456", true);
+        when(adminRepository.findByGmail("admin@mail.com")).thenReturn(Optional.of(admin));
+
+        AdminDTO resultado = adminService.loginAdmin("admin@mail.com", "123456");
+
+        assertThat(resultado.getUserName()).isEqualTo("Admin Principal");
+        verify(adminRepository, times(1)).findByGmail("admin@mail.com");
+    }
+
+    @Test
+    void debeLanzarExcepcionLoginAdminContrasenaIncorrecta() {
+        Admin admin = new Admin(1L, "Admin Principal", "admin@mail.com", null, "123456", true);
+        when(adminRepository.findByGmail("admin@mail.com")).thenReturn(Optional.of(admin));
+
+        assertThatThrownBy(() -> adminService.loginAdmin("admin@mail.com", "wrong"))
+                .isInstanceOf(ManejoErrores.class)
+                .hasMessageContaining("Credenciales incorrectas");
+    }
 }

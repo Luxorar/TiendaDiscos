@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { usuarioService } from '../api/usuarioService'
 import logoImg from '../assets/logo.png'
 import './Login.css'
 
@@ -17,25 +18,20 @@ export default function Login() {
     setError('')
     setLoading(true)
     try {
-      const res = await fetch('/api/v1/admin')
-      const users = await res.json()
-      const found = users.find(u => u.gmail === gmail || u.userName === gmail)
-      if (found) {
-        login({ ...found, tipo: 'usuario' })
+      try {
+        const user = await usuarioService.loginUser(gmail, contrasena)
+        login({ ...user, tipo: 'usuario' })
         navigate('/')
-      } else {
-        const adminsRes = await fetch('/api/v1/admin/admins')
-        const admins = await adminsRes.json()
-        const admin = admins.find(a => a.gmail === gmail || a.userName === gmail)
-        if (admin) {
-          login({ ...admin, tipo: 'admin' })
-          navigate('/admin')
-        } else {
-          setError('Credenciales incorrectas')
-        }
+        return
+      } catch {
+        // no es usuario, intentar como admin
       }
+
+      const admin = await usuarioService.loginAdmin(gmail, contrasena)
+      login({ ...admin, tipo: 'admin' })
+      navigate('/admin')
     } catch {
-      setError('Error al conectar con el servidor')
+      setError('Credenciales incorrectas')
     } finally {
       setLoading(false)
     }

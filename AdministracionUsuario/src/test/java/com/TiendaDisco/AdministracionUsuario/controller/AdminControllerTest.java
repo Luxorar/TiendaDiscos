@@ -222,4 +222,43 @@ public class AdminControllerTest {
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.error").value("Id de administrador no encontrado: 99"));
     }
+
+    //---------------------------- LOGIN ----------------------------------------
+
+    @Test
+    void debeLoginUsuarioExitosamente() throws Exception {
+        UserDTO dto = new UserDTO(1L, "Ana", "ana@mail.com", LocalDate.now(), 100, BigDecimal.ZERO, false, null, null);
+
+        when(adminService.loginUser("ana@mail.com", "123456")).thenReturn(dto);
+
+        mockMvc.perform(post("/api/v1/admin/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"gmail\":\"ana@mail.com\",\"contrasena\":\"123456\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.userName").value("Ana"));
+    }
+
+    @Test
+    void debeRechazarLoginUsuarioContrasenaIncorrecta() throws Exception {
+        when(adminService.loginUser("ana@mail.com", "wrong")).thenThrow(new ManejoErrores("Credenciales incorrectas"));
+
+        mockMvc.perform(post("/api/v1/admin/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"gmail\":\"ana@mail.com\",\"contrasena\":\"wrong\"}"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.error").value("Credenciales incorrectas"));
+    }
+
+    @Test
+    void debeLoginAdminExitosamente() throws Exception {
+        AdminDTO dto = new AdminDTO(1L, "Admin Principal", LocalDate.now());
+
+        when(adminService.loginAdmin("admin@tiendadiscos.cl", "123456")).thenReturn(dto);
+
+        mockMvc.perform(post("/api/v1/admin/admins/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"gmail\":\"admin@tiendadiscos.cl\",\"contrasena\":\"123456\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.userName").value("Admin Principal"));
+    }
 }

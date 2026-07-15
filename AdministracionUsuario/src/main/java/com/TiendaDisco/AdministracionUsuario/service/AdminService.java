@@ -200,6 +200,32 @@ public class AdminService implements IAdminService{
         usuario.setTelefono(telefono);
         return userRepository.save(usuario);
     }
+
+    @Override
+    public UserDTO loginUser(String gmail, String contrasena) {
+        User usuario = userRepository.findByGmail(gmail)
+                .orElseGet(() -> userRepository.findByUserName(gmail)
+                        .orElseThrow(() -> new ManejoErrores("Credenciales incorrectas")));
+
+        if (!usuario.getContrasena().equals(contrasena)) {
+            throw new ManejoErrores("Credenciales incorrectas");
+        }
+
+        return Mapper.toDTO(usuario);
+    }
+
+    @Override
+    public AdminDTO loginAdmin(String gmail, String contrasena) {
+        Admin admin = adminRepository.findByGmail(gmail)
+                .orElseGet(() -> adminRepository.findByUserName(gmail)
+                        .orElseThrow(() -> new ManejoErrores("Credenciales incorrectas")));
+
+        if (!admin.getContrasena().equals(contrasena)) {
+            throw new ManejoErrores("Credenciales incorrectas");
+        }
+
+        return Mapper.toDTO(admin);
+    }
     /**
      * Obtiene todos los administradores y los convierte a DTO.
      *

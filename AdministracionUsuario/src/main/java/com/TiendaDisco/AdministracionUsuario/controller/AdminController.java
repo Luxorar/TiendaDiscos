@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Controlador REST para la administracion de usuarios y administradores.
@@ -335,6 +336,36 @@ public class AdminController {
     @PutMapping("/modo-oscuro/{id}")
     public User putModoOscuro(@PathVariable Long id, @RequestBody Boolean modoOscuro) {
         return adminService.putModoOscuro(id, modoOscuro);
+    }
+
+    @Operation(
+            summary="Login de usuario",
+            description="Valida credenciales de usuario con gmail y contraseña"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200", description="Login exitoso"),
+            @ApiResponse(responseCode="404", description="Credenciales incorrectas")
+    })
+    @PostMapping("/login")
+    public ResponseEntity<UserDTO> loginUser(@RequestBody Map<String, String> body) {
+        String gmail = body.get("gmail");
+        String contrasena = body.get("contrasena");
+        return ResponseEntity.ok(adminService.loginUser(gmail, contrasena));
+    }
+
+    @Operation(
+            summary="Login de administrador",
+            description="Valida credenciales de administrador con gmail y contraseña"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode="200", description="Login exitoso"),
+            @ApiResponse(responseCode="404", description="Credenciales incorrectas")
+    })
+    @PostMapping("/admins/login")
+    public ResponseEntity<AdminDTO> loginAdmin(@RequestBody Map<String, String> body) {
+        String gmail = body.get("gmail");
+        String contrasena = body.get("contrasena");
+        return ResponseEntity.ok(adminService.loginAdmin(gmail, contrasena));
     }
 
     @Operation(

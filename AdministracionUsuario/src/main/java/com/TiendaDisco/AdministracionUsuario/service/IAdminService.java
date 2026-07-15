@@ -125,5 +125,9 @@ public interface IAdminService {
 
     User putTelefono(Long id, String telefono);
 
+    UserDTO loginUser(String gmail, String contrasena);
+
+    AdminDTO loginAdmin(String gmail, String contrasena);
+
     public User getCompleteUserId(Long id);
 }
