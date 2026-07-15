@@ -7,12 +7,14 @@ import './Carrito.css'
 
 const DISCO_IMAGE = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><rect fill="%23333" width="80" height="80" rx="6"/><circle fill="%23111" cx="40" cy="40" r="25" stroke="%23555" stroke-width="1.5"/><circle fill="%23333" cx="40" cy="40" r="5"/></svg>'
 
+const PUNTOS_MINIMOS = 5000
+
 export default function Carrito() {
   const { user } = useAuth()
   const navigate = useNavigate()
   const { items, loading, loadCart, updateQty, removeItem, total } = useCart()
   const [showDescuentos, setShowDescuentos] = useState(false)
-  const [descuentoPuntos, setDescuentoPuntos] = useState(0)
+  const [puntosUsados, setPuntosUsados] = useState(0)
   const [descuentos, setDescuentos] = useState([])
 
   useEffect(() => {
@@ -21,8 +23,23 @@ export default function Carrito() {
   }, [user])
 
   const subtotal = total
-  const descuentoMonto = subtotal * (descuentoPuntos / 100)
+  const maxPuntos = Math.min(user?.puntos || 0, subtotal)
+  const descuentoMonto = Math.min(puntosUsados, maxPuntos)
   const totalFinal = subtotal - descuentoMonto
+
+  const handlePuntosChange = (value) => {
+    const num = Number(value)
+    if (num < 0) return
+    setPuntosUsados(num)
+  }
+
+  const puntosError = (() => {
+    if (puntosUsados === 0) return null
+    if (puntosUsados < PUNTOS_MINIMOS) return `Mínimo ${PUNTOS_MINIMOS} puntos`
+    if (puntosUsados > (user?.puntos || 0)) return `No tienes más de ${user?.puntos || 0} puntos`
+    if (puntosUsados > subtotal) return `No puede superar el precio total ($${subtotal.toLocaleString()})`
+    return null
+  })()
 
   if (loading) return <><Navbar /><div className="loading">Cargando carrito...</div></>
 
@@ -66,9 +83,9 @@ export default function Carrito() {
                 <span>SUB TOTAL</span>
                 <span>${subtotal.toLocaleString()}</span>
               </div>
-              {descuentoPuntos > 0 && (
+              {descuentoMonto > 0 && (
                 <div className="summary-row summary-descuento">
-                  <span>Descuento ({descuentoPuntos}%)</span>
+                  <span>Descuento por puntos ({puntosUsados} pts)</span>
                   <span>-${descuentoMonto.toLocaleString()}</span>
                 </div>
               )}
@@ -92,20 +109,28 @@ export default function Carrito() {
           <div className="modal-overlay" onClick={() => setShowDescuentos(false)}>
             <div className="modal" onClick={e => e.stopPropagation()}>
               <h2>Descuentos</h2>
+              <p className="puntos-disponibles">Puntos disponibles: <strong>{user?.puntos || 0}</strong></p>
               <div className="modal-field">
-                <label>Descuento por puntos</label>
+                <label>Puntos a usar</label>
                 <input
                   type="number"
-                  placeholder="Mínimo 500 puntos"
-                  value={descuentoPuntos || ''}
-                  onChange={(e) => setDescuentoPuntos(Number(e.target.value))}
+                  placeholder={`Mínimo ${PUNTOS_MINIMOS} puntos`}
+                  min={PUNTOS_MINIMOS}
+                  max={maxPuntos}
+                  value={puntosUsados || ''}
+                  onChange={(e) => handlePuntosChange(e.target.value)}
                 />
+                {puntosError && <span className="puntos-error">{puntosError}</span>}
               </div>
               <div className="modal-discounts">
                 {descuentos.length > 0 ? descuentos.map((d, i) => (
                   <div key={i} className="discount-item">
                     <span>{d.nombre} - {d.descuento}%</span>
-                    <button onClick={() => setDescuentoPuntos(d.descuento)}>Aplicar</button>
+                    <button onClick={() => {
+                      const monto = Math.round(subtotal * d.descuento / 100)
+                      const puntosEquivalentes = Math.min(monto, maxPuntos)
+                      setPuntosUsados(puntosEquivalentes >= PUNTOS_MINIMOS ? puntosEquivalentes : 0)
+                    }}>Aplicar</button>
                   </div>
                 )) : (
                   <p className="no-desc">No hay descuentos disponibles</p>

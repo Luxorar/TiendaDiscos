@@ -28,7 +28,7 @@ const mockItems = [
 ]
 
 function renderCarrito() {
-  localStorage.setItem('user', JSON.stringify({ id: 1, nombre: 'Test' }))
+  localStorage.setItem('user', JSON.stringify({ id: 1, nombre: 'Test', puntos: 10000 }))
   return render(
     <MemoryRouter>
       <AuthProvider>
@@ -249,13 +249,13 @@ describe('Carrito', () => {
 
       await user.click(screen.getByText('VER DESCUENTOS'))
 
-      const input = screen.getByPlaceholderText('Mínimo 500 puntos')
-      await user.type(input, '10')
+      const input = screen.getByPlaceholderText('Mínimo 5000 puntos')
+      await user.type(input, '8500')
 
       await user.click(screen.getByText('Cerrar'))
 
       await waitFor(() => {
-        expect(screen.getByText('Descuento (10%)')).toBeInTheDocument()
+        expect(screen.getByText('Descuento por puntos (8500 pts)')).toBeInTheDocument()
         expect(screen.getByText(/-\$8[\.,]500/)).toBeInTheDocument()
         expect(screen.getByText(/\$76[\.,]500/)).toBeInTheDocument()
       })

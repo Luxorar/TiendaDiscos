@@ -257,3 +257,16 @@
   border-radius: 6px;
   font-size: 14px;
 }
+
+.puntos-disponibles {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-bottom: 16px;
+}
+
+.puntos-error {
+  display: block;
+  font-size: 12px;
+  color: var(--danger);
+  margin-top: 4px;
+}
