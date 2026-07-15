@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public class UserDTO {
     private Long id;
     private String userName;
+    private String gmail;
     private LocalDate fechaRegistro;
     private int puntos;
     private BigDecimal credito;

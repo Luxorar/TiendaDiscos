@@ -6,6 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1a0d9f-c578-4c07-be8b-d3d9b4502713" name="Changes" comment="prueba de commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/DTO/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/DTO/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/mapper/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/mapper/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/service/IAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/java/com/TiendaDisco/AdministracionUsuario/service/IAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/db/migration/V2__insert_usuario.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/main/resources/db/migration/V2__insert_usuario.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/test/java/com/TiendaDisco/AdministracionUsuario/controller/AdminControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/test/java/com/TiendaDisco/AdministracionUsuario/controller/AdminControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/test/java/com/TiendaDisco/AdministracionUsuario/repository/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/test/java/com/TiendaDisco/AdministracionUsuario/repository/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdministracionUsuario/src/test/java/com/TiendaDisco/AdministracionUsuario/service/AdminServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AdministracionUsuario/src/test/java/com/TiendaDisco/AdministracionUsuario/service/AdminServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/usuarioService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/usuarioService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/AuthContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Perfil.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Perfil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Perfil.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Perfil.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,6 +369,7 @@
       <workItem from="1783795982946" duration="3366000" />
       <workItem from="1783900551371" duration="6682000" />
       <workItem from="1783994744719" duration="40000" />
+      <workItem from="1784068557586" duration="4826000" />
     </task>
     <servers />
   </component>

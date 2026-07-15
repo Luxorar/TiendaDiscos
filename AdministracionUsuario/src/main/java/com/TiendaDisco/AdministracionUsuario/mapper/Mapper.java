@@ -13,6 +13,7 @@ public class Mapper {
         return UserDTO.builder()
                 .id(u.getId())
                 .userName(u.getUserName())
+                .gmail(u.getGmail())
                 .fechaRegistro(u.getFechaRegistro())
                 .puntos(u.getPuntos())
                 .credito(u.getCredito())

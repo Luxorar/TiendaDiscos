@@ -80,6 +80,21 @@ public class AdminService implements IAdminService{
     }
 
     /**
+     * Busca un usuario por id, lanzando excepcion si no existe. Devuelve toda la información del ususario
+     * sin transforma a DTO
+     *
+     * @param id identificador del usuario
+     * @return User del usuario encontrado
+     */
+    @Override
+    public User getCompleteUserId(Long id) {
+        User u =userRepository.findById(id)
+                .orElseThrow(() -> new ManejoErrores("id no encontrado"));
+
+        return u;
+    }
+
+    /**
      * Busca un usuario por nombre, validando que la cuenta este activa.
      *
      * @param name nombre del usuario

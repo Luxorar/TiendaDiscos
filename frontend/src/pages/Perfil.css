@@ -52,6 +52,12 @@
   border-color: var(--primary);
 }
 
+.perfil-field input[readOnly] {
+  background: #F5F5F5;
+  color: var(--text-gray);
+  cursor: default;
+}
+
 .perfil-toggle {
   padding: 8px 0;
 }

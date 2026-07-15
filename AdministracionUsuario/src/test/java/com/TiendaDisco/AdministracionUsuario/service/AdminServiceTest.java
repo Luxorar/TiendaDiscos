@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -40,9 +41,9 @@ class AdminServiceTest {
     @Test
     void deberiaCrearUsuario() {
         User entrada = new User(null, "userEjemplo", "ejemplo@gmail.com",
-                null, 100, "123456", true);
+                null, 100, "123456", true, BigDecimal.ZERO, false);
         User guardado = new User(1L, "userEjemplo", "ejemplo@gmail.com",
-                null, 100, "123456", true);
+                null, 100, "123456", true, BigDecimal.ZERO, false);
 
         when(userRepository.save(any(User.class))).thenReturn(guardado);
 
@@ -57,8 +58,8 @@ class AdminServiceTest {
 
     @Test
     void debeRetornarTodosLosUsuarios() {
-        User u1 = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true);
-        User u2 = new User(2L, "Luis", "luis@mail.com", null, 50, "pass", true);
+        User u1 = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true, BigDecimal.ZERO, false);
+        User u2 = new User(2L, "Luis", "luis@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
         when(userRepository.findAll()).thenReturn(List.of(u1, u2));
 
         List<UserDTO> resultado = adminService.getAllUser();
@@ -71,7 +72,7 @@ class AdminServiceTest {
 
     @Test
     void debeRetornarUsuarioPorNombre() {
-        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true);
+        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true, BigDecimal.ZERO, false);
         when(userRepository.findByUserName("Ana")).thenReturn(Optional.of(user));
 
         UserDTO resultado = adminService.getUserName("Ana");
@@ -82,7 +83,7 @@ class AdminServiceTest {
 
     @Test
     void debeRetornarNullCuandoCuentaUsuarioInactiva() {
-        User user = new User(1L, "Inactivo", "inactivo@mail.com", null, 100, "pass", false);
+        User user = new User(1L, "Inactivo", "inactivo@mail.com", null, 100, "pass", false, BigDecimal.ZERO, false);
         when(userRepository.findByUserName("Inactivo")).thenReturn(Optional.of(user));
 
         UserDTO resultado = adminService.getUserName("Inactivo");
@@ -102,8 +103,8 @@ class AdminServiceTest {
 
     @Test
     void debeActualizarUsuarioConTodosLosCampos() {
-        User existente = new User(1L, "Original", "orig@mail.com", null, 100, "pass", false);
-        User nuevos = new User(null, "Modificado", null, null, 200, "nuevaPass", true);
+        User existente = new User(1L, "Original", "orig@mail.com", null, 100, "pass", false, BigDecimal.ZERO, false);
+        User nuevos = new User(null, "Modificado", null, null, 200, "nuevaPass", true, BigDecimal.ZERO, false);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(existente));
         when(userRepository.save(any(User.class))).thenReturn(existente);
@@ -119,8 +120,8 @@ class AdminServiceTest {
 
     @Test
     void debeActualizarUsuarioSinModificarNullos() {
-        User existente = new User(1L, "Conservar", "correo@mail.com", null, 50, "pass", true);
-        User nuevos = new User(null, null, null, null, null, null, null);
+        User existente = new User(1L, "Conservar", "correo@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
+        User nuevos = new User(null, null, null, null, null, null, null, null, null);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(existente));
         when(userRepository.save(any(User.class))).thenReturn(existente);
@@ -145,7 +146,7 @@ class AdminServiceTest {
 
     @Test
     void debeActualizarPuntaje() {
-        User existente = new User(1L, "Puntos", "puntos@mail.com", null, 50, "pass", true);
+        User existente = new User(1L, "Puntos", "puntos@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
         when(userRepository.findById(1L)).thenReturn(Optional.of(existente));
         when(userRepository.save(any(User.class))).thenReturn(existente);
 
@@ -166,7 +167,7 @@ class AdminServiceTest {
 
     @Test
     void debeEliminarUsuario() {
-        User user = new User(1L, "Eliminar", "del@mail.com", null, 50, "pass", true);
+        User user = new User(1L, "Eliminar", "del@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
 
         adminService.deleteUserId(1L);

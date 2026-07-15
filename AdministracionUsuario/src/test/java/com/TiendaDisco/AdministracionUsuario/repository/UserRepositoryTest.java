@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -24,7 +25,7 @@ class UserRepositoryTest {
 
     @Test
     void debeBuscarPorUserNameExistente() {
-        userRepository.save(new User(null, "Ana", "ana@mail.com", LocalDate.now(), 0, "pass", true));
+        userRepository.save(new User(null, "Ana", "ana@mail.com", LocalDate.now(), 0, "pass", true, BigDecimal.ZERO, false));
 
         Optional<User> resultado = userRepository.findByUserName("Ana");
 
@@ -41,7 +42,7 @@ class UserRepositoryTest {
 
     @Test
     void debeGuardarYAsignarIdAutomaticamente() {
-        User usuario = new User(null, "Luis", "luis@mail.com", LocalDate.now(), 10, "pass", true);
+        User usuario = new User(null, "Luis", "luis@mail.com", LocalDate.now(), 10, "pass", true, BigDecimal.ZERO, false);
 
         User guardado = userRepository.save(usuario);
 
