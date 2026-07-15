@@ -12,9 +12,8 @@ const PUNTOS_MINIMOS = 5000
 export default function Carrito() {
   const { user } = useAuth()
   const navigate = useNavigate()
-  const { items, loading, loadCart, updateQty, removeItem, total } = useCart()
+  const { items, loading, loadCart, updateQty, removeItem, total, puntosUsados, setPuntosUsados } = useCart()
   const [showDescuentos, setShowDescuentos] = useState(false)
-  const [puntosUsados, setPuntosUsados] = useState(0)
   const [descuentos, setDescuentos] = useState([])
 
   useEffect(() => {

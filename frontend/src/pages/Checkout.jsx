@@ -2,13 +2,15 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
+import { usuarioService } from '../api/usuarioService'
+import { stockService } from '../api/stockService'
 import Navbar from '../components/Navbar'
 import './Checkout.css'
 
 export default function Checkout() {
   const navigate = useNavigate()
-  const { user } = useAuth()
-  const { items, total, clearCart } = useCart()
+  const { user, login } = useAuth()
+  const { items, total, clearCart, puntosUsados, setPuntosUsados } = useCart()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({
@@ -26,7 +28,7 @@ export default function Checkout() {
     setError('')
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
 
@@ -51,12 +53,42 @@ export default function Checkout() {
     }
 
     setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
+    try {
+      const allStock = await stockService.getAll()
+
+      for (const item of items) {
+        const fullName = `${item.nombreDisco} - ${item.artista}`
+        const stockRecords = allStock.filter(s => s.nombreProducto === fullName)
+
+        let remaining = item.qty
+        for (const record of stockRecords) {
+          if (remaining <= 0) break
+          const decrease = Math.min(record.stockActual, remaining)
+          const newQty = record.stockActual - decrease
+          await stockService.updateQuantity(record.id, newQty)
+          remaining -= decrease
+        }
+
+        if (remaining > 0) {
+          setError(`Stock insuficiente para "${item.nombreDisco}"`)
+          return
+        }
+      }
+
+      if (puntosUsados > 0 && user?.id) {
+        const nuevosPuntos = user.puntos - puntosUsados
+        await usuarioService.putPuntaje(user.id, nuevosPuntos)
+        login({ ...user, puntos: nuevosPuntos })
+      }
       clearCart()
+      setPuntosUsados(0)
       alert('¡Compra realizada con éxito!')
       navigate('/')
-    }, 1500)
+    } catch {
+      setError('Error al procesar la compra')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -103,9 +135,15 @@ export default function Checkout() {
               <span>SUB TOTAL</span>
               <span>${total.toLocaleString()}</span>
             </div>
+            {puntosUsados > 0 && (
+              <div className="summary-row summary-descuento">
+                <span>Descuento por puntos ({puntosUsados} pts)</span>
+                <span>-${puntosUsados.toLocaleString()}</span>
+              </div>
+            )}
             <div className="summary-row summary-total">
               <span>TOTAL</span>
-              <span>${total.toLocaleString()}</span>
+              <span>${Math.max(total - puntosUsados, 0).toLocaleString()}</span>
             </div>
           </div>
           {error && <p className="checkout-error">{error}</p>}

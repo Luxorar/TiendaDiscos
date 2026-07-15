@@ -26,5 +26,10 @@ export const usuarioService = {
   updateAdmin: (id, data) => request(`/v1/admin/admins/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteAdmin: (id) => request(`/v1/admin/admins/${id}`, { method: 'DELETE' }),
   putModoOscuro: (id, modoOscuro) => request(`/v1/admin/modo-oscuro/${id}`, { method: 'PUT', body: JSON.stringify(modoOscuro) }),
+  putPuntaje: (id, puntos) => request(`/v1/admin/id/${id}`, { method: 'PUT', body: JSON.stringify(puntos) }),
+  putDireccion: (id, direccion) => request(`/v1/admin/direccion/${id}`, { method: 'PUT', headers: { 'Content-Type': 'text/plain' }, body: direccion }),
+  putTelefono: (id, telefono) => request(`/v1/admin/telefono/${id}`, { method: 'PUT', headers: { 'Content-Type': 'text/plain' }, body: telefono }),
+  loginUser: (gmail, contrasena) => request('/v1/admin/login', { method: 'POST', body: JSON.stringify({ gmail, contrasena }) }),
+  loginAdmin: (gmail, contrasena) => request('/v1/admin/admins/login', { method: 'POST', body: JSON.stringify({ gmail, contrasena }) }),
   getUserInfo: (id) => request(`/v1/admin/info-user/${id}`)
 }

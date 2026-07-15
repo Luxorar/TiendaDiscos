@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { usuarioService } from '../api/usuarioService'
 import Navbar from '../components/Navbar'
 import './Perfil.css'
 
@@ -9,9 +10,24 @@ export default function Perfil() {
   const navigate = useNavigate()
   const [form, setForm] = useState({
     userName: user?.userName || '',
-    direccion: '',
-    telefono: ''
+    direccionPredeterminada: user?.direccionPredeterminada || '',
+    telefono: user?.telefono || ''
   })
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (!user?.id) return
+    usuarioService.getUserInfo(user.id).then(data => {
+      if (data) {
+        login(data)
+        setForm({
+          userName: data.userName || '',
+          direccionPredeterminada: data.direccionPredeterminada || '',
+          telefono: data.telefono || ''
+        })
+      }
+    }).catch(() => {})
+  }, [user?.id])
 
   if (!user) {
     navigate('/login')
@@ -23,9 +39,27 @@ export default function Perfil() {
     setForm({ ...form, [name]: value })
   }
 
-  const handleSave = () => {
-    login({ ...user, userName: form.userName })
-    alert('Cambios guardados')
+  const handleSave = async () => {
+    if (!form.userName.trim()) {
+      alert('El nombre es obligatorio')
+      return
+    }
+    setLoading(true)
+    try {
+      await usuarioService.update(user.id, { ...user, userName: form.userName })
+      if (form.direccionPredeterminada !== (user.direccionPredeterminada || '')) {
+        await usuarioService.putDireccion(user.id, form.direccionPredeterminada)
+      }
+      if (form.telefono !== (user.telefono || '')) {
+        await usuarioService.putTelefono(user.id, form.telefono)
+      }
+      login({ ...user, ...form })
+      alert('Cambios guardados')
+    } catch {
+      alert('Error al guardar los cambios')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleToggleDarkMode = async () => {
@@ -57,7 +91,7 @@ export default function Perfil() {
           </div>
           <div className="perfil-field">
             <label>Dirección predeterminada</label>
-            <input name="direccion" value={form.direccion} onChange={handleChange} placeholder="Ingresa tu dirección" />
+            <input name="direccionPredeterminada" value={form.direccionPredeterminada} onChange={handleChange} placeholder="Ingresa tu dirección" />
           </div>
           <div className="perfil-field">
             <label>Correo Electrónico</label>
@@ -76,7 +110,7 @@ export default function Perfil() {
           </div>
           <div className="perfil-actions">
             <button className="btn-cerrar" onClick={handleLogout}>CERRAR SESIÓN</button>
-            <button className="btn-guardar" onClick={handleSave}>Guardar Cambios</button>
+            <button className="btn-guardar" onClick={handleSave} disabled={loading}>{loading ? 'Guardando...' : 'Guardar Cambios'}</button>
           </div>
         </div>
       </div>

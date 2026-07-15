@@ -41,9 +41,9 @@ class AdminServiceTest {
     @Test
     void deberiaCrearUsuario() {
         User entrada = new User(null, "userEjemplo", "ejemplo@gmail.com",
-                null, 100, "123456", true, BigDecimal.ZERO, false);
+                null, 100, "123456", true, BigDecimal.ZERO, false, null, null);
         User guardado = new User(1L, "userEjemplo", "ejemplo@gmail.com",
-                null, 100, "123456", true, BigDecimal.ZERO, false);
+                null, 100, "123456", true, BigDecimal.ZERO, false, null, null);
 
         when(userRepository.save(any(User.class))).thenReturn(guardado);
 
@@ -58,8 +58,8 @@ class AdminServiceTest {
 
     @Test
     void debeRetornarTodosLosUsuarios() {
-        User u1 = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true, BigDecimal.ZERO, false);
-        User u2 = new User(2L, "Luis", "luis@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
+        User u1 = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true, BigDecimal.ZERO, false, null, null);
+        User u2 = new User(2L, "Luis", "luis@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false, null, null);
         when(userRepository.findAll()).thenReturn(List.of(u1, u2));
 
         List<UserDTO> resultado = adminService.getAllUser();
@@ -72,7 +72,7 @@ class AdminServiceTest {
 
     @Test
     void debeRetornarUsuarioPorNombre() {
-        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true, BigDecimal.ZERO, false);
+        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "pass", true, BigDecimal.ZERO, false, null, null);
         when(userRepository.findByUserName("Ana")).thenReturn(Optional.of(user));
 
         UserDTO resultado = adminService.getUserName("Ana");
@@ -83,7 +83,7 @@ class AdminServiceTest {
 
     @Test
     void debeRetornarNullCuandoCuentaUsuarioInactiva() {
-        User user = new User(1L, "Inactivo", "inactivo@mail.com", null, 100, "pass", false, BigDecimal.ZERO, false);
+        User user = new User(1L, "Inactivo", "inactivo@mail.com", null, 100, "pass", false, BigDecimal.ZERO, false, null, null);
         when(userRepository.findByUserName("Inactivo")).thenReturn(Optional.of(user));
 
         UserDTO resultado = adminService.getUserName("Inactivo");
@@ -103,8 +103,8 @@ class AdminServiceTest {
 
     @Test
     void debeActualizarUsuarioConTodosLosCampos() {
-        User existente = new User(1L, "Original", "orig@mail.com", null, 100, "pass", false, BigDecimal.ZERO, false);
-        User nuevos = new User(null, "Modificado", null, null, 200, "nuevaPass", true, BigDecimal.ZERO, false);
+        User existente = new User(1L, "Original", "orig@mail.com", null, 100, "pass", false, BigDecimal.ZERO, false, null, null);
+        User nuevos = new User(null, "Modificado", null, null, 200, "nuevaPass", true, BigDecimal.ZERO, false, null, null);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(existente));
         when(userRepository.save(any(User.class))).thenReturn(existente);
@@ -120,8 +120,8 @@ class AdminServiceTest {
 
     @Test
     void debeActualizarUsuarioSinModificarNullos() {
-        User existente = new User(1L, "Conservar", "correo@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
-        User nuevos = new User(null, null, null, null, null, null, null, null, null);
+        User existente = new User(1L, "Conservar", "correo@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false, null, null);
+        User nuevos = new User(null, null, null, null, null, null, null, null, null, null, null);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(existente));
         when(userRepository.save(any(User.class))).thenReturn(existente);
@@ -146,7 +146,7 @@ class AdminServiceTest {
 
     @Test
     void debeActualizarPuntaje() {
-        User existente = new User(1L, "Puntos", "puntos@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
+        User existente = new User(1L, "Puntos", "puntos@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false, null, null);
         when(userRepository.findById(1L)).thenReturn(Optional.of(existente));
         when(userRepository.save(any(User.class))).thenReturn(existente);
 
@@ -167,7 +167,7 @@ class AdminServiceTest {
 
     @Test
     void debeEliminarUsuario() {
-        User user = new User(1L, "Eliminar", "del@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false);
+        User user = new User(1L, "Eliminar", "del@mail.com", null, 50, "pass", true, BigDecimal.ZERO, false, null, null);
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
 
         adminService.deleteUserId(1L);
@@ -323,5 +323,58 @@ class AdminServiceTest {
         assertThatThrownBy(() -> adminService.deleteAdminId(99L))
                 .isInstanceOf(ManejoErrores.class)
                 .hasMessageContaining("99");
+    }
+
+    //---------------------------------LOGIN-------------------------------------
+
+    @Test
+    void debeLoginUsuarioContrasenaCorrecta() {
+        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "123456", true, BigDecimal.ZERO, false, null, null);
+        when(userRepository.findByGmail("ana@mail.com")).thenReturn(Optional.of(user));
+
+        UserDTO resultado = adminService.loginUser("ana@mail.com", "123456");
+
+        assertThat(resultado.getUserName()).isEqualTo("Ana");
+        verify(userRepository, times(1)).findByGmail("ana@mail.com");
+    }
+
+    @Test
+    void debeLanzarExcepcionLoginUsuarioContrasenaIncorrecta() {
+        User user = new User(1L, "Ana", "ana@mail.com", null, 100, "123456", true, BigDecimal.ZERO, false, null, null);
+        when(userRepository.findByGmail("ana@mail.com")).thenReturn(Optional.of(user));
+
+        assertThatThrownBy(() -> adminService.loginUser("ana@mail.com", "wrong"))
+                .isInstanceOf(ManejoErrores.class)
+                .hasMessageContaining("Credenciales incorrectas");
+    }
+
+    @Test
+    void debeLanzarExcepcionLoginUsuarioNoExiste() {
+        when(userRepository.findByGmail("noexiste@mail.com")).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> adminService.loginUser("noexiste@mail.com", "123456"))
+                .isInstanceOf(ManejoErrores.class)
+                .hasMessageContaining("Credenciales incorrectas");
+    }
+
+    @Test
+    void debeLoginAdminContrasenaCorrecta() {
+        Admin admin = new Admin(1L, "Admin Principal", "admin@mail.com", null, "123456", true);
+        when(adminRepository.findByGmail("admin@mail.com")).thenReturn(Optional.of(admin));
+
+        AdminDTO resultado = adminService.loginAdmin("admin@mail.com", "123456");
+
+        assertThat(resultado.getUserName()).isEqualTo("Admin Principal");
+        verify(adminRepository, times(1)).findByGmail("admin@mail.com");
+    }
+
+    @Test
+    void debeLanzarExcepcionLoginAdminContrasenaIncorrecta() {
+        Admin admin = new Admin(1L, "Admin Principal", "admin@mail.com", null, "123456", true);
+        when(adminRepository.findByGmail("admin@mail.com")).thenReturn(Optional.of(admin));
+
+        assertThatThrownBy(() -> adminService.loginAdmin("admin@mail.com", "wrong"))
+                .isInstanceOf(ManejoErrores.class)
+                .hasMessageContaining("Credenciales incorrectas");
     }
 }

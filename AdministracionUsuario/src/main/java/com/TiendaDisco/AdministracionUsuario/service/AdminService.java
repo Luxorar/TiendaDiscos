@@ -142,6 +142,8 @@ public class AdminService implements IAdminService{
         if(u.getCuentaActiva()!=null)usuario.setCuentaActiva(u.getCuentaActiva());
         if(u.getCredito()!=null) usuario.setCredito(u.getCredito());
         if(u.getModoOscuro()!=null) usuario.setModoOscuro(u.getModoOscuro());
+        if(u.getDireccionPredeterminada()!=null) usuario.setDireccionPredeterminada(u.getDireccionPredeterminada());
+        if(u.getTelefono()!=null) usuario.setTelefono(u.getTelefono());
 
         return userRepository.save(usuario);
     }
@@ -179,6 +181,50 @@ public class AdminService implements IAdminService{
 
         usuario.setModoOscuro(modoOscuro);
         return userRepository.save(usuario);
+    }
+
+    @Override
+    public User putDireccion(Long id, String direccion) {
+        User usuario = userRepository.findById(id)
+                .orElseThrow(() -> new ManejoErrores("No se encontró un usuario con ese id"));
+
+        usuario.setDireccionPredeterminada(direccion);
+        return userRepository.save(usuario);
+    }
+
+    @Override
+    public User putTelefono(Long id, String telefono) {
+        User usuario = userRepository.findById(id)
+                .orElseThrow(() -> new ManejoErrores("No se encontró un usuario con ese id"));
+
+        usuario.setTelefono(telefono);
+        return userRepository.save(usuario);
+    }
+
+    @Override
+    public UserDTO loginUser(String gmail, String contrasena) {
+        User usuario = userRepository.findByGmail(gmail)
+                .orElseGet(() -> userRepository.findByUserName(gmail)
+                        .orElseThrow(() -> new ManejoErrores("Credenciales incorrectas")));
+
+        if (!usuario.getContrasena().equals(contrasena)) {
+            throw new ManejoErrores("Credenciales incorrectas");
+        }
+
+        return Mapper.toDTO(usuario);
+    }
+
+    @Override
+    public AdminDTO loginAdmin(String gmail, String contrasena) {
+        Admin admin = adminRepository.findByGmail(gmail)
+                .orElseGet(() -> adminRepository.findByUserName(gmail)
+                        .orElseThrow(() -> new ManejoErrores("Credenciales incorrectas")));
+
+        if (!admin.getContrasena().equals(contrasena)) {
+            throw new ManejoErrores("Credenciales incorrectas");
+        }
+
+        return Mapper.toDTO(admin);
     }
     /**
      * Obtiene todos los administradores y los convierte a DTO.

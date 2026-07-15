@@ -25,7 +25,7 @@ class UserRepositoryTest {
 
     @Test
     void debeBuscarPorUserNameExistente() {
-        userRepository.save(new User(null, "Ana", "ana@mail.com", LocalDate.now(), 0, "pass", true, BigDecimal.ZERO, false));
+        userRepository.save(new User(null, "Ana", "ana@mail.com", LocalDate.now(), 0, "pass", true, BigDecimal.ZERO, false, null, null));
 
         Optional<User> resultado = userRepository.findByUserName("Ana");
 
@@ -42,7 +42,7 @@ class UserRepositoryTest {
 
     @Test
     void debeGuardarYAsignarIdAutomaticamente() {
-        User usuario = new User(null, "Luis", "luis@mail.com", LocalDate.now(), 10, "pass", true, BigDecimal.ZERO, false);
+        User usuario = new User(null, "Luis", "luis@mail.com", LocalDate.now(), 10, "pass", true, BigDecimal.ZERO, false, null, null);
 
         User guardado = userRepository.save(usuario);
 
