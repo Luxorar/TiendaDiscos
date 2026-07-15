@@ -85,4 +85,10 @@ public class User {
 
     @Column(name = "Modo_oscuro")
     private Boolean modoOscuro;
+
+    @Column(name = "direccion_predeterminada")
+    private String direccionPredeterminada;
+
+    @Column(name = "telefono")
+    private String telefono;
 }

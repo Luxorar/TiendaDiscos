@@ -41,7 +41,7 @@ public class AdminControllerTest {
 
     @Test
     void debeRetornarUsuarioPorId() throws Exception {
-        UserDTO dto = new UserDTO(1L, "Ana", "ana@mail.com", LocalDate.now(), 100, BigDecimal.ZERO, false);
+        UserDTO dto = new UserDTO(1L, "Ana", "ana@mail.com", LocalDate.now(), 100, BigDecimal.ZERO, false, null, null);
 
         when(adminService.getUserId(1L)).thenReturn(dto);
 
@@ -53,7 +53,7 @@ public class AdminControllerTest {
 
     @Test
     void debeRetornarUsuarioPorNombre() throws Exception {
-        UserDTO dto = new UserDTO(1L, "Ana", "ana@mail.com", LocalDate.now(), 100, BigDecimal.ZERO, false);
+        UserDTO dto = new UserDTO(1L, "Ana", "ana@mail.com", LocalDate.now(), 100, BigDecimal.ZERO, false, null, null);
 
         when(adminService.getUserName("Ana")).thenReturn(dto);
 
@@ -65,9 +65,9 @@ public class AdminControllerTest {
     @Test
     void debeCrearUsuario() throws Exception {
         User entrada = new User(null, "Ana", "ana@mail.com", LocalDate.now(),
-                0, "pass", true, BigDecimal.ZERO, false);
+                0, "pass", true, BigDecimal.ZERO, false, null, null);
         User creado = new User(1L, "Ana", "ana@mail.com", LocalDate.now(),
-                0, "pass", true, BigDecimal.ZERO, false);
+                0, "pass", true, BigDecimal.ZERO, false, null, null);
 
         when(adminService.postUsuario(any())).thenReturn(creado);
 
@@ -82,7 +82,7 @@ public class AdminControllerTest {
     @Test
     void debeActualizarUsuario() throws Exception {
         User actualizado = new User(1L, "Ana Modificada", "ana@mail.com", LocalDate.now(),
-                50, "pass", true, BigDecimal.ZERO, false);
+                50, "pass", true, BigDecimal.ZERO, false, null, null);
 
         when(adminService.putUser(any(Long.class), any())).thenReturn(actualizado);
 
@@ -96,7 +96,7 @@ public class AdminControllerTest {
     @Test
     void debeActualizarPuntaje() throws Exception {
         User actualizado = new User(1L, "Ana", "ana@mail.com", LocalDate.now(),
-                200, "pass", true, BigDecimal.ZERO, false);
+                200, "pass", true, BigDecimal.ZERO, false, null, null);
 
         when(adminService.putPuntaje(any(Long.class), any(Integer.class))).thenReturn(actualizado);
 
@@ -206,7 +206,7 @@ public class AdminControllerTest {
 
     @Test
     void debeRetornar400CuandoDatosUsuarioInvalidos() throws Exception {
-        User invalido = new User(null, "", "", null, null, null, null, null, null);
+        User invalido = new User(null, "", "", null, null, null, null, null, null, null, null);
 
         mockMvc.perform(post("/api/v1/admin")
                         .contentType(MediaType.APPLICATION_JSON)

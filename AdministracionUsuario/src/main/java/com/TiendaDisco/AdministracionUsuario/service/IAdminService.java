@@ -121,5 +121,9 @@ public interface IAdminService {
 
     User putModoOscuro(Long id, Boolean modoOscuro);
 
+    User putDireccion(Long id, String direccion);
+
+    User putTelefono(Long id, String telefono);
+
     public User getCompleteUserId(Long id);
 }

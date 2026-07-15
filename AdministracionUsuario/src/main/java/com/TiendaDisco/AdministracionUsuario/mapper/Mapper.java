@@ -18,6 +18,8 @@ public class Mapper {
                 .puntos(u.getPuntos())
                 .credito(u.getCredito())
                 .modoOscuro(u.getModoOscuro())
+                .direccionPredeterminada(u.getDireccionPredeterminada())
+                .telefono(u.getTelefono())
                 .build();
     }
 

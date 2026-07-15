@@ -19,4 +19,6 @@ public class UserDTO {
     private int puntos;
     private BigDecimal credito;
     private Boolean modoOscuro;
+    private String direccionPredeterminada;
+    private String telefono;
 }
