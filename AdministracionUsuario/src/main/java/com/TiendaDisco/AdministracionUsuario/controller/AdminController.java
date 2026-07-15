@@ -336,4 +336,13 @@ public class AdminController {
     public User putModoOscuro(@PathVariable Long id, @RequestBody Boolean modoOscuro) {
         return adminService.putModoOscuro(id, modoOscuro);
     }
+
+    @ApiResponses({
+            @ApiResponse(responseCode="200", description="User obtenido"),
+            @ApiResponse(responseCode="400", description="Dato invalido")
+    })
+    @GetMapping("/info-user/{id}")
+    public User getUserSinDTO(@PathVariable Long id) {
+        return adminService.getCompleteUserId(id);
+    }
 }

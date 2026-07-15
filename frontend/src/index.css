@@ -39,3 +39,35 @@ button {
 input, select, textarea {
   font-family: inherit;
 }
+
+body.dark-mode {
+  --bg-dark: #C8A951;
+  --bg-gray: #1E1E1E;
+  --bg-white: #121212;
+  --text-dark: #E0E0E0;
+  --text-gray: #AAAAAA;
+  --text-light: #777777;
+  --border: #3A3A3A;
+  --danger-light: #3A1A18;
+}
+
+body.dark-mode .perfil-page,
+body.dark-mode .login-page {
+  background: var(--bg-white);
+}
+
+body.dark-mode .perfil-field input,
+body.dark-mode .login-input {
+  background: var(--bg-gray);
+  color: var(--text-dark);
+  border-color: var(--border);
+}
+
+body.dark-mode .avatar-circle {
+  background: var(--bg-gray);
+  border-color: var(--border);
+}
+
+body.dark-mode .avatar-circle svg {
+  stroke: var(--text-gray);
+}

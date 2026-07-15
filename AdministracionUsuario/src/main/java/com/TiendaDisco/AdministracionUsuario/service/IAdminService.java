@@ -120,4 +120,6 @@ public interface IAdminService {
     User addCredito(Long id, BigDecimal monto);
 
     User putModoOscuro(Long id, Boolean modoOscuro);
+
+    public User getCompleteUserId(Long id);
 }

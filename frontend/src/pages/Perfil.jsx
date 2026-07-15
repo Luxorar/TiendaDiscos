@@ -5,14 +5,12 @@ import Navbar from '../components/Navbar'
 import './Perfil.css'
 
 export default function Perfil() {
-  const { user, login, logout } = useAuth()
+  const { user, login, logout, toggleDarkMode } = useAuth()
   const navigate = useNavigate()
   const [form, setForm] = useState({
     userName: user?.userName || '',
-    gmail: user?.gmail || '',
     direccion: '',
-    telefono: '',
-    oscuro: false
+    telefono: ''
   })
 
   if (!user) {
@@ -21,13 +19,21 @@ export default function Perfil() {
   }
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target
-    setForm({ ...form, [name]: type === 'checkbox' ? checked : value })
+    const { name, value } = e.target
+    setForm({ ...form, [name]: value })
   }
 
   const handleSave = () => {
     login({ ...user, userName: form.userName })
     alert('Cambios guardados')
+  }
+
+  const handleToggleDarkMode = async () => {
+    try {
+      await toggleDarkMode()
+    } catch {
+      alert('Error al cambiar modo oscuro')
+    }
   }
 
   const handleLogout = () => {
@@ -54,8 +60,8 @@ export default function Perfil() {
             <input name="direccion" value={form.direccion} onChange={handleChange} placeholder="Ingresa tu dirección" />
           </div>
           <div className="perfil-field">
-            <label>Dirección de Correo Electrónico</label>
-            <input name="gmail" value={form.gmail} onChange={handleChange} />
+            <label>Correo Electrónico</label>
+            <input name="gmail" value={user?.gmail || ''} readOnly />
           </div>
           <div className="perfil-field">
             <label>Teléfono</label>
@@ -64,7 +70,7 @@ export default function Perfil() {
           <div className="perfil-toggle">
             <label className="toggle-label">
               <span>Modo Oscuro</span>
-              <input type="checkbox" name="oscuro" checked={form.oscuro} onChange={handleChange} />
+              <input type="checkbox" checked={user?.modoOscuro || false} onChange={handleToggleDarkMode} />
               <span className="toggle-slider"></span>
             </label>
           </div>

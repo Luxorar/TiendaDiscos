@@ -24,5 +24,7 @@ export const usuarioService = {
   createAdmin: (data) => request('/v1/admin/admins', { method: 'POST', body: JSON.stringify(data) }),
   getAdminById: (id) => request(`/v1/admin/admins/${id}`),
   updateAdmin: (id, data) => request(`/v1/admin/admins/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
-  deleteAdmin: (id) => request(`/v1/admin/admins/${id}`, { method: 'DELETE' })
+  deleteAdmin: (id) => request(`/v1/admin/admins/${id}`, { method: 'DELETE' }),
+  putModoOscuro: (id, modoOscuro) => request(`/v1/admin/modo-oscuro/${id}`, { method: 'PUT', body: JSON.stringify(modoOscuro) }),
+  getUserInfo: (id) => request(`/v1/admin/info-user/${id}`)
 }
