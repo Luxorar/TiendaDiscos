@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
 import { usuarioService } from '../api/usuarioService'
+import { stockService } from '../api/stockService'
 import Navbar from '../components/Navbar'
 import './Checkout.css'
 
@@ -53,6 +54,27 @@ export default function Checkout() {
 
     setLoading(true)
     try {
+      const allStock = await stockService.getAll()
+
+      for (const item of items) {
+        const fullName = `${item.nombreDisco} - ${item.artista}`
+        const stockRecords = allStock.filter(s => s.nombreProducto === fullName)
+
+        let remaining = item.qty
+        for (const record of stockRecords) {
+          if (remaining <= 0) break
+          const decrease = Math.min(record.stockActual, remaining)
+          const newQty = record.stockActual - decrease
+          await stockService.updateQuantity(record.id, newQty)
+          remaining -= decrease
+        }
+
+        if (remaining > 0) {
+          setError(`Stock insuficiente para "${item.nombreDisco}"`)
+          return
+        }
+      }
+
       if (puntosUsados > 0 && user?.id) {
         const nuevosPuntos = user.puntos - puntosUsados
         await usuarioService.putPuntaje(user.id, nuevosPuntos)

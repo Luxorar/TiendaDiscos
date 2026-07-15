@@ -10,6 +10,8 @@ async function request(url, options = {}) {
     throw new Error(text || `Error ${res.status}`)
   }
   if (res.status === 204 || res.headers.get('content-length') === '0') return null
+  const ct = res.headers.get('content-type') || ''
+  if (!ct.includes('application/json')) return await res.text()
   return res.json()
 }
 
